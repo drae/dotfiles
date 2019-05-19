@@ -16,6 +16,7 @@ elif [[ $OSTYPE == darwin ]]; then
 fi
 
 alias tmux='TERM=xterm-256color tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf'
+alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 
 # Suffix aliases
 alias -s {yml,yaml,json,conf,ini}=vim
@@ -33,3 +34,6 @@ if (( $+commands[exa])); then
     alias exa='exa -a --group-directories-first'
     alias exg='exa -al --git --git-ignore --group-directories-first'
 fi
+
+# Expand git command when in home folder for dotfiles
+alias git='[[ $PWD != $HOME ]] && git || git --git-dir="$HOME"/.dotfiles/ --work-tree="$HOME"'
