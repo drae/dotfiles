@@ -10,6 +10,7 @@ export GNUPGHOME=$XDG_CONFIG_HOME/gnupg
 export DOCKER_CONFIG=$XDG_CONFIG_HOME/docker
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export WAKATIME_HOME=$XDG_CONFIG_HOME/wakatime
+export WGETRC=$XDG_CONFIG_HOME/wgetrc
 
 # XDG_DATA_HOME
 export ZSH_DATA_DIR=$XDG_DATA_HOME/zsh
@@ -34,7 +35,7 @@ export PATH=$GOPATH/bin:/usr/lib/go/bin:$HOME/.local/bin:$PATH
 umask 022
 
 # History
-export HISTFILE=$ZSH_DATA_DIR/.zsh_history
+export HISTFILE=$ZSH_DATA_DIR/history
 export HISTSIZE=10000
 export SAVEHIST=1000000
 export LISTMAX=50
