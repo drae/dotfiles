@@ -5,11 +5,13 @@ Plug 'mhinz/vim-signify'
 Plug 'w0rp/ale'
 Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
-Plug 'mengelbrecht/lightline-bufferline'
+Plug 'taohexxx/lightline-buffer'
 Plug 'itchyny/vim-gitbranch'
-Plug 'arcticicestudio/nord-vim'
 Plug 'Yggdroot/indentLine'
-
+Plug 'kaicataldo/material.vim'
+Plug '~/.config/fzf' " Load the fzf.vim plugin
+Plug 'junegunn/fzf.vim'
+Plug 'pbogut/fzf-mru.vim'
 
 call plug#end()
 
@@ -19,8 +21,10 @@ set encoding=UTF-8
 syntax enable
 
 " Set the colour scheme
+let g:material_theme_style = 'palenight'
+
 set background=dark
-colorscheme nord
+colorscheme material
 
 " Turn on line numbering by default
 set number 
@@ -34,7 +38,7 @@ let g:signify_realtime = 1
 
 " Setup airline
 let g:lightline = {
-      \ 'colorscheme': 'nord',
+      \ 'colorscheme': 'material_vim',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
@@ -44,8 +48,10 @@ let g:lightline = {
       \              [ 'fileformat', 'fileencoding', 'filetype', 'charvaluehex' ] ]
       \ },
       \ 'tabline': {
-      \   'left': [ [ 'buffers' ] ],
-      \   'right': [ [ 'close' ] ],
+      \   'left': [ [ 'bufferinfo' ],
+      \		    [ 'separator' ],
+      \	            [ 'bufferbefore', 'buffercurrent', 'bufferafter' ], ],
+      \   'right': [ [ 'close' ], ],
       \ },
       \ 'component': {
       \   'separator': '',
@@ -59,14 +65,18 @@ let g:lightline = {
       \     'linter_warnings': 'warning',
       \     'linter_errors': 'error',
       \     'linter_ok': 'left',
-      \     'buffers': 'tabsel',
+      \     'buffercurrent': 'tabsel',
+      \     'bufferbefore': 'raw',
+      \     'bufferafter': 'raw',
       \ },
       \ 'component_expand': {
       \     'linter_checking': 'lightline#ale#checking',
       \     'linter_warnings': 'lightline#ale#warnings',
       \     'linter_errors': 'lightline#ale#errors',
       \     'linter_ok': 'lightline#ale#ok',
-      \     'buffers': 'lightline#bufferline#buffers',
+      \     'buffercurrent': 'lightline#buffer#buffercurrent',
+      \	    'bufferbefore': 'lightline#buffer#bufferbefore',
+      \     'bufferafter': 'lightline#buffer#bufferafter',
       \ },
       \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
       \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
@@ -81,10 +91,14 @@ set hidden  " allow buffer switching without saving
 set showtabline=2  " always show tabline
 
 " remap arrow keys
-nnoremap <Left> :bprev<CR>
-nnoremap <Right> :bnext<CR>
+nnoremap <S-C-Left> :bprev<CR>
+nnoremap <S-C-Right> :bnext<CR>
 
-" Nord config
-
-let g:nord_cursor_line_number_background = 1
+" Map :Files (fzf) to double space
+let mapleader = " "
+nnoremap <silent> <leader><Space> :Files<CR>
+" :Files in the current open buffers folder
+nnoremap <silent> <leader>- :Files <C-r>=expand("%:h")<CR>/<CR>
+" List recently opened files
+nnoremap <silent> <leader>m :FZFMru<CR>
 
