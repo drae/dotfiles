@@ -1,31 +1,20 @@
 source $ZDOTDIR/functions.zsh
 
-
-# Use emacs keybindings even if our EDITOR is set to vi
-bindkey -e
-
-
-# History
-setopt histignorealldups sharehistory
-
+# Options
+setopt autocd autopushd pushdignoredups # Type the folder name
+setopt append_history inc_append_history extended_history hist_expire_dups_first \
+hist_ignore_dups hist_ignore_space hist_verify share_history #History
 
 # Use modern completion system
-zstyle ':completion:*' auto-description 'specify: %d'
-zstyle ':completion:*' completer _expand _complete _correct _approximate
-zstyle ':completion:*' format 'Completing %d'
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list '' \
+    'm:{a-z\-}={A-Z\_}' \
+    'r:[^[:alpha:]]|[[:alpha:]]=** r:|=* m:{a-z\-}={A-Z\_}' \
+    'r:[^[:ascii:]]|[[:ascii:]]=** r:|=* m:{a-z\-}={A-Z\_}'
+zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
+zstyle ':completion:*' format $'\n%F{yellow}Completing %d%f\n'
 zstyle ':completion:*' group-name ''
-zstyle ':completion:*' menu select=2
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' list-colors ''
-zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
-zstyle ':completion:*' menu select=long
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle ':completion:*' use-compctl false
-zstyle ':completion:*' verbose true
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
-
+zstyle ':completion:*:functions' ignored-patterns '_*'
 
 ### Added by Zplugin's installer
 source $ZDOTDIR/.zplugin/bin/zplugin.zsh
@@ -37,14 +26,12 @@ autoload -Uz _zplugin
 zplugin ice pick"async.zsh" src"pure.zsh"
 zplugin light sindresorhus/pure
 
-# Set LS_COLORS - Nord (terminal should use Nord obviously)
-zplugin ice atclone"dircolors -b src/dir_colors > clrs.zsh" atpull'%atclone' pick"clrs.zsh"
-zplugin light arcticicestudio/nord-dircolors
-
-# Helperes
+# Little notification of aliases
 zplugin light djui/alias-tips
+# Interactive cd completion with fzf (cd <TAB>)
+zplugin light changyuheng/zsh-interactive-cd
 
-# Various binaries
+zplugin light zsh-users/zsh-history-substring-search
 
 # Completion and syntax highlighting - load these last, order is important
 zplugin ice wait"0" blockf
@@ -53,10 +40,16 @@ zplugin light zsh-users/zsh-completions
 zplugin ice wait"0" atload"_zsh_autosuggest_start"
 zplugin light zsh-users/zsh-autosuggestions
 
-# Load this very last 
+# Load this very last
 zplugin ice depth'1' lucid wait'0' atinit"_zpcompinit_custom; zpcdreplay"
 zplugin light zdharma/fast-syntax-highlighting
 
-
-# Include other sources
+# Other sources
 source $ZDOTDIR/aliases.zsh
+source $ZDOTDIR/bindings.zsh
+
+# fzf
+source $ZDOTDIR/fzf.zsh
+source $XDG_CONFIG_HOME/fzf/completion.zsh
+source $XDG_CONFIG_HOME/fzf/key-bindings.zsh
+
