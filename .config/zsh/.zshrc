@@ -5,6 +5,9 @@ setopt autocd autopushd pushdignoredups # Type the folder name
 setopt append_history inc_append_history extended_history hist_expire_dups_first \
 hist_ignore_dups hist_ignore_space hist_verify share_history #History
 
+# Add to fpath
+fpath=($XDG_DATA_HOME/completions $fpath)
+
 # Use modern completion system
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list '' \

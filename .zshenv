@@ -28,8 +28,9 @@ if (( ${+WSLENV} )); then
     export SSH_AUTH_SOCK=/mnt/c/Users/paul/.ssh/ssh-agent.sock # Use the windows GPG agent socket
 fi
 
-# The path
+# The paths
 export PATH=$GOPATH/bin:/usr/lib/go/bin:$HOME/.local/bin:$PATH
+export MANPATH=$(manpath -g):$XDG_DATA_HOME/man
 
 # Set umask to user and group rw(x)
 umask 022
