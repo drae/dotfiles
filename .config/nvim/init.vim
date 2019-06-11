@@ -26,6 +26,10 @@ let g:material_theme_style = 'palenight'
 set background=dark
 colorscheme material
 
+" Transparent background
+highlight Normal guibg=none
+highlight NonText guibg=none
+
 " Turn on line numbering by default
 set number 
 
