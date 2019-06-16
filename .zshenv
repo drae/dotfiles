@@ -2,7 +2,10 @@
 export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:=$HOME/.config}
 export XDG_CACHE_HOME=${XDG_CACHE_HOME:=$HOME/.cache}
 export XDG_DATA_HOME=${XDG_DATA_HOME:=$HOME/.local/share}
-export XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR:=/run/user/$(id -u)}
+if [[ ! -w ${XDG_RUNTIME_DIR:=/run/user/$(id -u)} ]]; then
+    XDG_RUNTIME_DIR=/tmp
+fi
+export XDG_RUNTIME_DIR
 
 # XDG_CONFIG_HOME
 export ZDOTDIR=$XDG_CONFIG_HOME/zsh

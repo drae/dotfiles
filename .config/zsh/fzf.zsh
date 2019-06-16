@@ -8,6 +8,7 @@ _fzf_compgen_dir() {
     fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 
+# Colour scheme is palenight
 export FZF_DEFAULT_OPTS="
 --color=bg+:'#444267',bg:'#292D3E',spinner:'#89DDFF',hl:'#82AAFF'
 --color=fg:'#8796B0',header:'#82AAFF',info:'#FFCB6B',pointer:'#89DDFF'
