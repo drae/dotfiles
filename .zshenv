@@ -32,7 +32,7 @@ if (( ${+WSLENV} )); then
 fi
 
 # The paths
-export PATH=$GOPATH/bin:/usr/lib/go/bin:$HOME/.local/bin:$PATH
+export PATH=$GOPATH/bin:/usr/lib/go/bin:$HOME/.local/bin:$HOME/.local/share/npm/bin:$PATH
 export MANPATH=$(manpath -g):$XDG_DATA_HOME/man
 
 # Set umask to user and group rw(x)
