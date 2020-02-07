@@ -18,7 +18,7 @@ fi
 alias tmux='TERM=xterm-256color tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 alias vim='nvim'
-alias cat='bat'
+alias cat='batcat'
 
 
 # Suffix aliases

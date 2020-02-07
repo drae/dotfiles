@@ -20,32 +20,32 @@ zstyle ':completion:*' group-name ''
 zstyle ':completion:*:functions' ignored-patterns '_*'
 
 ### Added by Zplugin's installer
-source $ZDOTDIR/.zplugin/bin/zplugin.zsh
-autoload -Uz _zplugin
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
+source $ZDOTDIR/.zinit/bin/zinit.zsh
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[]=_zinit
 ### End of Zplugin's installer chunk
 
 # Prompt - Pure prompt
-zplugin ice pick"async.zsh" src"pure.zsh"
-zplugin light sindresorhus/pure
+zinit ice pick"async.zsh" src"pure.zsh"
+zinit light sindresorhus/pure
 
 # Little notification of aliases
-zplugin light djui/alias-tips
+zinit light djui/alias-tips
 # Interactive cd completion with fzf (cd <TAB>)
-zplugin light changyuheng/zsh-interactive-cd
+zinit light changyuheng/zsh-interactive-cd
 
-zplugin light zsh-users/zsh-history-substring-search
+zinit light zsh-users/zsh-history-substring-search
 
 # Completion and syntax highlighting - load these last, order is important
-zplugin ice wait"0" blockf
-zplugin light zsh-users/zsh-completions
+zinit ice wait"0" blockf
+zinit light zsh-users/zsh-completions
 
-zplugin ice wait"0" atload"_zsh_autosuggest_start"
-zplugin light zsh-users/zsh-autosuggestions
+zinit ice wait"0" atload"_zsh_autosuggest_start"
+zinit light zsh-users/zsh-autosuggestions
 
 # Load this very last
-zplugin ice depth'1' lucid wait'0' atinit"_zpcompinit_custom; zpcdreplay"
-zplugin light zdharma/fast-syntax-highlighting
+zinit ice depth'1' lucid wait'0' atinit"_zpcompinit_custom; zpcdreplay"
+zinit light zdharma/fast-syntax-highlighting
 
 # Other sources
 source $ZDOTDIR/aliases.zsh
@@ -55,4 +55,8 @@ source $ZDOTDIR/bindings.zsh
 source $ZDOTDIR/fzf.zsh
 source $XDG_CONFIG_HOME/fzf/completion.zsh
 source $XDG_CONFIG_HOME/fzf/key-bindings.zsh
+
+[ -s "/usr/local/bin/gpgbridge.py" ] && /usr/local/bin/gpgbridge.py --daemon
+
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
