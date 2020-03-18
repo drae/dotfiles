@@ -18,6 +18,7 @@ call plug#end()
 
 set termguicolors
 set encoding=UTF-8
+set mouse=a
 
 syntax enable
 
