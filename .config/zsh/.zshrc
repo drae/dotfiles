@@ -26,8 +26,11 @@ autoload -Uz _zinit
 ### End of Zplugin's installer chunk
 
 # Prompt - Pure prompt
-zinit ice pick"async.zsh" src"pure.zsh"
-zinit light sindresorhus/pure
+#zinit ice pick"async.zsh" src"pure.zsh"
+#zinit light sindresorhus/pure
+
+zinit ice depth=1; zinit light romkatv/powerlevel10k
+zinit snippet https://github.com/sainnhe/dotfiles/raw/master/.zsh-theme-gruvbox-material-dark
 
 # Little notification of aliases
 zinit light djui/alias-tips
@@ -60,3 +63,4 @@ source $XDG_CONFIG_HOME/fzf/key-bindings.zsh
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
+### End of Zinit's installer chunk

@@ -9,7 +9,8 @@ Plug 'taohexxx/lightline-buffer'
 Plug 'itchyny/vim-gitbranch'
 Plug 'Yggdroot/indentLine'
 "Plug 'kaicataldo/material.vim'
-Plug 'morhetz/gruvbox'
+"Plug 'morhetz/gruvbox'
+Plug 'sainnhe/gruvbox-material'
 Plug '~/.config/fzf' " Load the fzf.vim plugin
 Plug 'junegunn/fzf.vim'
 Plug 'pbogut/fzf-mru.vim'
@@ -25,9 +26,10 @@ syntax enable
 " Set the colour scheme
 let g:material_theme_style = 'palenight'
 let g:gruvbox_contrast_dark = 'soft'
+let g:gruvbox_material_background = 'soft'
 
 set background=dark
-colorscheme gruvbox
+colorscheme gruvbox-material
 
 " Transparent background
 highlight Normal guibg=none
@@ -46,6 +48,7 @@ let g:signify_realtime = 1
 " Setup airline
 "       \ 'colorscheme': 'material_vim',
 let g:lightline = {
+      \ 'colorscheme' : 'gruvbox_material', 
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
