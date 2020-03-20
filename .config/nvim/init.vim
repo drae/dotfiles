@@ -14,10 +14,19 @@ Plug 'sainnhe/gruvbox-material'
 Plug '~/.config/fzf' " Load the fzf.vim plugin
 Plug 'junegunn/fzf.vim'
 Plug 'pbogut/fzf-mru.vim'
+Plug 'edkolev/tmuxline.vim'
 
 call plug#end()
 
-set termguicolors
+if executable('tmux') && filereadable(expand('~/.zshrc')) && $TMUX !=# ''
+  let g:vimIsInTmux = 1
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+else
+  let g:vimIsInTmux = 0
+endif
+
 set encoding=UTF-8
 set mouse=a
 
@@ -112,3 +121,21 @@ nnoremap <silent> <leader>- :Files <C-r>=expand("%:h")<CR>/<CR>
 " List recently opened files
 nnoremap <silent> <leader>m :FZFMru<CR>
 
+if g:vimIsInTmux == 1
+  let g:tmuxline_preset = {
+        \'a'    : '#S',
+        \'b'    : '%R',
+        \'c'    : [ '#{sysstat_mem} #[fg=blue]\ufa51#{upload_speed}' ],
+        \'win'  : [ '#I', '#W' ],
+        \'cwin' : [ '#I', '#W', '#F' ],
+        \'x'    : [ "#[fg=blue]#{download_speed} \uf6d9 #{sysstat_cpu}" ],
+        \'y'    : [ '%a' ],
+        \'z'    : '#H #{prefix_highlight}'
+        \}
+  let g:tmuxline_separators = {
+        \ 'left' : "\ue0bc",
+        \ 'left_alt': "\ue0bd",
+        \ 'right' : "\ue0ba",
+        \ 'right_alt' : "\ue0bd",
+        \ 'space' : ' '}
+endif
