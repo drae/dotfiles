@@ -28,7 +28,8 @@ export ZSH_CACHE_DIR=$XDG_CACHE_HOME/zsh
 export GOPATH=$HOME/go
 # WSL
 if (( ${+WSLENV} )); then
-    export SSH_AUTH_SOCK=/mnt/c/Users/paul/.ssh/ssh-agent.sock # Use the windows GPG agent socket
+    export SSH_AUTH_SOCK=$HOME/.ssh/ssh-agent.sock
+    export GPG_AGENT_SOCK=$HOME/.config/gnupg/gpg-agent.sock
 fi
 
 # The paths
