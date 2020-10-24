@@ -33,15 +33,8 @@ alias shconfig='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 # Suffix aliases
 alias -s {yml,yaml,json,conf,ini,zsh}=vim
 
-
 # Global aliases
 alias -g G='| grep -i'
-
-
-# Personal aliases
-alias exl='exa -al --group-directories-first'
-alias exa='exa -a --group-directories-first'
-alias exg='exa -al --git --git-ignore --group-directories-first'
 
 # Handle my dotfiles in $HOME
 alias git-dot='git --git-dir="$HOME"/.dotfiles/ --work-tree="$HOME"'
