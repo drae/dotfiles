@@ -22,12 +22,12 @@ alias vim='nvim'
 alias cat='batcat'
 
 # WSL aliases for common apps
-#if (( ${+WSLENV} )); then
-#    [ -s /mnt/c/Windows/System32/OpenSSH/ssh.exe ] && alias ssh='/mnt/c/Windows/System32/OpenSSH/ssh.exe'
-#    [ -s /mnt/c/Windows/System32/OpenSSH/ssh-keygen.exe ] && alias ssh-keygen='/mnt/c/Windows/System32/OpenSSH/ssh-keygen.exe'
-#    [ -s /mnt/c/Windows/System32/OpenSSH/ssh-add.exe ] && alias ssh-add='/mnt/c/Windows/System32/OpenSSH/ssh-add.exe'
-#    [ -s /mnt/c/Program\ Files\ \(x86\)/gnupg/bin/gpg.exe ] && alias gpg='/mnt/c/Program\ Files\ \(x86\)/gnupg/bin/gpg.exe'
-#fi
+if (( ${+WSLENV} )); then
+    [ -s /mnt/c/Windows/System32/OpenSSH/ssh.exe ] && alias ssh='/mnt/c/Windows/System32/OpenSSH/ssh.exe'
+    [ -s /mnt/c/Windows/System32/OpenSSH/ssh-keygen.exe ] && alias ssh-keygen='/mnt/c/Windows/System32/OpenSSH/ssh-keygen.exe'
+    [ -s /mnt/c/Windows/System32/OpenSSH/ssh-add.exe ] && alias ssh-add='/mnt/c/Windows/System32/OpenSSH/ssh-add.exe'
+    [ -s /mnt/c/Program\ Files\ \(x86\)/gnupg/bin/gpg.exe ] && alias gpg='/mnt/c/Program\ Files\ \(x86\)/gnupg/bin/gpg.exe'
+fi
 alias shconfig='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
 # Suffix aliases
