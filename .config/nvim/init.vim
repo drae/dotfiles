@@ -2,14 +2,12 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'ryanoasis/vim-devicons'
 Plug 'mhinz/vim-signify'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
 Plug 'taohexxx/lightline-buffer'
 Plug 'itchyny/vim-gitbranch'
 Plug 'Yggdroot/indentLine'
-"Plug 'kaicataldo/material.vim'
-"Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
 Plug '~/.config/fzf' " Load the fzf.vim plugin
 Plug 'junegunn/fzf.vim'
