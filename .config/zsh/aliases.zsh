@@ -20,6 +20,7 @@ alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 alias vi='vim'
 alias vim='nvim'
 alias cat='batcat'
+alias grep='grep  --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 
 # WSL aliases for common apps
 if (( ${+WSLENV} )); then

@@ -12,7 +12,6 @@ export ZDOTDIR=$XDG_CONFIG_HOME/zsh
 export GNUPGHOME=$XDG_CONFIG_HOME/gnupg
 export DOCKER_CONFIG=$XDG_CONFIG_HOME/docker
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
-export WAKATIME_HOME=$XDG_CONFIG_HOME/wakatime
 export WGETRC=$XDG_CONFIG_HOME/wgetrc
 
 # XDG_DATA_HOME
@@ -26,10 +25,10 @@ export ZSH_CACHE_DIR=$XDG_CACHE_HOME/zsh
 
 # Other stuff
 export GOPATH=$HOME/go
+
 # WSL
 if (( ${+WSLENV} )); then
-    export SSH_AUTH_SOCK=$HOME/.ssh/ssh-agent.sock
-    export GPG_AGENT_SOCK=$HOME/.config/gnupg/gpg-agent.sock
+    export USERPROFILE=$(wslpath "$(wslvar USERPROFILE)")
 fi
 
 # The paths

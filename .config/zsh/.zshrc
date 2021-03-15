@@ -29,9 +29,6 @@ autoload -Uz _zinit
 zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
 zinit light sindresorhus/pure
 
-#zinit ice depth=1; zinit light romkatv/powerlevel10k
-#zinit snippet https://github.com/sainnhe/dotfiles/raw/master/.zsh-theme-gruvbox-material-dark
-
 # Little notification of aliases
 zinit light djui/alias-tips
 # Interactive cd completion with fzf (cd <TAB>)
@@ -52,21 +49,6 @@ zinit light zdharma/fast-syntax-highlighting
 
 ### End of Zinit's installer chunk
 
-# Pipe gpg and ssh agents from windows actual
-#export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
-#ss -a | grep -q $SSH_AUTH_SOCK
-#if [ $? -ne 0 ]; then
-#        rm -f $SSH_AUTH_SOCK
-#        (setsid nohup socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:$HOME/.ssh/wsl2-ssh-pageant.exe >/dev/null 2>&1 &)
-#fi
-
-#export GPG_AGENT_SOCK=$HOME/.gnupg/S.gpg-agent
-#ss -a | grep -q $GPG_AGENT_SOCK
-#if [ $? -ne 0 ]; then
-#        rm -rf $GPG_AGENT_SOCK
-#        (setsid nohup socat UNIX-LISTEN:$GPG_AGENT_SOCK,fork EXEC:"$HOME/.ssh/wsl2-ssh-pageant.exe --gpg S.gpg-agent" >/dev/null 2>&1 &)
-#fi
-
 # Other sources
 source $ZDOTDIR/aliases.zsh
 source $ZDOTDIR/bindings.zsh
@@ -76,7 +58,10 @@ source $ZDOTDIR/fzf.zsh
 source $XDG_CONFIG_HOME/fzf/completion.zsh
 source $XDG_CONFIG_HOME/fzf/key-bindings.zsh
 
+setopt no_aliases
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+setopt aliases
 
+# Enable duplication of terminal (Windows Terminal et al - CTRL+Shift+D)
 set_wt_cwd() { printf "\e]9;9;%s\e\\" "$(wslpath -m "$PWD")" }
 precmd_functions+=set_wt_cwd
