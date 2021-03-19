@@ -1,6 +1,6 @@
 source $ZDOTDIR/functions.zsh
 
-gpgconf --create-socketdir
+#gpgconf --create-socketdir
 
 # Options
 setopt autocd autopushd pushdignoredups # Type the folder name
@@ -65,7 +65,7 @@ setopt no_aliases
 setopt aliases
 
 # Enable duplication of terminal (Windows Terminal et al - CTRL+Shift+D)
-if [ ${ISWSL} ]; then
+if (( ${+WSLENV} )); then
     set_wt_cwd() { printf "\e]9;9;%s\e\\" "$(wslpath -m "$PWD")" }
     precmd_functions+=set_wt_cwd
 fi
