@@ -1,5 +1,7 @@
 source $ZDOTDIR/functions.zsh
 
+gpgconf --create-socketdir
+
 # Options
 setopt autocd autopushd pushdignoredups # Type the folder name
 setopt append_history inc_append_history extended_history hist_expire_dups_first \
