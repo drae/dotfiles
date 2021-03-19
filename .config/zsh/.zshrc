@@ -63,5 +63,45 @@ setopt no_aliases
 setopt aliases
 
 # Enable duplication of terminal (Windows Terminal et al - CTRL+Shift+D)
-set_wt_cwd() { printf "\e]9;9;%s\e\\" "$(wslpath -m "$PWD")" }
-precmd_functions+=set_wt_cwd
+if [ ${ISWSL} ]; then
+    set_wt_cwd() { printf "\e]9;9;%s\e\\" "$(wslpath -m "$PWD")" }
+    precmd_functions+=set_wt_cwd
+fi
+
+if [ ${ISWSL} -eq 1 ]; then
+    # WSL 1 could use AF_UNIX sockets from Windows side directly
+    if [ -n ${WSL_AGENT_HOME} ]; then
+        export GNUPGHOME=${WSL_AGENT_HOME}
+        export SSH_AUTH_SOCK=${WSL_AGENT_HOME}/S.gpg-agent.ssh
+    fi
+elif [ ${ISWSL} -eq 2 ]; then
+    if [ -n ${WIN_GNUPG_HOME} ]; then
+        # setup gpg-agent socket
+        _sock_name=${GNUPGHOME}/S.gpg-agent
+        ss -a | grep -q ${_sock_name}
+        if [ $? -ne 0  ]; then
+            rm -f ${_sock_name}
+            ( setsid socat UNIX-LISTEN:${_sock_name},fork EXEC:"/mnt/c/ProgramData/win-gpg-agent/sorelay.exe -a ${WIN_GNUPG_HOME//\:/\\:}/S.gpg-agent",nofork & ) >/dev/null 2>&1
+        fi
+
+        # setup gpg-agent.extra socket
+        _sock_name=${GNUPGHOME}/S.gpg-agent.extra
+        ss -a | grep -q ${_sock_name}
+        if [ $? -ne 0  ]; then
+            rm -f ${_sock_name}
+            ( setsid socat UNIX-LISTEN:${_sock_name},fork EXEC:"/mnt/c/ProgramData/win-gpg-agent/sorelay.exe -a ${WIN_GNUPG_HOME//\:/\\:}/S.gpg-agent.extra",nofork & ) >/dev/null 2>&1
+        fi
+
+        unset _sock_name
+    fi
+
+    if [ -n ${WIN_AGENT_HOME} ]; then
+        # and ssh-agent socket
+        export SSH_AUTH_SOCK=${GNUPGHOME}/S.gpg-agent.ssh
+        ss -a | grep -q ${SSH_AUTH_SOCK}
+        if [ $? -ne 0  ]; then
+            rm -f ${SSH_AUTH_SOCK}
+            ( setsid socat UNIX-LISTEN:${SSH_AUTH_SOCK},fork EXEC:"/mnt/c/ProgramData/win-gpg-agent/sorelay.exe ${WIN_AGENT_HOME//\:/\\:}/S.gpg-agent.ssh",nofork & ) >/dev/null 2>&1
+        fi
+    fi
+fi
