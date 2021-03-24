@@ -79,7 +79,7 @@ if [ ${ISWSL} -eq 1 ]; then
 elif [ ${ISWSL} -eq 2 ]; then
     if [ -n ${WIN_GNUPG_HOME} ]; then
         # setup gpg-agent socket
-        _sock_name=${GNUPGHOME}/S.gpg-agent
+        _sock_name=${HOME}/.gnupg/S.gpg-agent
         ss -a | grep -q ${_sock_name}
         if [ $? -ne 0  ]; then
             rm -f ${_sock_name}
@@ -87,7 +87,7 @@ elif [ ${ISWSL} -eq 2 ]; then
         fi
 
         # setup gpg-agent.extra socket
-        _sock_name=${GNUPGHOME}/S.gpg-agent.extra
+        _sock_name=${HOME}/.gnupg/S.gpg-agent.extra
         ss -a | grep -q ${_sock_name}
         if [ $? -ne 0  ]; then
             rm -f ${_sock_name}
@@ -99,7 +99,7 @@ elif [ ${ISWSL} -eq 2 ]; then
 
     if [ -n ${WIN_AGENT_HOME} ]; then
         # and ssh-agent socket
-        export SSH_AUTH_SOCK=${GNUPGHOME}/S.gpg-agent.ssh
+        export SSH_AUTH_SOCK=${HOME}/.gnupg/S.gpg-agent.ssh
         ss -a | grep -q ${SSH_AUTH_SOCK}
         if [ $? -ne 0  ]; then
             rm -f ${SSH_AUTH_SOCK}
