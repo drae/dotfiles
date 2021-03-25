@@ -1,0 +1,8 @@
+[user]
+	email = drae@users.noreply.github.com
+	name = Drae
+	signingkey = 3CA31FBA 
+
+[commit]
+	gpgsign = true
+
