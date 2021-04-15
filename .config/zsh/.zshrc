@@ -64,6 +64,10 @@ setopt no_aliases
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 setopt aliases
 
+# Enable direnv if installed
+[ -s "/usr/bin/direnv" ] && eval "$(direnv hook zsh)"
+
+
 # Enable duplication of terminal (Windows Terminal et al - CTRL+Shift+D)
 if (( ${+WSLENV} )); then
     set_wt_cwd() { printf "\e]9;9;%s\e\\" "$(wslpath -m "$PWD")" }
