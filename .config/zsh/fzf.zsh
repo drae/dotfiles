@@ -43,5 +43,5 @@ FD_OPTIONS="--follow --hidden --exclude .git --exclude node_modules"
 export FZF_DEFAULT_COMMAND="git ls-files --cached --others --exclude-standard | fd --type f --type l $FD_OPTIONS"
 
 # Find commands for "Ctrl+T" and "Opt+C" shortcuts
-export FZF_CTRL_T_COMMAND="fd $FD_OPTIONS"
-export FZF_ALT_C_COMMAND="fd --type d $FD_OPTIONS"
+export FZF_CTRL_T_COMMAND="fdfind $FD_OPTIONS"
+export FZF_ALT_C_COMMAND="fdfind --type d $FD_OPTIONS"

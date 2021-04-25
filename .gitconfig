@@ -6,3 +6,9 @@
 [commit]
 	gpgsign = true
 
+[gpg]
+	program = gpg.exe
+
+[core]
+	editor = code --wait
+	sshCommand = ssh.exe
