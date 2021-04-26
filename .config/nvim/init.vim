@@ -8,19 +8,20 @@ Plug 'maximbaz/lightline-ale'
 Plug 'taohexxx/lightline-buffer'
 Plug 'itchyny/vim-gitbranch'
 Plug 'Yggdroot/indentLine'
-Plug 'sainnhe/gruvbox-material'
+" Plug 'sheerun/vim-polyglot'
+Plug 'joshdick/onedark.vim'
 Plug '~/.config/fzf' " Load the fzf.vim plugin
 Plug 'junegunn/fzf.vim'
 Plug 'pbogut/fzf-mru.vim'
 Plug 'edkolev/tmuxline.vim'
+Plug 'leafgarland/typescript-vim'
 
 call plug#end()
 
-if executable('tmux') && filereadable(expand('~/.zshrc')) && $TMUX !=# ''
+if executable('tmux') && filereadable(expand('~/.config/zsh/.zshrc')) && $TMUX !=# ''
   let g:vimIsInTmux = 1
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
 else
   let g:vimIsInTmux = 0
 endif
@@ -28,19 +29,15 @@ endif
 set encoding=UTF-8
 set mouse=a
 
-syntax enable
-
-" Set the colour scheme
-let g:material_theme_style = 'palenight'
-let g:gruvbox_contrast_dark = 'soft'
-let g:gruvbox_material_background = 'soft'
+syntax on
 
 set background=dark
-colorscheme gruvbox-material
+colorscheme onedark
+set termguicolors
 
 " Transparent background
-highlight Normal guibg=none
-highlight NonText guibg=none
+" highlight Normal guibg=none
+" highlight NonText guibg=none
 
 " Turn on line numbering by default
 set number 
@@ -52,10 +49,9 @@ set cursorline
 let g:signify_vcs_list = [ 'git' ]
 let g:signify_realtime = 1
 
-" Setup airline
-"       \ 'colorscheme': 'material_vim',
+" Setup lightline
 let g:lightline = {
-      \ 'colorscheme' : 'gruvbox_material', 
+      \ 'colorscheme' : 'onedark', 
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
