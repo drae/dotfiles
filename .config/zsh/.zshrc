@@ -36,6 +36,8 @@ zinit light djui/alias-tips
 # Interactive cd completion with fzf (cd <TAB>)
 zinit light changyuheng/zsh-interactive-cd
 
+zinit light ptavares/zsh-direnv
+
 zinit light zsh-users/zsh-history-substring-search
 
 # Completion and syntax highlighting - load these last, order is important
