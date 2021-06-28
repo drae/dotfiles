@@ -7,7 +7,7 @@
 	gpgsign = true
 
 [core]
-	editor = code --wait
+	editor = nvim
 
 [credential "https://github.com"]
 	helper = !/usr/bin/gh auth git-credential
@@ -17,5 +17,6 @@
 
 [pull]
 	rebase = true
+
 [rebase]
 	autostash = true
