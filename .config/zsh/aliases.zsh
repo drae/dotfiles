@@ -31,6 +31,8 @@ if (( ${+WSLENV} )); then
     [ -s /mnt/c/Windows/System32/OpenSSH/scp.exe ] && alias scp='/mnt/c/Windows/System32/OpenSSH/scp.exe'
     [ -s /mnt/c/Windows/System32/OpenSSH/sftp.exe ] && alias sftp='/mnt/c/Windows/System32/OpenSSH/sftp.exe'
     [ -s /mnt/c/Program\ Files\ \(x86\)/gnupg/bin/gpg.exe ] && alias gpg='/mnt/c/Program\ Files\ \(x86\)/gnupg/bin/gpg.exe'
+
+    export SOPS_GPG_EXEC=gpg.exe
 fi
 
 # Handle .dotfiles in $HOME
