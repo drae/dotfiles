@@ -24,15 +24,16 @@ alias grep='grep  --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 
 # WSL aliases for common apps
 if (( ${+WSLENV} )); then
-    [ -s /mnt/c/Windows/System32/OpenSSH/ssh.exe ] && export GIT_SSH="ssh.exe" 
-    [ -s /mnt/c/Windows/System32/OpenSSH/ssh.exe ] && alias ssh='/mnt/c/Windows/System32/OpenSSH/ssh.exe'
-    [ -s /mnt/c/Windows/System32/OpenSSH/ssh-keygen.exe ] && alias ssh-keygen='/mnt/c/Windows/System32/OpenSSH/ssh-keygen.exe'
-    [ -s /mnt/c/Windows/System32/OpenSSH/ssh-add.exe ] && alias ssh-add='/mnt/c/Windows/System32/OpenSSH/ssh-add.exe'
-    [ -s /mnt/c/Windows/System32/OpenSSH/scp.exe ] && alias scp='/mnt/c/Windows/System32/OpenSSH/scp.exe'
-    [ -s /mnt/c/Windows/System32/OpenSSH/sftp.exe ] && alias sftp='/mnt/c/Windows/System32/OpenSSH/sftp.exe'
+    [ -s /mnt/c/Program\ Files/OpenSSH/ssh.exe ] && export GIT_SSH="/mnt/c/Program\ Files/OpenSSH/ssh.exe" 
+    [ -s /mnt/c/Program\ Files/OpenSSH/ssh.exe ] && alias ssh='/mnt/c/Program\ Files/OpenSSH/ssh.exe'
+    [ -s /mnt/c/Program\ Files/OpenSSH/ssh-keygen.exe ] && alias ssh-keygen='/mnt/c/Program\ Files/OpenSSH/ssh-keygen.exe'
+    [ -s /mnt/c/Program\ Files/OpenSSH/ssh-add.exe ] && alias ssh-add='/mnt/c/Program\ Files/OpenSSH/ssh-add.exe'
+    [ -s /mnt/c/Program\ Files/OpenSSH/scp.exe ] && alias scp='/mnt/c/Program\ Files/OpenSSH/scp.exe'
+    [ -s /mnt/c/Program\ Files/OpenSSH/sftp.exe ] && alias sftp='/mnt/c/Program\ Files/OpenSSH/sftp.exe'
     [ -s /mnt/c/Program\ Files\ \(x86\)/gnupg/bin/gpg.exe ] && alias gpg='/mnt/c/Program\ Files\ \(x86\)/gnupg/bin/gpg.exe'
 
-    export SOPS_GPG_EXEC=gpg.exe
+    export SOPS_GPG_EXEC=/mnt/c/Program\ Files\ \(x86\)/gnupg/bin/gpg.exe
+    export GIT_SSH=/mnt/c/Program\ Files/OpenSSH/ssh.exe
 fi
 
 # Handle .dotfiles in $HOME
