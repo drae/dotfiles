@@ -8,8 +8,9 @@ Plug 'maximbaz/lightline-ale'
 Plug 'taohexxx/lightline-buffer'
 Plug 'itchyny/vim-gitbranch'
 Plug 'Yggdroot/indentLine'
-" Plug 'sheerun/vim-polyglot'
-Plug 'joshdick/onedark.vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'sainnhe/gruvbox-material'
+"Plug 'joshdick/onedark.vim'
 Plug '~/.config/fzf' " Load the fzf.vim plugin
 Plug 'junegunn/fzf.vim'
 Plug 'pbogut/fzf-mru.vim'
@@ -32,7 +33,7 @@ set mouse=a
 syntax on
 
 set background=dark
-colorscheme onedark
+colorscheme gruvbox-material
 set termguicolors
 
 " Transparent background
@@ -51,7 +52,7 @@ let g:signify_realtime = 1
 
 " Setup lightline
 let g:lightline = {
-      \ 'colorscheme' : 'onedark', 
+      \ 'colorscheme' : 'gruvbox_material', 
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
