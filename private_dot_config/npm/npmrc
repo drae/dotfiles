@@ -1,0 +1,3 @@
+cache=/home/paul/.cache/npm
+tmp=/tmp/npm
+init-module=/home/paul/.config/npm/config/npm-init.js

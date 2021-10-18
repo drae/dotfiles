@@ -1,0 +1,134 @@
+# vim: ft=zsh ts=2 sw=2
+
+## History
+export HISTFILE="${XDG_DATA_HOME}/zsh/history"
+declare -r HISTFILE
+export HISTSIZE=50000
+export SAVEHIST=20000
+
+setopt extended_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt hist_verify
+setopt inc_append_history
+setopt share_history
+setopt combining_chars
+
+## zinit
+declare -A ZINIT
+ZINIT[HOME_DIR]="${XDG_DATA_HOME}/zinit"
+ZINIT[ZCOMPDUMP_PATH]="${XDG_CACHE_HOME}/zsh/zcompdump-${ZSH_VERSION}"
+ZINIT[COMPINIT_OPTS]='-C'
+
+source "${ZINIT[HOME_DIR]}/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[]=_zinit
+
+# Install some zinit helpers
+zinit wait lucid light-mode for \
+  zinit-zsh/z-a-rust \
+  zinit-zsh/z-a-meta-plugins \
+  zinit-zsh/z-a-bin-gem-node
+
+zinit lucid for \
+  'OMZ::lib/history.zsh' \
+  'OMZ::lib/key-bindings.zsh' \
+  'OMZ::lib/completion.zsh' \
+  'romkatv/zsh-prompt-benchmark'
+
+zinit wait lucid for \
+  atload'_zsh_autosuggest_start' 'zsh-users/zsh-autosuggestions' \
+  'zsh-users/zsh-history-substring-search' \
+  'zdharma/history-search-multi-word' \
+  atinit'zpcompinit; zpcdreplay' 'zdharma/fast-syntax-highlighting' \
+  'MichaelAquilina/zsh-history-filter'
+
+# Load starship theme
+zinit ice as"command" from"gh-r" atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" atpull"%atclone" src"init.zsh"
+zinit light starship/starship
+
+# Little notification of aliases
+zinit light djui/alias-tips
+
+# Interactive cd completion with fzf (cd <TAB>)
+zinit wait'0' lucid light-mode for @Aloxaf/fzf-tab
+
+# Add direnv support
+zinit ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
+  atpull'%atclone' src"zhook.zsh"
+zinit light direnv/direnv
+
+# Window title support
+zinit light mdarocha/zsh-windows-title
+
+# Install github cli (gh)
+zinit ice lucid as'command' from'gh-r' mv'gh* -> gh' pick'usr/bin/gh'
+zinit light cli/cli
+
+#
+zinit ice lucid as'command' from'gh-r' mv'krew* -> krew' pick 'krew'
+zinit light kubernetes-sigs/krew
+
+#
+zinit ice as"program" pick"$ZPFX/bin/git-*" make"PREFIX=$ZPFX" nocompile
+zinit light tj/git-extras
+
+export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+export ZSH_AUTOSUGGEST_USE_ASYNC=1
+export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+
+# Support Windows Terminal duplication 
+{{ if (eq .chezmoi.os "linux") }}
+  {{ if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+    set_wt_cwd() { printf "\e]9;9;%s\e\\" "$(wslpath -m "$PWD")" }
+    precmd_functions+=set_wt_cwd
+  {{ end }}
+{{ end }}
+
+# FZF options
+
+# Use fd instead of find for file completion
+_fzf_compgen_path() {
+    fd --hidden --follow --exclude ".git" . "$1"
+}
+
+# Use fd to generate the list for directory completion
+_fzf_compgen_dir() {
+    fd --type d --hidden --follow --exclude ".git" . "$1"
+}
+
+local color00='#262626'
+local color01='#3a3a3a'
+local color02='#4e4e4e'
+local color03='#8a8a8a'
+local color04='#949494'
+local color05='#dab997'
+local color06='#d5c4a1'
+local color07='#ebdbb2'
+local color08='#d75f5f'
+local color09='#ff8700'
+local color0A='#ffaf00'
+local color0B='#afaf00'
+local color0C='#85ad85'
+local color0D='#83adad'
+local color0E='#d485ad'
+local color0F='#d65d0e'
+
+FD_OPTIONS="--follow --hidden --exclude .git --exclude node_modules"
+
+#export FZF_DEFAULT_OPTS='--bind ctrl-d:page-down,ctrl-u:page-up'
+export FZF_DEFAULT_OPTS="
+--color=bg+:$color01,bg:$color00,spinner:$color0C,hl:$color0D
+--color=fg:$color04,header:$color0D,info:$color0A,pointer:$color0C
+--color=marker:$color0C,fg+:$color06,prompt:$color0A,hl+:$color0D
+--no-mouse --height 40% -1 --reverse --multi --inline-info --preview='[[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --style=numbers --color=always {} || cat {}) 2> /dev/null | head -300' --preview-window='right:hidden:wrap' --bind='f3:execute(bat --style=numbers {} || less -f {}),f2:toggle-preview,ctrl-d:half-page-down,ctrl-u:half-page-up,ctrl-a:select-all+accept,ctrl-y:execute-silent(echo {+} | pbcopy)'"
+# Exclude those directories even if not listed in .gitignore, or if .gitignore is missing
+# Change find backend / Use 'git ls-files' when inside GIT repo, or fd otherwise
+export FZF_DEFAULT_COMMAND="git ls-files --cached --others --exclude-standard | fd --type f --type l $FD_OPTIONS"
+# Find commands for "Ctrl+T" and "Opt+C" shortcuts
+export FZF_CTRL_T_COMMAND="fdfind $FD_OPTIONS"
+export FZF_ALT_C_COMMAND="fdfind --type d $FD_OPTIONS"
+
+# Other sources
+source $ZDOTDIR/aliases.zsh

@@ -1,0 +1,16 @@
+[user]
+    email = drae@users.noreply.github.com
+    name = Drae
+    signingkey = AA242D97
+[commit]
+    gpgsign = true
+[core]
+    editor = nvim
+[credential "https://github.com"]
+    helper = !gh auth git-credential
+[alias]
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[pull]
+    rebase = true
+[rebase]
+    autostash = true
