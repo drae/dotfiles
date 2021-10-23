@@ -6,6 +6,9 @@ export HISTFILE="${XDG_DATA_HOME}/zsh/history"
 declare -r HISTFILE
 export HISTSIZE=50000
 export SAVEHIST=20000
+export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+export ZSH_AUTOSUGGEST_USE_ASYNC=1
+export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
 setopt extended_history
 setopt hist_expire_dups_first
@@ -16,7 +19,17 @@ setopt inc_append_history
 setopt share_history
 setopt combining_chars
 
-## zinit
+# Support Windows Terminal duplication 
+{{ if (eq .chezmoi.os "linux") }}
+  {{ if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+    set_wt_cwd() { printf "\e]9;9;%s\e\\" "$(wslpath -m "$PWD")" }
+    precmd_functions+=set_wt_cwd
+  {{ end }}
+{{ end }}
+
+#
+# zinit
+#
 declare -A ZINIT
 ZINIT[HOME_DIR]="${XDG_DATA_HOME}/zinit"
 ZINIT[ZCOMPDUMP_PATH]="${XDG_CACHE_HOME}/zsh/zcompdump-${ZSH_VERSION}"
@@ -46,14 +59,14 @@ zinit lucid for \
   'OMZ::lib/key-bindings.zsh' \
   'OMZ::lib/completion.zsh' \
   'OMZ::plugins/kubectl/kubectl.plugin.zsh' \
-  'romkatv/zsh-prompt-benchmark'
+  romkatv/zsh-prompt-benchmark
 
 zinit wait lucid for \
-  atload'_zsh_autosuggest_start' 'zsh-users/zsh-autosuggestions' \
-  'zsh-users/zsh-history-substring-search' \
-  'zdharma/history-search-multi-word' \
-  atinit'zpcompinit; zpcdreplay' 'zdharma/fast-syntax-highlighting' \
-  'MichaelAquilina/zsh-history-filter'
+  atload'_zsh_autosuggest_start' zsh-users/zsh-autosuggestions \
+  zsh-users/zsh-history-substring-search \
+  zdharma/history-search-multi-word \
+  atinit'zpcompinit; zpcdreplay' zdharma/fast-syntax-highlighting \
+  MichaelAquilina/zsh-history-filter
 
 # Load starship theme
 zinit ice as"command" from"gh-r" atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" atpull"%atclone" src"init.zsh"
@@ -63,12 +76,11 @@ zinit light starship/starship
 zinit light djui/alias-tips
 
 # Window title support
-zinit light mdarocha/zsh-windows-title
+#zinit light mdarocha/zsh-windows-title
 
-# direnv support
-zinit ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
-  atpull'%atclone' src"zhook.zsh"
-zinit light direnv/direnv
+#
+# Local app installation
+#
 
 # FZF
 zinit ice lucid wait'0b' from'gh-r' as'program'
@@ -81,6 +93,11 @@ zinit light junegunn/fzf
 # FZF-TAB
 zinit ice wait'1' lucid
 zinit light Aloxaf/fzf-tab
+
+# direnv
+zinit ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
+  atpull'%atclone' src"zhook.zsh"
+zinit light direnv/direnv
 
 # Sharkdp's find and cat replacements
 zinit ice as'program' id-as'fd' from'gh-r' mv'fd* -> fd' cp'fd/autocomplete/_fd -> _fd' pick'fd/fd'
@@ -102,20 +119,22 @@ zinit ice lucid wait'0' as'program' id-as'yq' from'gh-r' mv'yq_* -> yq' \
  atclone'yq shell-completion zsh > _yq' atpull'%atclone'
 zinit light mikefarah/yq
 
-# Install github cli (gh)
+# github cli
 zinit ice lucid as'command' from'gh-r' atclone'./gh completion -s zsh > _gh' atpull'%atclone' mv'**/bin/gh* -> gh' pick'usr/bin/gh'
 zinit light cli/cli
 
-# Install Kubernetes Krew command
+# krew - kubectl plugin manager
 zinit ice lucid as'command' from'gh-r' mv'krew* -> krew' pick 'krew'
 zinit light kubernetes-sigs/krew
 
-# Loads of extra git modules
-zinit ice as"program" pick"$ZPFX/bin/git-*" make"PREFIX=$ZPFX" nocompile
-zinit light tj/git-extras
+# viddy
+zinit ice lucid as'command' from'gh-r' pick'viddy' \
+  atload'alias vdy=viddy -d --shell zsh'
+zinit light sachaos/viddy
 
-# Start ssh-agent 
-zinit light bobsoppe/zsh-ssh-agent
+# git extras 
+zinit lucid wait'0a' for \
+  as"program" pick"$ZPFX/bin/git-*" src"etc/git-extras-completion.zsh" make"PREFIX=$ZPFX" tj/git-extras
 
 # procs (modern replacement for ps written in rust)
 zinit wait'1' lucid \
@@ -124,18 +143,6 @@ zinit wait'1' lucid \
   mv'**/procs -> procs' \
   pick'procs' \
   light-mode for @dalance/procs
-
-# Prettyping
-zinit ice wait lucid as'program' mv'prettyping* -> prettyping' \
-    atload"alias ping='prettyping --nolegend'"
-zinit light denilsonsa/prettyping
-
-# delta
-zinit wait'1' lucid \
-  as'program' id-as'delta' from'gh-r' mv'delta* -> delta' pick'delta/delta' \
-  light-mode for @dandavison/delta
-zinit ice wait'1' lucid as'delta-completion' has'delta' mv'completion.zsh -> _delta'
-zinit snippet https://github.com/dandavison/delta/blob/master/etc/completion/completion.zsh
 
 # cheat.sh
 zinit wait'2a' lucid \
@@ -149,6 +156,7 @@ zinit wait'2b' lucid \
   mv'cht* -> _cht' \
   as'completion' \
   for https://cheat.sh/:zsh
+
 # cheat
 zinit wait'2a' lucid \
   id-as'cheat' \
@@ -163,20 +171,12 @@ zinit wait'2b' lucid \
   as'completion' \
   for https://github.com/cheat/cheat/blob/master/scripts/cheat.zsh
 
+# Start ssh-agent with shell
+zinit light bobsoppe/zsh-ssh-agent
+
 #
-export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-export ZSH_AUTOSUGGEST_USE_ASYNC=1
-export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
-
-# Support Windows Terminal duplication 
-{{ if (eq .chezmoi.os "linux") }}
-  {{ if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
-    set_wt_cwd() { printf "\e]9;9;%s\e\\" "$(wslpath -m "$PWD")" }
-    precmd_functions+=set_wt_cwd
-  {{ end }}
-{{ end }}
-
 # FZF options
+#
 
 # Use fd instead of find for file completion
 _fzf_compgen_path() {
