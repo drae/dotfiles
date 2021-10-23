@@ -88,6 +88,20 @@ zinit light sharkdp/fd
 zinit ice as'program' id-as'bat' from'gh-r' mv'bat* -> bat' cp'bat/autocomplete/bat.zsh -> _bat' pick'bat/bat' atload'alias cat=bat'
 zinit light sharkdp/bat
 
+# ripgrep
+zinit ice from'gh-r' as'program' id-as'rg' mv'ripgrep* -> rg' cp'rg/complete/_rg -> _rg' pick'rg/rg'
+zinit light BurntSushi/ripgrep
+
+# exa
+zinit ice wait'2' lucid id-as'exa' from'gh-r' as'program' mv'bin/exa* -> exa' cp'completions/exa.zsh -> _exa'
+zinit light ogham/exa
+zinit ice wait blockf atpull'zinit creinstall -q .'
+
+# yq
+zinit ice lucid wait'0' as'program' id-as'yq' from'gh-r' mv'yq_* -> yq' \
+ atclone'yq shell-completion zsh > _yq' atpull'%atclone'
+zinit light mikefarah/yq
+
 # Install github cli (gh)
 zinit ice lucid as'command' from'gh-r' atclone'./gh completion -s zsh > _gh' atpull'%atclone' mv'**/bin/gh* -> gh' pick'usr/bin/gh'
 zinit light cli/cli
@@ -174,20 +188,11 @@ _fzf_compgen_dir() {
     fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 
-FD_OPTIONS="--follow --hidden --exclude .git --exclude node_modules"
-
-export FZF_DEFAULT_OPTS='--bind ctrl-d:page-down,ctrl-u:page-up'
-#export FZF_DEFAULT_OPTS="
-#--color=bg+:$color01,bg:$color00,spinner:$color0C,hl:$color0D
-#--color=fg:$color04,header:$color0D,info:$color0A,pointer:$color0C
-#--color=marker:$color0C,fg+:$color06,prompt:$color0A,hl+:$color0D
-#--no-mouse --height 40% -1 --reverse --multi --inline-info --preview='[[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --style=numbers --color=always {} || cat {}) 2> /dev/null | head -300' --preview-window='right:hidden:wrap' --bind='f3:execute(bat --style=numbers {} || less -f {}),f2:toggle-preview,ctrl-d:half-page-down,ctrl-u:half-page-up,ctrl-a:select-all+accept,ctrl-y:execute-silent(echo {+} | pbcopy)'"
-# Exclude those directories even if not listed in .gitignore, or if .gitignore is missing
-# Change find backend / Use 'git ls-files' when inside GIT repo, or fd otherwise
-export FZF_DEFAULT_COMMAND="git ls-files --cached --others --exclude-standard | fd --type f --type l $FD_OPTIONS"
-# Find commands for "Ctrl+T" and "Opt+C" shortcuts
-export FZF_CTRL_T_COMMAND="fdfind $FD_OPTIONS"
-export FZF_ALT_C_COMMAND="fdfind --type d $FD_OPTIONS"
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2>/dev/null'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_OPTS='--preview="bat --color=always --style=header {} 2>/dev/null" --preview-window=right:60%:wrap'
+export FZF_ALT_C_COMMAND='fd -t d -d 1'
+export FZF_ALT_C_OPTS='--preview="exa -1 --icons --git --git-ignore {}" --preview-window=right:60%:wrap'
 
 # Other sources
 source $ZDOTDIR/aliases.zsh
