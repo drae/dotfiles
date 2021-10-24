@@ -170,26 +170,31 @@ zinit light sachaos/viddy
 zinit lucid wait'0a' for \
   as"program" pick"$ZPFX/bin/git-*" src"etc/git-extras-completion.zsh" make"PREFIX=$ZPFX" tj/git-extras
 
+# delta - git pager
+zinit from"gh-r" as"command" mv"delta* -> delta" \
+  pick"delta/delta" for \
+    dandavison/delta
+
 # procs (modern replacement for ps written in rust)
 zinit wait'1' lucid \
   from'gh-r' as'program' \
   atload'alias ps=procs' \
   mv'**/procs -> procs' \
   pick'procs' \
-  light-mode for @dalance/procs
+  light-mode for \
+    @dalance/procs
 
 # cheat.sh
 zinit wait'2a' lucid \
   id-as'cht.sh' \
-  as'program' \
-  for https://cht.sh/:cht.sh
-  # has'rlwrap' \
+  as'program' for \
+    https://cht.sh/:cht.sh
 zinit wait'2b' lucid \
   id-as'cht-completion' \
   has'rlwrap' \
   mv'cht* -> _cht' \
-  as'completion' \
-  for https://cheat.sh/:zsh
+  as'completion' for \
+    https://cheat.sh/:zsh
 
 # cheat
 zinit wait'2a' lucid \

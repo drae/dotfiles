@@ -1,16 +1,47 @@
 [user]
     email = drae@users.noreply.github.com
-    name = Drae
+    name = Paul Owen
     signingkey = AA242D97
+
 [commit]
     gpgsign = true
+
 [core]
     editor = nvim
+    pager = delta
+
+[pager]
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
+
 [credential "https://github.com"]
     helper = !gh auth git-credential
+
 [alias]
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+[init]
+    defaultBranch = main
+
+[rerere]
+    enabled = true
+
 [pull]
     rebase = true
+
 [rebase]
     autostash = true
+
+[delta]
+    features = line-numbers decorations
+    syntax-theme = gruvbox-dark
+    whitespace-error-style = 22 reverse
+    plus-style = "syntax #4f754c"
+    minus-style = "syntax #754c4c"
+
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
