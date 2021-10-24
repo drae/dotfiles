@@ -6,12 +6,13 @@
 sudo dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf update -y
 sudo dnf groupupdate core -y
-sudo dnf install -y git wget curl neovim lsd jq tmux starship 
+sudo dnf install -y git wget curl neovim lsd jq tmux starship
 {{- else if eq .chezmoi.osRelease.id "arch" -}}
 # Install Arch packages
 pacman -Syu --noconfirm neovim git curl wget starship jq curl wget chezmoi k9s tmux
 {{- else if eq .chezmoi.osRelease.id "ubuntu" -}}
 # Install Ubuntu packages
+sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt update
 sudo apt install -y zsh build-essential neovim curl tmux curl git jq
 {{- end }}
