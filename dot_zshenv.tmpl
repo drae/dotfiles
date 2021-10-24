@@ -49,7 +49,7 @@ if [ -d "$HOME/go/bin" ] ; then
     PATH="$HOME/go/bin:$PATH"
 fi
 
-export PATH=${KREW_ROOT:-$HOME/.krew}/bin:$PATH
+export PATH=${VOLTA_HOME:-$HOME/.volta}/bin:${KREW_ROOT:-$HOME/.krew}/bin:$PATH
 export MANPATH=$(manpath -g):$XDG_DATA_HOME/man
 
 # Set umask to user and group rw(x)
