@@ -115,6 +115,12 @@ zinit from'gh-r' as'program' \
   pick'flux' src="_flux" for \
     fluxcd/flux2
 
+# g - Go version manager
+zinit as'program' mv'*/g -> g' \
+  atclone'./g install latest' atpull'%atclone' \
+  pick'g' for \
+    stefanmaric/g
+
 # FZF
 zinit ice lucid wait'0b' from'gh-r' as'program'
 zinit light junegunn/fzf
