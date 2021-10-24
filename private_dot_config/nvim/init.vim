@@ -1,6 +1,13 @@
 " vim-plug
 source $HOME/.config/nvim/vim-plug/plugins.vim
 
+" LSP
+source $HOME/.config/nvim/lsp.vim
+
+"
+"
+"
+
 if executable('tmux') && filereadable(expand('~/.config/zsh/.zshrc')) && $TMUX !=# ''
   let g:vimIsInTmux = 1
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -90,14 +97,6 @@ set showtabline=2  " always show tabline
 " remap arrow keys
 nnoremap <S-C-Left> :bprev<CR>
 nnoremap <S-C-Right> :bnext<CR>
-
-" Map :Files (fzf) to double space
-let mapleader = " "
-nnoremap <silent> <leader><Space> :Files<CR>
-" :Files in the current open buffers folder
-nnoremap <silent> <leader>- :Files <C-r>=expand("%:h")<CR>/<CR>
-" List recently opened files
-nnoremap <silent> <leader>m :FZFMru<CR>
 
 if g:vimIsInTmux == 1
   let g:tmuxline_preset = {

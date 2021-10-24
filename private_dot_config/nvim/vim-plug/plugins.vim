@@ -8,36 +8,34 @@ endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
 
+Plug 'sheerun/vim-polyglot'
+Plug 'junegunn/fzf.vim'
+Plug 'Yggdroot/indentLine'
+Plug 'edkolev/tmuxline.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mhinz/vim-signify'
 Plug 'itchyny/vim-gitbranch'
-Plug 'Yggdroot/indentLine'
-Plug 'sheerun/vim-polyglot'
-Plug 'junegunn/fzf.vim'
-Plug 'edkolev/tmuxline.vim'
-
 Plug 'sainnhe/gruvbox-material'
 Plug 'Lilja/vim-chezmoi'
-
 Plug 'https://github.com/ap/vim-css-color'
-
 Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
 Plug 'taohexxx/lightline-buffer'
 
-"Plug 'leafgarland/typescript-vim'
-"Plug 'pbogut/fzf-mru.vim'
-
-" LSP
 if has("nvim-0.5")
-    Plug 'neovim/nvim-lspconfig'
-    Plug 'nvim-lua/plenary.nvim'
-    Plug 'nvim-lua/popup.nvim'
-    Plug 'nvim-telescope/telescope-fzf-native.nvim'
-    Plug 'nvim-telescope/telescope.nvim'
+  " LSP
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-lua/popup.nvim'
+  Plug 'nvim-telescope/telescope-fzf-native.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
+  Plug 'hrsh7th/cmp-nvim-lsp'
+  Plug 'hrsh7th/cmp-buffer'
+  Plug 'hrsh7th/nvim-cmp'
 else
-    " LSP
-    Plug 'dense-analysis/ale'
+  " LSP
+  Plug 'dense-analysis/ale'
+  "Plug 'leafgarland/typescript-vim'
 endif
 
 call plug#end()
