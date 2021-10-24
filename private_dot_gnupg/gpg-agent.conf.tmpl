@@ -1,0 +1,6 @@
+{{- if (eq .chezmoi.os "linux") -}}
+  {{- if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
+pinentry-program {{ .chezmoi.homeDir }}/.gnupg/pinentry.exe
+  {{- end }}
+{{- else -}}
+{{- end}}
