@@ -31,11 +31,9 @@ show_always = false
 
 [kubernetes]
 symbol = "ﴱ "
-format = 'on [ﴱ $context \($namespace\)](bold bright-green) '
+format = 'on [ﴱ $context( \($namespace\))](bold bright-green) '
 disabled = false
-[kubernetes.context_aliases]
-"default" = "home-cluster"
- 
+
 [aws]
 format = "on [$symbol$profile( $region)]($style) "
 style = "bold Yellow"
