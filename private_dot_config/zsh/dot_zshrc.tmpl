@@ -88,13 +88,26 @@ zinit light trapd00r/LS_COLORS
 #
 
 # kubectl
-
+zinit light-mode lucid wait has"kubectl" for \
+  id-as"kubectl_completion" \
+  as"completion" \
+  atclone"kubectl completion zsh > _kubectl" \
+  atpull"%atclone" \
+  run-atpull \
+    zdharma/null
 
 # krew - kubectl plugin manager
-zinit from'gh-r' as'program' mv'krew* -> krew' pick'krew' \
+zinit from'gh-r' as'program' mv'krew* -> krew' \
   atclone'./krew install krew' atpull'%atclone' \
   pick'krew' for \
     kubernetes-sigs/krew
+zinit light-mode lucid wait has"krew" for \
+  id-as"krew_completion" \
+  as"completion" \
+  atclone"krew completion zsh > _krew" \
+  atpull"%atclone" \
+  run-atpull \
+    zdharma/null
 
 # fluxctl
 zinit from'gh-r' as'program' \
@@ -116,9 +129,9 @@ zinit light Aloxaf/fzf-tab
 
 # direnv
 zinit from"gh-r" as"program" mv"direnv* -> direnv" \
-    atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' \
-    pick"direnv" src="zhook.zsh" for \
-        direnv/direnv
+  atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' \
+  pick"direnv" src="zhook.zsh" for \
+    direnv/direnv
 
 # Sharkdp's find and cat replacements
 zinit ice as'program' id-as'fd' from'gh-r' mv'fd* -> fd' cp'fd/autocomplete/_fd -> _fd' pick'fd/fd'
