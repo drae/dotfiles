@@ -1,23 +1,5 @@
-call plug#begin('~/.local/share/nvim/plugged')
-
-Plug 'ryanoasis/vim-devicons'
-Plug 'mhinz/vim-signify'
-Plug 'dense-analysis/ale'
-Plug 'itchyny/lightline.vim'
-Plug 'maximbaz/lightline-ale'
-Plug 'taohexxx/lightline-buffer'
-Plug 'itchyny/vim-gitbranch'
-Plug 'Yggdroot/indentLine'
-Plug 'sheerun/vim-polyglot'
-Plug 'sainnhe/gruvbox-material'
-"Plug 'joshdick/onedark.vim'
-Plug '~/.config/fzf' " Load the fzf.vim plugin
-Plug 'junegunn/fzf.vim'
-Plug 'pbogut/fzf-mru.vim'
-Plug 'edkolev/tmuxline.vim'
-Plug 'leafgarland/typescript-vim'
-
-call plug#end()
+" vim-plug
+source $HOME/.config/nvim/vim-plug/plugins.vim
 
 if executable('tmux') && filereadable(expand('~/.config/zsh/.zshrc')) && $TMUX !=# ''
   let g:vimIsInTmux = 1
@@ -29,6 +11,7 @@ endif
 
 set encoding=UTF-8
 set mouse=a
+set ruler
 
 syntax on
 
