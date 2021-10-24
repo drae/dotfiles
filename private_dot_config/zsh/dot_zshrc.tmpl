@@ -82,6 +82,12 @@ zinit light mdarocha/zsh-windows-title
 # Local app installation
 #
 
+# kubectl
+
+# fluxctl
+zinit ice lucid as'command' from'gh-r' atclone'./flux completion zsh > _flux' atpull'%atclone' pick'flux'
+zinit light fluxcd/flux2
+
 # FZF
 zinit ice lucid wait'0b' from'gh-r' as'program'
 zinit light junegunn/fzf
