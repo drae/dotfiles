@@ -129,6 +129,10 @@ zinit light mikefarah/yq
 zinit ice lucid as'command' from'gh-r' atclone'./gh completion -s zsh > _gh' atpull'%atclone' mv'**/bin/gh* -> gh' pick'usr/bin/gh'
 zinit light cli/cli
 
+# k9s
+zinit ice lucid as'command' from'gh-r' pick 'k9s'
+zinit light derailed/k9s
+
 # krew - kubectl plugin manager
 zinit ice lucid as'command' from'gh-r' mv'krew* -> krew' pick 'krew'
 zinit light kubernetes-sigs/krew
