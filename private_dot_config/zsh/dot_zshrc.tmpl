@@ -51,7 +51,6 @@ autoload -Uz _zinit
 zinit wait lucid light-mode for \
   zinit-zsh/z-a-rust \
   zinit-zsh/z-a-as-monitor \
-  zinit-zsh/z-a-meta-plugins \
   zinit-zsh/z-a-bin-gem-node
 
 zinit lucid for \
@@ -87,27 +86,11 @@ zinit light trapd00r/LS_COLORS
 # Local app installation
 #
 
-# kubectl
-zinit light-mode lucid wait has"kubectl" for \
-  id-as"kubectl_completion" \
-  as"completion" \
-  atclone"kubectl completion zsh > _kubectl" \
-  atpull"%atclone" \
-  run-atpull \
-    zdharma/null
-
 # krew - kubectl plugin manager
 zinit from'gh-r' as'program' mv'krew* -> krew' \
   atclone'./krew install krew' atpull'%atclone' \
   pick'krew' for \
     kubernetes-sigs/krew
-zinit light-mode lucid wait has"krew" for \
-  id-as"krew_completion" \
-  as"completion" \
-  atclone"krew completion zsh > _krew" \
-  atpull"%atclone" \
-  run-atpull \
-    zdharma/null
 
 # fluxctl
 zinit from'gh-r' as'program' \
@@ -166,11 +149,6 @@ zinit light cli/cli
 # k9s
 zinit ice lucid as'command' from'gh-r' pick 'k9s'
 zinit light derailed/k9s
-
-# viddy
-zinit ice lucid as'command' from'gh-r' pick'viddy' \
-  atload'alias vdy=viddy -d --shell zsh'
-zinit light sachaos/viddy
 
 # git extras 
 zinit lucid wait'0a' for \
@@ -241,3 +219,5 @@ export FZF_ALT_C_OPTS='--preview="exa -1 --icons --git --git-ignore {}" --previe
 
 # Other sources
 source $ZDOTDIR/aliases.zsh
+source $ZDOTDIR/bindings.zsh
+
