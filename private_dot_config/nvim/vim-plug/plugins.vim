@@ -25,6 +25,7 @@ Plug 'taohexxx/lightline-buffer'
 if has("nvim-0.5")
   " LSP
   Plug 'neovim/nvim-lspconfig'
+  Plug 'williamboman/nvim-lsp-installer'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-telescope/telescope-fzf-native.nvim'
