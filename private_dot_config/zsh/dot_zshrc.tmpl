@@ -27,9 +27,9 @@ ZINIT[ZCOMPDUMP_PATH]="${XDG_CACHE_HOME}/zsh/zcompdump-${ZSH_VERSION}"
 ZINIT[COMPINIT_OPTS]='-C'
 
 if [[ ! -f ${ZINIT[HOME_DIR]}/bin/zinit.zsh ]]; then
-  print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
+  print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
   command mkdir -p "${XDG_DATA_HOME}/zinit" && command chmod g-rwX "${XDG_DATA_HOME}/zinit"
-  command git clone https://github.com/zdharma/zinit "${XDG_DATA_HOME}/zinit/bin" && \
+  command git clone https://github.com/zdharma-continuum/zinit "${XDG_DATA_HOME}/zinit/bin" && \
     print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
     print -P "%F{160}▓▒░ The clone has failed.%f%b"
 fi
@@ -40,9 +40,9 @@ autoload -Uz _zinit
 
 # Install some zinit helpers
 zinit wait lucid light-mode for \
-  zinit-zsh/z-a-rust \
-  zinit-zsh/z-a-as-monitor \
-  zinit-zsh/z-a-bin-gem-node
+  zdharma-continuum/z-a-rust \
+  zdharma-continuum/z-a-as-monitor \
+  zdharma-continuum/z-a-bin-gem-node
 
 zinit lucid for \
   'OMZ::lib/key-bindings.zsh' \
@@ -52,8 +52,8 @@ zinit lucid for \
 zinit wait lucid for \
   atload'_zsh_autosuggest_start' zsh-users/zsh-autosuggestions \
   zsh-users/zsh-history-substring-search \
-  zdharma/history-search-multi-word \
-  atinit'zpcompinit; zpcdreplay' zdharma/fast-syntax-highlighting \
+  zdharma-continuum/history-search-multi-word \
+  atinit'zpcompinit; zpcdreplay' zdharma-continuum/fast-syntax-highlighting \
   MichaelAquilina/zsh-history-filter
 
 # Load starship theme
@@ -74,6 +74,12 @@ zinit light mdarocha/zsh-windows-title
 #
 # Local app installation
 #
+
+zinit ice wait"2" as"command" from"gh-r" lucid \
+  mv"zoxide*/zoxide -> zoxide" \
+  atclone"./zoxide init zsh > init.zsh" \
+  atpull"%atclone" src"init.zsh" nocompile'!'
+zinit light ajeetdsouza/zoxide
 
 # krew - kubectl plugin manager
 zinit from'gh-r' as'program' mv'krew* -> krew' \

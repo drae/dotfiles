@@ -33,6 +33,8 @@ if has("nvim-0.5")
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/nvim-cmp'
+
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 else
   " LSP
   Plug 'dense-analysis/ale'
