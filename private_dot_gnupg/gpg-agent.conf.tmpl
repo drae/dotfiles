@@ -1,5 +1,9 @@
+default-cache-ttl 34560000
+max-cache-ttl 34560000
+enable-putty-support
+enable-ssh-agent
 {{- if (eq .chezmoi.os "linux") -}}
-  {{- if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
+  {{if (.chezmoi.kernel.osrelease | lower | contains "microsoft")}}
 pinentry-program {{ .chezmoi.homeDir }}/.gnupg/pinentry.exe
   {{- end }}
 {{- else -}}
