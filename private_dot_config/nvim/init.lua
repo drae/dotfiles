@@ -1,23 +1,17 @@
-require "user.options"
-require "user.keymaps"
-require "user.plugins"
-require "user.colorscheme"
-require "user.cmp"
-require "user.lsp"
-require "user.telescope"
-require "user.treesitter"
-require "user.autopairs"
-require "user.comment"
-require "user.gitsigns"
-require "user.nvim-tree"
-require "user.bufferline"
-require "user.lualine"
-require "user.toggleterm"
-require "user.project"
-require "user.impatient"
-require "user.indentline"
-require "user.alpha"
-require "user.whichkey"
-require "user.autocommands"
-require "user.colorizer"
-require "user.closetag"
+if vim.fn.has('nvim-0.6') == 0 then
+  error('Need NVIM 0.6 in order to run Cosmic!!')
+end
+
+do
+  local ok, _ = pcall(require, 'impatient')
+
+  if not ok then
+    vim.notify('impatient.nvim not installed', vim.log.levels.WARN)
+  end
+end
+
+local ok, err = pcall(require, 'cosmic')
+
+if not ok then
+  error(('Error loading core...\n\n%s'):format(err))
+end
