@@ -260,6 +260,13 @@ return packer.startup(function()
     disable = vim.tbl_contains(user_plugins.disable, 'colorizer'),
   })
 
+  use({
+    "lukas-reineke/indent-blankline.nvim",
+    config = function()
+      require('cosmic.plugins.indent-blankline')
+    end,
+  })
+
   if user_plugins.add and not vim.tbl_isempty(user_plugins.add) then
     for _, plugin in pairs(user_plugins.add) do
       use(plugin)

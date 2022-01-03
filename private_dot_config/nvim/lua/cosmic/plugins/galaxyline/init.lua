@@ -358,25 +358,10 @@ gls.right = {
           return
         end
 
-        return '  (' .. client_str .. ')'
+        return '  (' .. client_str .. ') '
       end,
       highlight = 'GalaxyViModeInv',
       condition = check_buffer_and_width,
-    },
-  },
-  {
-    LSPStatusArrow = {
-      provider = BracketProvider('  ' .. icons.arrow_left, true),
-      highlight = 'GalaxyViModeInv',
-      condition = check_buffer_and_width,
-    },
-  },
-  {
-    GitRoot = {
-      provider = get_git_root,
-      condition = check_buffer_and_width,
-      icon = '  ' .. icons.file .. ' ',
-      highlight = 'GalaxyViModeInv',
     },
   },
   -- Editor info
