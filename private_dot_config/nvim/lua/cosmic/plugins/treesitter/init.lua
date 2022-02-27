@@ -1,5 +1,5 @@
-local config = require('cosmic.config')
-local utils = require('cosmic.utils')
+local config = require('cosmic.core.user')
+local u = require('cosmic.utils')
 
 local defaults = {
   ensure_installed = {
@@ -23,9 +23,6 @@ local defaults = {
   indent = {
     enable = true,
   },
-  rainbow = {
-    enable = true,
-  },
   autotag = {
     enable = true,
   },
@@ -39,4 +36,4 @@ local defaults = {
   },
 }
 
-require('nvim-treesitter.configs').setup(utils.merge(defaults, config.treesitter or {}))
+require('nvim-treesitter.configs').setup(u.merge(defaults, config.treesitter or {}))

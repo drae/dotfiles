@@ -1,6 +1,6 @@
-local utils = require('cosmic.utils')
+local u = require('cosmic.utils')
 local icons = require('cosmic.theme.icons')
-local config = require('cosmic.config')
+local config = require('cosmic.core.user')
 
 -- set up LSP signs
 local signs = {
@@ -17,7 +17,7 @@ end
 
 -- set up vim.diagnostics
 -- vim.diagnostic.config opts
-vim.diagnostic.config(utils.merge({
+vim.diagnostic.config(u.merge({
   underline = true,
   signs = true,
   update_in_insert = false,

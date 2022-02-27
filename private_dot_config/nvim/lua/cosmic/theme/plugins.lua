@@ -32,6 +32,13 @@ function M.init(use, config)
     config = function()
       local catppuccin = require('catppuccin')
       catppuccin.setup({
+        styles = {
+          comments = 'italic',
+          functions = 'NONE',
+          keywords = 'NONE',
+          strings = 'NONE',
+          variables = 'NONE',
+        },
         integrations = {
           gitsigns = true,
           telescope = true,
@@ -110,6 +117,20 @@ function M.init(use, config)
     as = 'enfocado',
     config = function()
       vim.g.enfocado_style = 'nature'
+      vim.g.enfocado_plugins = {
+        'cmp',
+        'dashboard',
+        'floaterm',
+        'gitsigns',
+        'lsp',
+        'lsp-installer',
+        'notify',
+        'packer',
+        'telescope',
+        'todo-comments',
+        'tree',
+        'treesitter',
+      }
       vim.cmd('autocmd VimEnter * ++nested colorscheme enfocado')
     end,
     disable = config.theme ~= 'enfocado',

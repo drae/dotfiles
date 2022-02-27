@@ -26,9 +26,6 @@ export ZSH_CACHE_DIR=$XDG_CACHE_HOME/zsh
 export GOPATH=$HOME/go
 export GOROOT=$XDG_DATA_HOME/golang
 
-# Volta - node/npm management
-export VOLTA_HOME="$HOME/.volta"
-
 {{- if (eq .chezmoi.os "linux") -}}
   {{- if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
 export USERPROFILE=$(wslpath "$(wslvar USERPROFILE)")
@@ -52,8 +49,14 @@ if [ -d "$HOME/go/bin" ] ; then
     PATH="$HOME/go/bin:$PATH"
 fi
 
-export PATH=${VOLTA_HOME:-$HOME/.volta}/bin:${KREW_ROOT:-$HOME/.krew}/bin:$PATH
+# set PATH so it includes .krew if it exists
+if [ -d "$HOME/.krew" ] ; then
+    PATH="$HOME/.krew/bin:$PATH"
+fi
+
+{{ if eq .chezmoi.os "linux" }}
 export MANPATH=$(manpath -g):$XDG_DATA_HOME/man
+{{- end -}}
 
 # Set umask to user and group rw(x)
 umask 022

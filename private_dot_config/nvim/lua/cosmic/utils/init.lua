@@ -16,6 +16,13 @@ function M.buf_map(bufnr, mode, lhs, rhs, opts)
   vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, options)
 end
 
+function M.merge_list(tbl1, tbl2)
+  for _, v in ipairs(tbl2) do
+    table.insert(tbl1, v)
+  end
+  return tbl1
+end
+
 function M.merge(...)
   return vim.tbl_deep_extend('force', ...)
 end
@@ -77,7 +84,7 @@ end
 function M.reload_user_config_sync()
   M.reload_user_config()
   clear_cache()
-  unload('cosmic.config', true)
+  unload('cosmic.core.user', true)
   unload('cosmic.core.pluginsInit', true)
   vim.cmd([[autocmd User PackerCompileDone ++once lua require('cosmic.utils').post_reload()]])
   vim.cmd(':PackerSync')
@@ -85,7 +92,7 @@ end
 
 function M.reload_user_config(compile)
   compile = compile or false
-  unload('cosmic.config', true)
+  unload('cosmic.core.user', true)
   if compile then
     vim.cmd([[autocmd User PackerCompileDone ++once lua require('cosmic.utils').post_reload()]])
     vim.cmd(':PackerCompile')

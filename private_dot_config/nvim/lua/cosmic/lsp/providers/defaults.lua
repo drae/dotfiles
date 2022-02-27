@@ -1,4 +1,4 @@
-local config = require('cosmic.config')
+local config = require('cosmic.core.user')
 local M = {}
 
 local auto_format_lock = false
@@ -28,7 +28,7 @@ function M.on_attach(client, bufnr)
       vim.cmd(([[
           augroup CosmicFormat
           autocmd!
-          autocmd BufWritePre %s lua vim.lsp.buf.formatting_sync(nil, 2000)
+          autocmd BufWritePre %s lua vim.lsp.buf.formatting_sync(nil, 3000)
           augroup end
         ]]):format(format_filetypes))
     end
@@ -57,6 +57,6 @@ end
 
 M.autostart = true
 
-M.single_file_mode = true
+M.single_file_support = true
 
 return M

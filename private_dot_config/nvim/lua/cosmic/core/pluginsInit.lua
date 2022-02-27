@@ -1,28 +1,7 @@
-local present, cosmic_packer = pcall(require, 'cosmic.packer')
-
-if not present then
-  return false
-end
-
+local user_config = require('cosmic.core.user')
+local cosmic_packer = require('cosmic.packer')
 local packer = cosmic_packer.packer
 local use = packer.use
-
-local ok, user_plugins = pcall(require, 'cosmic.config.plugins')
-if not ok then
-  user_plugins = {
-    add = {},
-    disable = {},
-  }
-end
-
-if not vim.tbl_islist(user_plugins.add) then
-  user_plugins.add = {}
-end
-if not vim.tbl_islist(user_plugins.disable) then
-  user_plugins.disable = {}
-end
-
-local config = require('cosmic.config')
 
 return packer.startup(function()
   use({
@@ -33,15 +12,15 @@ return packer.startup(function()
   })
 
   -- initialize theme plugins
-  require('cosmic.theme.plugins').init(use, config)
+  require('cosmic.theme.plugins').init(use, user_config)
 
   use({
     'rcarriga/nvim-notify',
     config = function()
       require('cosmic.plugins.notify')
     end,
-    after = config.theme,
-    disable = vim.tbl_contains(user_plugins.disable, 'notify'),
+    after = user_config.theme,
+    disable = vim.tbl_contains(user_config.disable_builtin_plugins, 'notify'),
   })
 
   -- theme stuff
@@ -52,8 +31,8 @@ return packer.startup(function()
     config = function()
       require('cosmic.plugins.galaxyline')
     end,
-    after = config.theme,
-    disable = vim.tbl_contains(user_plugins.disable, 'statusline'),
+    after = user_config.theme,
+    disable = vim.tbl_contains(user_config.disable_builtin_plugins, 'galaxyline'),
   })
 
   -- file explorer
@@ -61,9 +40,7 @@ return packer.startup(function()
     'kyazdani42/nvim-tree.lua',
     config = function()
       require('cosmic.plugins.nvim-tree')
-      require('cosmic.plugins.nvim-tree.mappings')
     end,
-    opt = true,
     cmd = {
       'NvimTreeClipboard',
       'NvimTreeClose',
@@ -72,7 +49,7 @@ return packer.startup(function()
       'NvimTreeRefresh',
       'NvimTreeToggle',
     },
-    disable = vim.tbl_contains(user_plugins.disable, 'nvim-tree'),
+    disable = vim.tbl_contains(user_config.disable_builtin_plugins, 'nvim-tree'),
   })
 
   use({
@@ -99,7 +76,7 @@ return packer.startup(function()
         config = function()
           require('cosmic.lsp.providers.null_ls')
         end,
-        disable = vim.tbl_contains(user_plugins.disable, 'null-ls'),
+        disable = vim.tbl_contains(user_config.disable_builtin_plugins, 'null-ls'),
         after = 'nvim-lspconfig',
       },
       {
@@ -108,7 +85,7 @@ return packer.startup(function()
           require('cosmic.plugins.lsp-signature')
         end,
         after = 'nvim-lspconfig',
-        disable = vim.tbl_contains(user_plugins.disable, 'lsp_signature'),
+        disable = vim.tbl_contains(user_config.disable_builtin_plugins, 'lsp_signature'),
       },
     },
   })
@@ -143,7 +120,7 @@ return packer.startup(function()
       },
     },
     event = 'InsertEnter',
-    disable = vim.tbl_contains(user_plugins.disable, 'autocomplete'),
+    disable = vim.tbl_contains(user_config.disable_builtin_plugins, 'nvim-cmp'),
   })
 
   -- git commands
@@ -151,7 +128,7 @@ return packer.startup(function()
     'tpope/vim-fugitive',
     opt = true,
     cmd = 'Git',
-    disable = vim.tbl_contains(user_plugins.disable, 'fugitive'),
+    disable = vim.tbl_contains(user_config.disable_builtin_plugins, 'fugitive'),
   })
 
   -- git column signs
@@ -163,7 +140,7 @@ return packer.startup(function()
     config = function()
       require('cosmic.plugins.gitsigns')
     end,
-    disable = vim.tbl_contains(user_plugins.disable, 'gitsigns'),
+    disable = vim.tbl_contains(user_config.disable_builtin_plugins, 'gitsigns'),
   })
 
   -- floating terminal
@@ -173,9 +150,8 @@ return packer.startup(function()
     event = 'BufWinEnter',
     config = function()
       require('cosmic.plugins.terminal')
-      require('cosmic.plugins.terminal.mappings')
     end,
-    disable = vim.tbl_contains(user_plugins.disable, 'terminal'),
+    disable = vim.tbl_contains(user_config.disable_builtin_plugins, 'terminal'),
   })
 
   -- file navigation
@@ -194,7 +170,7 @@ return packer.startup(function()
       require('cosmic.plugins.telescope')
     end,
     event = 'BufWinEnter',
-    disable = vim.tbl_contains(user_plugins.disable, 'telescope'),
+    disable = vim.tbl_contains(user_config.disable_builtin_plugins, 'telescope'),
   })
 
   -- session/project management
@@ -203,16 +179,15 @@ return packer.startup(function()
     config = function()
       require('cosmic.plugins.dashboard')
     end,
-    disable = vim.tbl_contains(user_plugins.disable, 'dashboard'),
+    disable = vim.tbl_contains(user_config.disable_builtin_plugins, 'dashboard'),
   })
 
   use({
     'rmagatti/auto-session',
     config = function()
       require('cosmic.plugins.auto-session')
-      require('cosmic.plugins.auto-session.mappings')
     end,
-    disable = vim.tbl_contains(user_plugins.disable, 'auto-session'),
+    disable = vim.tbl_contains(user_config.disable_builtin_plugins, 'auto-session'),
   })
 
   -- lang/syntax stuff
@@ -227,7 +202,7 @@ return packer.startup(function()
     config = function()
       require('cosmic.plugins.treesitter')
     end,
-    disable = vim.tbl_contains(user_plugins.disable, 'treesitter'),
+    disable = vim.tbl_contains(user_config.disable_builtin_plugins, 'treesitter'),
   })
 
   -- comments and stuff
@@ -237,6 +212,7 @@ return packer.startup(function()
       require('cosmic.plugins.comments')
     end,
     event = 'BufWinEnter',
+    disable = vim.tbl_contains(user_config.disable_builtin_plugins, 'comment-nvim'),
   })
 
   -- todo highlights
@@ -247,7 +223,7 @@ return packer.startup(function()
       require('cosmic.plugins.todo-comments')
     end,
     event = 'BufWinEnter',
-    disable = vim.tbl_contains(user_plugins.disable, 'todo-comments'),
+    disable = vim.tbl_contains(user_config.disable_builtin_plugins, 'todo-comments'),
   })
   -- colorized hex codes
   use({
@@ -257,18 +233,11 @@ return packer.startup(function()
     config = function()
       require('colorizer').setup()
     end,
-    disable = vim.tbl_contains(user_plugins.disable, 'colorizer'),
+    disable = vim.tbl_contains(user_config.disable_builtin_plugins, 'colorizer'),
   })
 
-  use({
-    "lukas-reineke/indent-blankline.nvim",
-    config = function()
-      require('cosmic.plugins.indent-blankline')
-    end,
-  })
-
-  if user_plugins.add and not vim.tbl_isempty(user_plugins.add) then
-    for _, plugin in pairs(user_plugins.add) do
+  if user_config.add_plugins and not vim.tbl_isempty(user_config.add_plugins) then
+    for _, plugin in pairs(user_config.add_plugins) do
       use(plugin)
     end
   end
