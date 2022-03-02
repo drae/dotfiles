@@ -56,7 +56,7 @@ fi
 
 {{ if eq .chezmoi.os "linux" }}
 export MANPATH=$(manpath -g):$XDG_DATA_HOME/man
-{{- end -}}
+{{ end }}
 
 # Set umask to user and group rw(x)
 umask 022
