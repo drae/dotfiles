@@ -10,7 +10,11 @@ setopt inc_append_history
 setopt share_history
 setopt combining_chars
 
-# Support Windows Terminal duplication 
+# Turn off error beep
+unsetopt BEEP
+# unsetopt LIST_BEEP
+
+# Support Windows Terminal duplication
 {{ if (eq .chezmoi.os "linux") }}
   {{ if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
     set_wt_cwd() { printf "\e]9;9;%s\e\\" "$(wslpath -m "$PWD")" }
@@ -47,7 +51,7 @@ zinit wait lucid light-mode for \
 zinit lucid for \
   'OMZ::lib/key-bindings.zsh' \
   'OMZ::lib/completion.zsh' \
-  'OMZ::plugins/kubectl/kubectl.plugin.zsh' 
+  'OMZ::plugins/kubectl/kubectl.plugin.zsh'
 
 zinit wait lucid for \
   atload'_zsh_autosuggest_start' zsh-users/zsh-autosuggestions \
@@ -145,7 +149,7 @@ zinit light cli/cli
 zinit ice lucid as'command' from'gh-r' pick 'k9s'
 zinit light derailed/k9s
 
-# git extras 
+# git extras
 zinit lucid wait'0a' for \
   as"program" pick"$ZPFX/bin/git-*" src"etc/git-extras-completion.zsh" make"PREFIX=$ZPFX" tj/git-extras
 
