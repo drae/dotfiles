@@ -121,6 +121,12 @@ zinit from"gh-r" as"program" mv"direnv* -> direnv" \
   pick"direnv" src="zhook.zsh" for \
     direnv/direnv
 
+# Task
+zinit ice as'program' id-as'task' from'gh-r' mv'usr/bin/task* -> task'
+zinit light go-task/task
+zinit ice as"completion"
+zinit snippet https://github.com/go-task/task/blob/master/completion/zsh/_task
+
 # Sharkdp's find and cat replacements
 zinit ice as'program' id-as'fd' from'gh-r' mv'fd* -> fd' cp'fd/autocomplete/_fd -> _fd' pick'fd/fd'
 zinit light sharkdp/fd
