@@ -2,8 +2,6 @@ default-cache-ttl 34560000
 max-cache-ttl 34560000
 {{- if (eq .chezmoi.os "linux") -}}
   {{if (.chezmoi.kernel.osrelease | lower | contains "microsoft")}}
-enable-ssh-agent
-enable-putty-support
 pinentry-program {{ .chezmoi.homeDir }}/.gnupg/pinentry.exe
   {{- end }}
 {{- else if eq .chezmoi.os "darwin" -}}
