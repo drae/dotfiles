@@ -1,18 +1,24 @@
 #!/usr/bin/env zsh
 # vim: ft=zsh ts=2 sw=2
 
-setopt extended_history
-setopt hist_expire_dups_first
-setopt hist_ignore_dups
-setopt hist_ignore_space
-setopt hist_verify
-setopt inc_append_history
-setopt share_history
-setopt combining_chars
-
-# Turn off error beep
+setopt extended_history       # record timestamp of command in HISTFILE
+setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
+setopt hist_ignore_all_dups   # ignore duplicated commands history list
+setopt hist_ignore_space      # ignore commands that start with space
+setopt hist_verify            # show command with history expansion to user before running it
+setopt inc_append_history     # add commands to HISTFILE in order of execution
+setopt share_history          # share command history data
+setopt always_to_end          # cursor moved to the end in full completion
+setopt hash_list_all          # hash everything before completion
+setopt always_to_end          # when completing from the middle of a word, move the cursor to the end of the word
+setopt complete_in_word       # allow completion from within a word/phrase
+setopt nocorrect                # spelling correction for commands
+setopt list_ambiguous         # complete as much of a completion until it gets ambiguous.
+setopt nolisttypes
+setopt listpacked
+setopt automenu
 unsetopt BEEP
-# unsetopt LIST_BEEP
+setopt vi
 
 # Support Windows Terminal duplication
 {{ if (eq .chezmoi.os "linux") }}
@@ -22,9 +28,13 @@ unsetopt BEEP
   {{ end }}
 {{ end }}
 
+
+#
 #
 # zinit
 #
+#
+
 declare -A ZINIT
 ZINIT[HOME_DIR]="${XDG_DATA_HOME}/zinit"
 ZINIT[ZCOMPDUMP_PATH]="${XDG_CACHE_HOME}/zsh/zcompdump-${ZSH_VERSION}"
@@ -48,17 +58,16 @@ zinit wait lucid light-mode for \
   zdharma-continuum/z-a-as-monitor \
   zdharma-continuum/z-a-bin-gem-node
 
-zinit lucid for \
-  'OMZ::lib/key-bindings.zsh' \
-  'OMZ::lib/completion.zsh' \
-  'OMZ::plugins/kubectl/kubectl.plugin.zsh'
-
 zinit wait lucid for \
   atload'_zsh_autosuggest_start' zsh-users/zsh-autosuggestions \
   zsh-users/zsh-history-substring-search \
   zdharma-continuum/history-search-multi-word \
   atinit'zpcompinit; zpcdreplay' zdharma-continuum/fast-syntax-highlighting \
   MichaelAquilina/zsh-history-filter
+
+# tab completition
+zinit ice wait="0b" lucid blockf
+zinit light zsh-users/zsh-completions
 
 # Load starship theme
 zinit ice as"command" from"gh-r" atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" atpull"%atclone" src"init.zsh"
@@ -70,40 +79,39 @@ zinit light djui/alias-tips
 # Window title support
 zinit light mdarocha/zsh-windows-title
 
-#zinit ice atclone"dircolors -b LS_COLORS > clrs.zsh" \
-#    atpull'%atclone' pick"clrs.zsh" nocompile'!' \
-#    atload'zstyle ":completion:*" list-colors ${(s.:.)LS_COLORS}'
-#zinit light trapd00r/LS_COLORS
+# Start ssh-agent with shell
+zinit light bobsoppe/zsh-ssh-agent
 
 #
-# Local app installation
+# CLI apps
 #
 
-zinit ice wait"2" as"command" from"gh-r" lucid \
-  mv"zoxide*/zoxide -> zoxide" \
-  atclone"./zoxide init zsh > init.zsh" \
-  atpull"%atclone" src"init.zsh" nocompile'!'
-zinit light ajeetdsouza/zoxide
+# enhancd
+#zinit ice wait="0b" lucid
+#zinit light b4b4r07/enhancd
+#export ENHANCD_FILTER=fzf:fzy:peco
 
-# krew - kubectl plugin manager
-zinit from'gh-r' as'program' mv'krew* -> krew' \
-  atclone'./krew install krew' atpull'%atclone' \
-  pick'krew' for \
-    kubernetes-sigs/krew
+# fd
+zinit ice as'program' id-as'fd' from'gh-r' mv'fd* -> fd' cp'fd/autocomplete/_fd -> _fd' pick'fd/fd'
+zinit light sharkdp/fd
 
-# fluxctl
-zinit from'gh-r' as'program' \
-  atclone'./flux completion zsh > _flux' atpull'%atclone' \
-  pick'flux' src="_flux" for \
-    fluxcd/flux2
+# ripgrep
+zinit ice from'gh-r' as'program' id-as'rg' mv'ripgrep* -> rg' cp'rg/complete/_rg -> _rg' pick'rg/rg'
+zinit light BurntSushi/ripgrep
 
-# g - Go version manager
-zinit as'program' mv'*/g -> g' \
-  atclone'./g install latest' atpull'%atclone' \
-  pick'g' for \
-    stefanmaric/g
+# bat (cat replacement)
+zinit ice as'program' id-as'bat' from'gh-r' mv'bat* -> bat' cp'bat/autocomplete/bat.zsh -> _bat' pick'bat/bat' atload'alias cat=bat'
+zinit light sharkdp/bat
 
-# FZF
+# bat-extras
+zinit ice lucid wait="1" as="program" pick="src/batgrep.sh"
+zinit ice lucid wait="1" as="program" pick="src/batdiff.sh"
+zinit light eth-p/bat-extras
+alias rg=batgrep.sh
+alias bd=batdiff.sh
+alias man=batman.sh
+
+# fzf
 zinit ice lucid wait'0b' from'gh-r' as'program'
 zinit light junegunn/fzf
 zinit ice lucid wait'0c' as'command' pick'bin/fzf-tmux'
@@ -111,100 +119,8 @@ zinit light junegunn/fzf
 zinit ice lucid wait'0c' multisrc'shell/{completion,key-bindings}.zsh' id-as'junegunn/fzf_completions' pick'/dev/null'
 zinit light junegunn/fzf
 
-# FZF-TAB
 zinit ice wait'1' lucid
 zinit light Aloxaf/fzf-tab
-
-# direnv
-zinit from"gh-r" as"program" mv"direnv* -> direnv" \
-  atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' \
-  pick"direnv" src="zhook.zsh" for \
-    direnv/direnv
-
-# Task
-zinit ice as'program' id-as'task' from'gh-r' mv'usr/bin/task* -> task'
-zinit light go-task/task
-zinit ice as"completion"
-zinit snippet https://github.com/go-task/task/blob/master/completion/zsh/_task
-
-# Sharkdp's find and cat replacements
-zinit ice as'program' id-as'fd' from'gh-r' mv'fd* -> fd' cp'fd/autocomplete/_fd -> _fd' pick'fd/fd'
-zinit light sharkdp/fd
-zinit ice as'program' id-as'bat' from'gh-r' mv'bat* -> bat' cp'bat/autocomplete/bat.zsh -> _bat' pick'bat/bat' atload'alias cat=bat'
-zinit light sharkdp/bat
-
-# ripgrep
-zinit ice from'gh-r' as'program' id-as'rg' mv'ripgrep* -> rg' cp'rg/complete/_rg -> _rg' pick'rg/rg'
-zinit light BurntSushi/ripgrep
-
-# exa
-zinit ice wait'2' lucid id-as'exa' from'gh-r' as'program' mv'bin/exa* -> exa' cp'completions/exa.zsh -> _exa'
-zinit light ogham/exa
-zinit ice wait blockf atpull'zinit creinstall -q .'
-
-# yq
-zinit ice lucid wait'0' as'program' id-as'yq' from'gh-r' mv'yq_* -> yq' \
- atclone'yq shell-completion zsh > _yq' atpull'%atclone'
-zinit light mikefarah/yq
-
-# github cli
-zinit ice lucid as'command' from'gh-r' atclone'./gh completion -s zsh > _gh' atpull'%atclone' mv'**/bin/gh* -> gh' pick'usr/bin/gh'
-zinit light cli/cli
-
-# k9s
-zinit ice lucid as'command' from'gh-r' pick 'k9s'
-zinit light derailed/k9s
-
-# git extras
-zinit lucid wait'0a' for \
-  as"program" pick"$ZPFX/bin/git-*" src"etc/git-extras-completion.zsh" make"PREFIX=$ZPFX" tj/git-extras
-
-# delta - git pager
-zinit from"gh-r" as"command" mv"delta* -> delta" \
-  pick"delta/delta" for \
-    dandavison/delta
-
-# procs (modern replacement for ps written in rust)
-zinit wait'1' lucid \
-  from'gh-r' as'program' \
-  atload'alias ps=procs' \
-  mv'**/procs -> procs' \
-  pick'procs' \
-  light-mode for \
-    @dalance/procs
-
-# cheat.sh
-zinit wait'2a' lucid \
-  id-as'cht.sh' \
-  as'program' for \
-    https://cht.sh/:cht.sh
-zinit wait'2b' lucid \
-  id-as'cht-completion' \
-  has'rlwrap' \
-  mv'cht* -> _cht' \
-  as'completion' for \
-    https://cheat.sh/:zsh
-
-# cheat
-zinit wait'2a' lucid \
-  id-as'cheat' \
-  from'gh-r' \
-  mv'cheat* -> cheat' \
-  pick'cheat' \
-  as'program' \
-  for @cheat/cheat
-zinit wait'2b' lucid \
-  id-as'cheat-completion' \
-  mv'cheat* -> _cheat' \
-  as'completion' \
-  for https://github.com/cheat/cheat/blob/master/scripts/cheat.zsh
-
-# Start ssh-agent with shell
-zinit light bobsoppe/zsh-ssh-agent
-
-#
-# FZF options
-#
 
 # Use fd instead of find for file completion
 _fzf_compgen_path() {
@@ -226,6 +142,152 @@ export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
 export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
-# Other sources
-source $ZDOTDIR/aliases.zsh
-source $ZDOTDIR/bindings.zsh
+# dog - DNS lookups
+zinit ice lucid from'gh-r' as'program'
+zinit light ogham/dog
+
+# direnv
+zinit from"gh-r" as"program" mv"direnv* -> direnv" \
+  atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' \
+  pick"direnv" src="zhook.zsh" for \
+    direnv/direnv
+
+# task
+zinit ice as'program' id-as'task' from'gh-r' mv'usr/bin/task* -> task'
+zinit light go-task/task
+zinit ice as"completion"
+zinit snippet https://github.com/go-task/task/blob/master/completion/zsh/_task
+
+# prettyping
+zinit ice lucid wait="" as="program" pick="prettyping" atload="alias ping=prettyping"
+zinit load denilsonsa/prettyping
+
+# dust - du replacement
+zinit ice wait="2" lucid from="gh-r" as="program" bpick="*amd64.deb" pick="usr/bin/dust" atload="alias du=dust"
+zinit light bootandy/dust
+
+# dug - replacement for duf
+zinit ice lucid wait="0" as="program" from="gh-r" bpick='*linux_amd64.deb' pick="usr/bin/duf" atload="alias df=duf"
+zinit light muesli/duf
+
+#
+# Programming / Languages / Editors
+#
+
+zinit light-mode for \
+    reegnz/jq-zsh-plugin
+
+# neovim - nightly build
+zinit ice from="gh-r" as="program" bpick="*linux64.deb" ver="nightly" pick="usr/bin/nvim"
+zinit light neovim/neovim
+
+# asdf - build tool manager - https://github.com/asdf-vm/asdf
+zinit ice lucid wait="0" pick="asdf.sh"
+zinit light asdf-vm/asdf
+
+# github cli
+zinit ice lucid as'command' from'gh-r' atclone'./gh completion -s zsh > _gh' atpull'%atclone' mv'**/bin/gh* -> gh' pick'usr/bin/gh'
+zinit light cli/cli
+
+# git extras
+zinit lucid wait'0a' for \
+  as"program" pick"$ZPFX/bin/git-*" src"etc/git-extras-completion.zsh" make"PREFIX=$ZPFX" tj/git-extras
+
+# forgit - https://github.com/wfxr/forgit
+zinit ice wait lucid
+zinit load wfxr/forgit
+
+# lazygit
+zinit ice lucid wait="0" as="program" from="gh-r" bpick="*Linux_x86_64*" pick="lazygit" atload="alias lg='lazygit'"
+zinit light jesseduffield/lazygit
+
+# code-minimap
+zinit ice lucid wait="0" as="program" from="gh-r" bpick='*amd64.deb' pick="usr/bin/code-minimap"
+zinit light wfxr/code-minimap
+
+# delta - git pager
+zinit from"gh-r" as"command" mv"delta* -> delta" \
+  pick"delta/delta" for \
+    dandavison/delta
+
+# yq
+zinit ice lucid wait'0' as'program' id-as'yq' from'gh-r' mv'yq_* -> yq' \
+  atclone'yq shell-completion zsh > _yq' atpull'%atclone'
+zinit light mikefarah/yq
+
+# glow - cli based md reader
+zinit ice lucid wait"0" as"program" from"gh-r" bpick='*linux_amd64.deb' pick"usr/bin/glow"
+zinit light charmbracelet/glow
+
+#
+# Kubernetes
+#
+
+# fluxctl
+zinit from'gh-r' as'program' \
+  atclone'./flux completion zsh > _flux' atpull'%atclone' \
+  pick'flux' src="_flux" for \
+    fluxcd/flux2
+
+# k9s
+zinit ice lucid as'command' from'gh-r' pick 'k9s'
+zinit light derailed/k9s
+
+# krew - kubectl plugin manager
+zinit from'gh-r' as'program' mv'krew* -> krew' \
+  atclone'./krew install krew' atpull'%atclone' \
+  pick'krew' for \
+    kubernetes-sigs/krew
+
+#
+# Auto-completions - from ohmyzsh
+#
+
+zinit lucid for \
+  'OMZ::lib/key-bindings.zsh' \
+  'OMZ::lib/compfix.zsh' \
+  'OMZ::lib/completion.zsh' \
+  'OMZ::lib/correction.zsh' \
+  'OMZ::lib/directories.zsh' \
+  'OMZ::lib/grep.zsh' \
+  'OMZ::plugins/kubectl/kubectl.plugin.zsh'
+
+
+#
+#
+# Bindings
+#
+#
+
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+
+# vim of above
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+
+
+#
+#
+# Aliases
+#
+#
+{{ if (eq .chezmoi.os "linux") }}
+  alias ll='ls -alh --color=auto --group-directories-first'
+  alias ls='ls --color=auto --group-directories-first'
+{{ else if (eq .chezmoi.os "darwin" ) }}
+  alias ll='ls -alGh'
+  alias ls='ls -Gh'
+{{ end }}
+
+alias asi='apt-cache pkgnames | fzf --header "[apt:install]" | xargs -d " " -- sudo apt-get install'
+alias grep='grep  --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
+alias kc='kubecolor'
+alias tmux='TERM=xterm-256color tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf'
+alias vi='nvim'
+alias vim='nvim'
+alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
+
+# Suffix aliases
+alias -s {yml,yaml,json,conf,ini,zsh}=vim
+

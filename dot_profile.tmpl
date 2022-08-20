@@ -42,7 +42,6 @@ export ZSH_CACHE_DIR=$XDG_CACHE_HOME/zsh
 
 # Other stuff
 export GOPATH=$HOME/go
-export VOLTA_HOME="$HOME/.volta"
 
 {{- if (eq .chezmoi.os "linux") }}
   {{- if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
