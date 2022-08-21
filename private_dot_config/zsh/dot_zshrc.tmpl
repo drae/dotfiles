@@ -86,10 +86,14 @@ zinit light bobsoppe/zsh-ssh-agent
 # CLI apps
 #
 
+# manydots magic
+zinit ice depth"1" wait lucid pick"manydots-magic" compile"manydots-magic"
+zinit light knu/zsh-manydots-magic
+
 # enhancd
-#zinit ice wait="0b" lucid
-#zinit light b4b4r07/enhancd
-#export ENHANCD_FILTER=fzf:fzy:peco
+zinit ice wait="0b" lucid
+zinit light b4b4r07/enhancd
+export ENHANCD_FILTER=fzf:fzy:peco
 
 # fd
 zinit ice as'program' id-as'fd' from'gh-r' mv'fd* -> fd' cp'fd/autocomplete/_fd -> _fd' pick'fd/fd'
@@ -248,7 +252,6 @@ zinit lucid for \
   'OMZ::lib/compfix.zsh' \
   'OMZ::lib/completion.zsh' \
   'OMZ::lib/correction.zsh' \
-  'OMZ::lib/directories.zsh' \
   'OMZ::lib/grep.zsh' \
   'OMZ::plugins/kubectl/kubectl.plugin.zsh'
 
@@ -283,7 +286,6 @@ bindkey -M vicmd 'j' history-substring-search-down
 alias asi='apt-cache pkgnames | fzf --header "[apt:install]" | xargs -d " " -- sudo apt-get install'
 alias grep='grep  --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 alias kc='kubecolor'
-alias tmux='TERM=xterm-256color tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf'
 alias vi='nvim'
 alias vim='nvim'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'

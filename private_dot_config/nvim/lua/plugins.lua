@@ -119,7 +119,8 @@ return require('packer').startup(function(use)
   use { 'tpope/vim-dadbod' }
   use { 'tpope/vim-jdaddy' }
   use { 'tpope/vim-fugitive' }
-  
+  use { 'tpope/vim-obsession' }
+
   -- Folke
   use { 'folke/trouble.nvim' }
   use { 'folke/todo-comments.nvim', config = lua_path"todo-comments" }
