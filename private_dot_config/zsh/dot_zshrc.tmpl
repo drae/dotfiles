@@ -219,6 +219,10 @@ zinit ice lucid wait'0' as'program' id-as'yq' from'gh-r' mv'yq_* -> yq' \
   atclone'yq shell-completion zsh > _yq' atpull'%atclone'
 zinit light mikefarah/yq
 
+# gojq
+zinit ice lucid wait'0' as'program' id-as'jq' from'gh-r' mv'**/gojq -> jq'
+zinit light itchyny/gojq
+
 # glow - cli based md reader
 zinit ice lucid wait"0" as"program" from"gh-r" bpick='*linux_amd64.deb' pick"usr/bin/glow"
 zinit light charmbracelet/glow
