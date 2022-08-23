@@ -1,7 +1,7 @@
 [user]
     email = drae@users.noreply.github.com
     name = Paul Owen
-    signingkey = AA242D97
+    signingKey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJnp4n7WX1FgQozEi6qY+E/6y3yg6eqnAdpQHp1MkMTH
 
 [commit]
     gpgsign = true
@@ -45,3 +45,9 @@
     commit-decoration-style = bold yellow box ul
     file-style = bold yellow ul
     file-decoration-style = none
+
+[gpg]
+    format = "ssh"
+
+[gpg "ssh"]
+    allowedSignersFile = ~/.ssh/allowed_signers
