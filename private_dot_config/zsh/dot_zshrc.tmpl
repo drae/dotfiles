@@ -31,6 +31,18 @@ setopt vi
 
 #
 #
+# Prompt
+#
+#
+
+# Start startship prompt
+eval "$(starship init zsh)"
+
+# Start zoxide
+eval "$(zoxide init zsh)"
+
+#
+#
 # zinit
 #
 #
@@ -69,10 +81,6 @@ zinit wait lucid for \
 zinit ice wait="0b" lucid blockf
 zinit light zsh-users/zsh-completions
 
-# Load starship theme
-zinit ice as"command" from"gh-r" atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" atpull"%atclone" src"init.zsh"
-zinit light starship/starship
-
 # notify on alias
 zinit light djui/alias-tips
 
@@ -89,11 +97,6 @@ zinit light bobsoppe/zsh-ssh-agent
 # manydots magic
 zinit ice depth"1" wait lucid pick"manydots-magic" compile"manydots-magic"
 zinit light knu/zsh-manydots-magic
-
-# enhancd
-zinit ice wait="0b" lucid
-zinit light b4b4r07/enhancd
-export ENHANCD_FILTER=fzf:fzy:peco
 
 # fd
 zinit ice as'program' id-as'fd' from'gh-r' mv'fd* -> fd' cp'fd/autocomplete/_fd -> _fd' pick'fd/fd'
@@ -146,15 +149,9 @@ export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
 export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
-# dog - DNS lookups
-zinit ice lucid from'gh-r' as'program'
-zinit light ogham/dog
-
 # direnv
-zinit from"gh-r" as"program" mv"direnv* -> direnv" \
-  atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' \
-  pick"direnv" src="zhook.zsh" for \
-    direnv/direnv
+zinit ice from"gh-r" as"program" mv"direnv* -> direnv" atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' pick"direnv" src="zhook.zsh"
+zinit light direnv/direnv
 
 # task
 zinit ice as'program' id-as'task' from'gh-r' mv'usr/bin/task* -> task'
@@ -164,7 +161,7 @@ zinit snippet https://github.com/go-task/task/blob/master/completion/zsh/_task
 
 # prettyping
 zinit ice lucid wait="" as="program" pick="prettyping" atload="alias ping=prettyping"
-zinit load denilsonsa/prettyping
+zinit light denilsonsa/prettyping
 
 # dust - du replacement
 zinit ice wait="2" lucid from="gh-r" as="program" bpick="*amd64.deb" pick="usr/bin/dust" atload="alias du=dust"
@@ -177,9 +174,6 @@ zinit light muesli/duf
 #
 # Programming / Languages / Editors
 #
-
-zinit light-mode for \
-    reegnz/jq-zsh-plugin
 
 # neovim - nightly build
 zinit ice from="gh-r" as="program" bpick="*linux64.deb" ver="nightly" pick="usr/bin/nvim"
@@ -194,8 +188,8 @@ zinit ice lucid as'command' from'gh-r' atclone'./gh completion -s zsh > _gh' atp
 zinit light cli/cli
 
 # git extras
-zinit lucid wait'0a' for \
-  as"program" pick"$ZPFX/bin/git-*" src"etc/git-extras-completion.zsh" make"PREFIX=$ZPFX" tj/git-extras
+zinit ice lucid wait'0a' as"program" pick"$ZPFX/bin/git-*" src"etc/git-extras-completion.zsh" make"PREFIX=$ZPFX"
+zinit light tj/git-extras
 
 # forgit - https://github.com/wfxr/forgit
 zinit ice wait lucid
@@ -210,9 +204,8 @@ zinit ice lucid wait="0" as="program" from="gh-r" bpick='*amd64.deb' pick="usr/b
 zinit light wfxr/code-minimap
 
 # delta - git pager
-zinit from"gh-r" as"command" mv"delta* -> delta" \
-  pick"delta/delta" for \
-    dandavison/delta
+zinit ice from"gh-r" as"command" mv"delta* -> delta" pick"delta/delta"
+zinit light dandavison/delta
 
 # yq
 zinit ice lucid wait'0' as'program' id-as'yq' from'gh-r' mv'yq_* -> yq' \
@@ -232,20 +225,16 @@ zinit light charmbracelet/glow
 #
 
 # fluxctl
-zinit from'gh-r' as'program' \
-  atclone'./flux completion zsh > _flux' atpull'%atclone' \
-  pick'flux' src="_flux" for \
-    fluxcd/flux2
+zinit ice from'gh-r' as'program' atclone'./flux completion zsh > _flux' atpull'%atclone' pick'flux' src="_flux"
+zinit lightfluxcd/flux2
 
 # k9s
 zinit ice lucid as'command' from'gh-r' pick 'k9s'
 zinit light derailed/k9s
 
 # krew - kubectl plugin manager
-zinit from'gh-r' as'program' mv'krew* -> krew' \
-  atclone'./krew install krew' atpull'%atclone' \
-  pick'krew' for \
-    kubernetes-sigs/krew
+zinit ice from'gh-r' as'program' mv'krew* -> krew' atclone'./krew install krew' atpull'%atclone' pick'krew'
+zinit light kubernetes-sigs/krew
 
 #
 # Auto-completions - from ohmyzsh
@@ -253,9 +242,7 @@ zinit from'gh-r' as'program' mv'krew* -> krew' \
 
 zinit lucid for \
   'OMZ::lib/key-bindings.zsh' \
-  'OMZ::lib/compfix.zsh' \
   'OMZ::lib/completion.zsh' \
-  'OMZ::lib/correction.zsh' \
   'OMZ::lib/grep.zsh' \
   'OMZ::plugins/kubectl/kubectl.plugin.zsh'
 
@@ -296,4 +283,3 @@ alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 
 # Suffix aliases
 alias -s {yml,yaml,json,conf,ini,zsh}=vim
-
