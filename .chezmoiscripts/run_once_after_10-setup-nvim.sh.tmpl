@@ -1,0 +1,7 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/bash
+
+set -eufo pipefail
+
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+{{- end -}}
