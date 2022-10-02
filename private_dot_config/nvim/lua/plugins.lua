@@ -64,6 +64,7 @@ return require('packer').startup(function(use)
   use { 'mhartington/formatter.nvim', config = lua_path"formatter" }
   use { 'zdharma-continuum/zinit-vim-syntax' }
   use { 'numToStr/Comment.nvim', config = lua_path"comment"}
+  use { "L3MON4D3/LuaSnip", tag = "v1.*" }
 
   -- Icons
   use { 'kyazdani42/nvim-web-devicons' }
