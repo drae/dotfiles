@@ -51,6 +51,7 @@ return require('packer').startup(function(use)
   use { 'andymass/vim-matchup' }
 
   -- Treesitter
+  use { 'David-Kunz/markid' }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = lua_path"treesitter" }
   use { 'p00f/nvim-ts-rainbow', config = lua_path"nvim-ts-rainbow" }
   use { 'lukas-reineke/indent-blankline.nvim', config = lua_path"indent-blankline" }
@@ -64,7 +65,6 @@ return require('packer').startup(function(use)
   use { 'mhartington/formatter.nvim', config = lua_path"formatter" }
   use { 'zdharma-continuum/zinit-vim-syntax' }
   use { 'numToStr/Comment.nvim', config = lua_path"comment"}
-  use { "L3MON4D3/LuaSnip", tag = "v1.*" }
 
   -- Icons
   use { 'kyazdani42/nvim-web-devicons' }
@@ -88,7 +88,7 @@ return require('packer').startup(function(use)
   use { 'kyazdani42/nvim-tree.lua', config = lua_path"nvimtree" }
 
   -- Color
-  use { 'crivotz/nvim-colorizer.lua', config = lua_path"colorizer" }
+  use { 'nvchad/nvim-colorizer.lua', config = lua_path"colorizer" }
 
   -- Git
   use { 'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}, config = lua_path"gitsigns" }
@@ -120,8 +120,7 @@ return require('packer').startup(function(use)
   use { 'tpope/vim-dadbod' }
   use { 'tpope/vim-jdaddy' }
   use { 'tpope/vim-fugitive' }
-  use { 'tpope/vim-obsession' }
-
+  
   -- Folke
   use { 'folke/trouble.nvim' }
   use { 'folke/todo-comments.nvim', config = lua_path"todo-comments" }
@@ -132,6 +131,9 @@ return require('packer').startup(function(use)
 
   -- Colorschema
   use { 'sainnhe/gruvbox-material' }
+  -- use { 'catppuccin/nvim', as = "catppuccin" }
+  -- use { 'olimorris/onedarkpro.nvim' }
+  -- use { 'folke/tokyonight.nvim' }
   use { 'stevearc/dressing.nvim', config = lua_path"dressing" }
 
   -- Tags
@@ -143,7 +145,6 @@ return require('packer').startup(function(use)
   use { 'theHamsta/nvim-dap-virtual-text', config = lua_path"nvim-dap-virtual-text" }
 
   -- General Plugins
-  use { 'fgheng/winbar.nvim' }
   use { 'machakann/vim-sandwich', config = lua_path"sandwich" }
   use { 'rcarriga/nvim-notify', config = lua_path"nvim-notify" }
   use { 'airblade/vim-rooter', config = lua_path"vim-rooter" }
@@ -155,4 +156,6 @@ return require('packer').startup(function(use)
   use { 'luukvbaal/stabilize.nvim', config = lua_path"stabilize" }
   use { 'beauwilliams/focus.nvim', config = lua_path"focus" }
   use { 'kevinhwang91/nvim-bqf' }
+  -- use { 'dstein64/vim-startuptime' }
+  use { 'lewis6991/impatient.nvim' }
 end)

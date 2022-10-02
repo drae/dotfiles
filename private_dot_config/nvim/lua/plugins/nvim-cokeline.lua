@@ -23,8 +23,18 @@ local components = {
     text = function(buffer)
       return buffer.index ~= 1 and ' ' or ''
     end,
-    fg = '#282828',
-    bg = '#282828',
+    -- Gruvbox
+    -- fg = '#282828',
+    -- bg = '#282828',
+    -- Catppuccin
+    -- fg = '#1e1e2e',
+    -- bg = '#1e1e2e',
+    -- Onedarkpro
+    -- fg = '#282c34',
+    -- bg = '#282c34',
+    -- Tokyonight
+    fg = '#24283b',
+    bg = '#24283b',
     truncation = { priority = 1 }
   },
 
@@ -129,6 +139,7 @@ require('cokeline').setup({
     max_buffer_width = 30,
   },
 
+  -- Gruvbox
   default_hl = {
     fg = function(buffer)
       return
@@ -143,7 +154,54 @@ require('cokeline').setup({
         or '#4e4e4e'
       end,
     },
+  
+ -- Catpuccin
+  --[[ default_hl = { ]]
+  --[[   fg = function(buffer) ]]
+  --[[     return ]]
+  --[[       buffer.is_focused ]]
+  --[[       and '#1e1e2e' ]]
+  --[[       or '#f5e0dc' ]]
+  --[[     end, ]]
+  --[[   bg = function(buffer) ]]
+  --[[     return ]]
+  --[[       buffer.is_focused ]]
+  --[[       and '#a6e3a1' ]]
+  --[[       or '#181825' ]]
+  --[[     end, ]]
+  --[[ }, ]]
 
+  -- Onedarkpro
+  --[[ default_hl = { ]]
+  --[[    fg = function(buffer) ]]
+  --[[      return ]]
+  --[[        buffer.is_focused ]]
+  --[[        and '#282c34' ]]
+  --[[         or '#abb2bf' ]]
+  --[[    end, ]]
+  --[[    bg = function(buffer) ]]
+  --[[      return ]]
+  --[[        buffer.is_focused ]]
+  --[[        and '#98c379' ]]
+  --[[        or '#5c6370' ]]
+  --[[      end, ]]
+  --[[    }, ]]
+
+  -- Tokyonight-storm
+  --[[ default_hl = { ]]
+  --[[    fg = function(buffer) ]]
+  --[[      return ]]
+  --[[        buffer.is_focused ]]
+  --[[        and '#24283b' ]]
+  --[[         or '#c0caf5' ]]
+  --[[    end, ]]
+  --[[    bg = function(buffer) ]]
+  --[[      return ]]
+  --[[        buffer.is_focused ]]
+  --[[        and '#9ece6a' ]]
+  --[[        or '#414868' ]]
+  --[[      end, ]]
+  --[[    }, ]]
     components = {
       components.separator,
       components.space,
