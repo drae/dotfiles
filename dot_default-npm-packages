@@ -1,9 +1,0 @@
-neovim
-@fsouza/prettierd
-@ansible/ansible-language-server
-vim-language-server
-yaml-language-server
-dockerfile-language-server-nodejs
-typescript
-typescript-language-server
-vscode-langservers-extracted

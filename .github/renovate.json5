@@ -1,0 +1,25 @@
+{
+  // General RenovateBot configuration
+  "extends": [
+    "github>bjw-s/renovate-config",
+    "github>bjw-s/renovate-config:automerge-github-actions"
+  ],
+  "platform": "github",
+  "username": "drae-bot[bot]",
+  "gitAuthor": "drae-bot <107273482+drae-bot[bot]@users.noreply.github.com>",
+  "dependencyDashboardTitle": "Renovate Dashboard 🤖",
+  "repositories": ["bjw-s/dotfiles"],
+  "regexManagers": [
+    {
+      "description": ["asdf package regex manager"],
+      "fileMatch": ["home\\/_packages\\/asdf\\.(?:darwin|linux)$"],
+      "matchStrings": [
+        "(?<depName>\\S+)=(?<currentValue>[^\\s]*?) #renovate:( datasource=(?<datasource>.*?))?( packageName=(?<packageName>.*?=?))?( versioning=(?<versioning>.*?=?))?( versionTemplate=(?<versionTemplate>.*?=?))?\\n"
+      ],
+      "packageNameTemplate": "{{#if packageName}}{{{packageName}}}{{else}}{{/if}}",
+      "datasourceTemplate": "{{#if datasource}}{{{datasource}}}{{else}}github-releases{{/if}}",
+      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}",
+      "extractVersionTemplate": "{{#if versionTemplate}}{{{versionTemplate}}}{{else}}^v?(?<version>.*)${{/if}}"
+    }
+  ]
+}

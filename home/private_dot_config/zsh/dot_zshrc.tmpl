@@ -38,8 +38,6 @@ setopt vi
 # Start startship prompt
 eval "$(starship init zsh)"
 
-# Start zoxide
-eval "$(zoxide init zsh)"
 
 #
 #
@@ -65,11 +63,6 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
 # Install some zinit helpers
-zinit wait lucid light-mode for \
-  zdharma-continuum/z-a-rust \
-  zdharma-continuum/z-a-as-monitor \
-  zdharma-continuum/z-a-bin-gem-node
-
 zinit wait lucid for \
   atload'_zsh_autosuggest_start' zsh-users/zsh-autosuggestions \
   zsh-users/zsh-history-substring-search \
@@ -84,50 +77,15 @@ zinit light zsh-users/zsh-completions
 # notify on alias
 zinit light djui/alias-tips
 
-# Window title support
-zinit light mdarocha/zsh-windows-title
-
 # Start ssh-agent with shell
 zinit light bobsoppe/zsh-ssh-agent
 
+
 #
-# CLI apps
 #
-
-# manydots magic
-zinit ice depth"1" wait lucid pick"manydots-magic" compile"manydots-magic"
-zinit light knu/zsh-manydots-magic
-
-# fd
-zinit ice as'program' id-as'fd' from'gh-r' mv'fd* -> fd' cp'fd/autocomplete/_fd -> _fd' pick'fd/fd'
-zinit light sharkdp/fd
-
-# ripgrep
-zinit ice from'gh-r' as'program' id-as'rg' mv'ripgrep* -> rg' cp'rg/complete/_rg -> _rg' pick'rg/rg'
-zinit light BurntSushi/ripgrep
-
-# bat (cat replacement)
-zinit ice as'program' id-as'bat' from'gh-r' mv'bat* -> bat' cp'bat/autocomplete/bat.zsh -> _bat' pick'bat/bat' atload'alias cat=bat'
-zinit light sharkdp/bat
-
-# bat-extras
-zinit ice lucid wait="1" as="program" pick="src/batgrep.sh"
-zinit ice lucid wait="1" as="program" pick="src/batdiff.sh"
-zinit light eth-p/bat-extras
-alias rg=batgrep.sh
-alias bd=batdiff.sh
-alias man=batman.sh
-
-# fzf
-zinit ice lucid wait'0b' from'gh-r' as'program'
-zinit light junegunn/fzf
-zinit ice lucid wait'0c' as'command' pick'bin/fzf-tmux'
-zinit light junegunn/fzf
-zinit ice lucid wait'0c' multisrc'shell/{completion,key-bindings}.zsh' id-as'junegunn/fzf_completions' pick'/dev/null'
-zinit light junegunn/fzf
-
-zinit ice wait'1' lucid
-zinit light Aloxaf/fzf-tab
+# fzf configuration
+#
+#
 
 # Use fd instead of find for file completion
 _fzf_compgen_path() {
@@ -148,103 +106,6 @@ export FZF_ALT_C_OPTS='--preview="exa -1 --icons --git --git-ignore {}" --previe
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
 export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
-
-# direnv
-zinit ice from"gh-r" as"program" mv"direnv* -> direnv" atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' pick"direnv" src="zhook.zsh"
-zinit light direnv/direnv
-
-# task
-zinit ice as'program' id-as'task' from'gh-r' mv'usr/bin/task* -> task'
-zinit light go-task/task
-zinit ice as"completion"
-zinit snippet https://github.com/go-task/task/blob/master/completion/zsh/_task
-
-# prettyping
-zinit ice lucid wait="" as="program" pick="prettyping" atload="alias ping=prettyping"
-zinit light denilsonsa/prettyping
-
-# dust - du replacement
-zinit ice wait="2" lucid from="gh-r" as="program" bpick="*amd64.deb" pick="usr/bin/dust" atload="alias du=dust"
-zinit light bootandy/dust
-
-# dug - replacement for duf
-zinit ice lucid wait="0" as="program" from="gh-r" bpick='*linux_amd64.deb' pick="usr/bin/duf" atload="alias df=duf"
-zinit light muesli/duf
-
-#
-# Programming / Languages / Editors
-#
-
-# neovim - nightly build
-#zinit ice from="gh-r" as="program" bpick="*linux64.deb" ver="nightly" pick="usr/bin/nvim"
-#zinit light neovim/neovim
-
-# asdf - build tool manager - https://github.com/asdf-vm/asdf
-zinit ice lucid wait="0" pick="asdf.sh"
-zinit light asdf-vm/asdf
-
-# github cli
-zinit ice lucid as'command' from'gh-r' atclone'./gh completion -s zsh > _gh' atpull'%atclone' mv'**/bin/gh* -> gh' pick'usr/bin/gh'
-zinit light cli/cli
-
-# git extras
-zinit ice lucid wait'0a' as"program" pick"$ZPFX/bin/git-*" src"etc/git-extras-completion.zsh" make"PREFIX=$ZPFX"
-zinit light tj/git-extras
-
-# forgit - https://github.com/wfxr/forgit
-zinit ice wait lucid
-zinit load wfxr/forgit
-
-# lazygit
-zinit ice lucid wait="0" as="program" from="gh-r" bpick="*Linux_x86_64*" pick="lazygit" atload="alias lg='lazygit'"
-zinit light jesseduffield/lazygit
-
-# code-minimap
-zinit ice lucid wait="0" as="program" from="gh-r" bpick='*amd64.deb' pick="usr/bin/code-minimap"
-zinit light wfxr/code-minimap
-
-# delta - git pager
-zinit ice from"gh-r" as"command" mv"delta* -> delta" pick"delta/delta"
-zinit light dandavison/delta
-
-# yq
-zinit ice lucid wait'0' as'program' id-as'yq' from'gh-r' mv'yq_* -> yq' \
-  atclone'yq shell-completion zsh > _yq' atpull'%atclone'
-zinit light mikefarah/yq
-
-# gojq
-zinit ice lucid wait'0' as'program' id-as'jq' from'gh-r' mv'**/gojq -> jq'
-zinit light itchyny/gojq
-
-# glow - cli based md reader
-zinit ice lucid wait"0" as"program" from"gh-r" bpick='*linux_amd64.deb' pick"usr/bin/glow"
-zinit light charmbracelet/glow
-
-#
-# Kubernetes
-#
-
-# fluxctl
-zinit ice lucid from'gh-r' as'program' atclone'./flux completion zsh > _flux' atpull'%atclone' pick'flux' src="_flux"
-zinit light fluxcd/flux2
-
-# k9s
-zinit ice lucid as'command' from'gh-r' pick 'k9s'
-zinit light derailed/k9s
-
-# krew - kubectl plugin manager
-zinit ice from'gh-r' as'program' mv'krew* -> krew' atclone'./krew install krew' atpull'%atclone' pick'krew'
-zinit light kubernetes-sigs/krew
-
-#
-# Auto-completions - from ohmyzsh
-#
-
-zinit lucid for \
-  'OMZ::lib/key-bindings.zsh' \
-  'OMZ::lib/completion.zsh' \
-  'OMZ::lib/grep.zsh' \
-  'OMZ::plugins/kubectl/kubectl.plugin.zsh'
 
 
 #
