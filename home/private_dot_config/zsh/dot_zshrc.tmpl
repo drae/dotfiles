@@ -30,26 +30,21 @@ setopt vi
 
 #
 #
+#
+
 # Source asdf package manager
-#
-#
-source $HOME/.asdf/asdf.sh
-source $HOME/.asdf/completions/asdf.bash
+. $HOME/.asdf/asdf.sh
+fpath=(${ASDF_DIR}/completions $fpath)
 
-#
-#
-# Prompt
-#
-#
+# Source direnv
+eval "$(direnv hook zsh)"
 
-# Start startship prompt
+# Source starship prompt
 eval "$(starship init zsh)"
 
 
 #
-#
 # zinit
-#
 #
 
 declare -A ZINIT
@@ -75,7 +70,8 @@ zinit wait lucid for \
   zsh-users/zsh-history-substring-search \
   zdharma-continuum/history-search-multi-word \
   atinit'zpcompinit; zpcdreplay' zdharma-continuum/fast-syntax-highlighting \
-  MichaelAquilina/zsh-history-filter
+  MichaelAquilina/zsh-history-filter \
+  Aloxaf/fzf-tab
 
 # tab completition
 zinit ice wait="0b" lucid blockf
@@ -103,7 +99,12 @@ _fzf_compgen_path() {
 _fzf_compgen_dir() {
     fd --type d --hidden --follow --exclude ".git" . "$1"
 }
-
+export FZF_DEFAULT_OPTS="
+	--color=fg:#797593,bg:#faf4ed,hl:#d7827e
+	--color=fg+:#575279,bg+:#f2e9e1,hl+:#d7827e
+	--color=border:#dfdad9,header:#286983,gutter:#faf4ed
+	--color=spinner:#ea9d34,info:#56949f,separator:#dfdad9
+	--color=pointer:#907aa9,marker:#b4637a,prompt:#797593"
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2>/dev/null'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS='--preview="bat --color=always --style=header {} 2>/dev/null" --preview-window=right:60%:wrap'
@@ -148,6 +149,7 @@ alias kc='kubecolor'
 alias vi='nvim'
 alias vim='nvim'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
+alias jq='gojq'
 
 # Suffix aliases
 alias -s {yml,yaml,json,conf,ini,zsh}=vim
