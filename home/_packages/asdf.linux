@@ -24,7 +24,6 @@ ripgrep=13.0.0 #renovate: packageName=BurntSushi/ripgrep
 shellcheck=0.9.0 #renovate: packageName=koalaman/shellcheck
 shfmt=3.6.0 #renovate: packageName=mvdan/sh
 sops=3.7.3 #renovate: packageName=mozilla/sops
-starship=1.14.2 #renovate: packageName=starship/starship
 stern=1.25.0 #renovate: packageName=stern/stern
 talhelper=1.7.0 #renovate: packageName=budimanjojo/talhelper
 talosctl=1.4.0 #renovate: packageName=siderolabs/talos

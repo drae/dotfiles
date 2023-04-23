@@ -1,6 +1,13 @@
 #!/usr/bin/env zsh
 # vim: ft=zsh ts=2 sw=2
 
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 setopt extended_history       # record timestamp of command in HISTFILE
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
 setopt hist_ignore_all_dups   # ignore duplicated commands history list
@@ -28,19 +35,14 @@ setopt vi
   {{ end }}
 {{ end }}
 
+
 #
-#
+# asdf package manager
 #
 
 # Source asdf package manager
 . $HOME/.asdf/asdf.sh
 fpath=(${ASDF_DIR}/completions $fpath)
-
-# Source direnv
-eval "$(direnv hook zsh)"
-
-# Source starship prompt
-eval "$(starship init zsh)"
 
 
 #
@@ -64,6 +66,13 @@ source "${ZINIT[HOME_DIR]}/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
+# Prompt - p10k
+zinit ice depth=1; zinit light romkatv/powerlevel10k
+
+# colour scheme for prompt - gruvbox
+PURE_POWER_MODE=modern
+zinit snippet https://github.com/sainnhe/dotfiles/raw/master/.zsh-theme/gruvbox-material-dark.zsh
+
 # Install some zinit helpers
 zinit wait lucid for \
   atload'_zsh_autosuggest_start' zsh-users/zsh-autosuggestions \
@@ -85,55 +94,45 @@ zinit light bobsoppe/zsh-ssh-agent
 
 
 #
-#
-# fzf configuration
-#
+# autosuggest/fzf
 #
 
-# Use fd instead of find for file completion
-_fzf_compgen_path() {
-    fd --hidden --follow --exclude ".git" . "$1"
-}
-
-# Use fd to generate the list for directory completion
-_fzf_compgen_dir() {
-    fd --type d --hidden --follow --exclude ".git" . "$1"
-}
-export FZF_DEFAULT_OPTS="
-	--color=fg:#797593,bg:#faf4ed,hl:#d7827e
-	--color=fg+:#575279,bg+:#f2e9e1,hl+:#d7827e
-	--color=border:#dfdad9,header:#286983,gutter:#faf4ed
-	--color=spinner:#ea9d34,info:#56949f,separator:#dfdad9
-	--color=pointer:#907aa9,marker:#b4637a,prompt:#797593"
+# rose-pine-dawn
+#export FZF_DEFAULT_OPTS="
+#	--color=fg:#797593,bg:#faf4ed,hl:#d7827e
+#	--color=fg+:#575279,bg+:#f2e9e1,hl+:#d7827e
+#	--color=border:#dfdad9,header:#286983,gutter:#faf4ed
+#	--color=spinner:#ea9d34,info:#56949f,separator:#dfdad9
+#	--color=pointer:#907aa9,marker:#b4637a,prompt:#797593"
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2>/dev/null'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_CTRL_T_OPTS='--preview="bat --color=always --style=header {} 2>/dev/null" --preview-window=right:60%:wrap'
-export FZF_ALT_C_COMMAND='fd -t d -d 1'
-export FZF_ALT_C_OPTS='--preview="exa -1 --icons --git --git-ignore {}" --preview-window=right:60%:wrap'
-
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
 export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
+# for fzf-tab
+
+# disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+# set descriptions format to enable group support
+zstyle ':completion:*:descriptions' format '[%d]'
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# preview directory's content with exa when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -1 --color=always $realpath'
+# switch group using `,` and `.`
+zstyle ':fzf-tab:*' switch-group ',' '.'
+
 
 #
-#
-# Bindings
-#
+# other app hooks
 #
 
-bindkey "$terminfo[kcuu1]" history-substring-search-up
-bindkey "$terminfo[kcud1]" history-substring-search-down
-
-# vim of above
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
+# direnv
+eval "$(direnv hook zsh)"
 
 
-#
 #
 # Aliases
-#
 #
 {{ if (eq .chezmoi.os "linux") }}
   alias ll='ls -alh --color=auto --group-directories-first'
@@ -145,6 +144,7 @@ bindkey -M vicmd 'j' history-substring-search-down
 
 alias asi='apt-cache pkgnames | fzf --header "[apt:install]" | xargs -d " " -- sudo apt-get install'
 alias grep='grep  --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
+alias k='kubectl'
 alias kc='kubecolor'
 alias vi='nvim'
 alias vim='nvim'
@@ -152,4 +152,39 @@ alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 alias jq='gojq'
 
 # Suffix aliases
-alias -s {yml,yaml,json,conf,ini,zsh}=vim
+alias -s {yml,yaml,json,conf,ini,zsh}=nvim
+
+
+#
+# Bindings
+#
+
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+
+# vim of above
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+
+
+#
+# fzf configuration
+#
+
+# Use fd instead of find for file completion
+_fzf_compgen_path() {
+    fd --hidden --follow --exclude ".git" . "$1"
+}
+
+# Use fd to generate the list for directory completion
+_fzf_compgen_dir() {
+    fd --type d --hidden --follow --exclude ".git" . "$1"
+}
+
+
+#
+# p10k source
+#
+
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
