@@ -145,11 +145,9 @@ eval "$(direnv hook zsh)"
 alias asi='apt-cache pkgnames | fzf --header "[apt:install]" | xargs -d " " -- sudo apt-get install'
 alias grep='grep  --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 alias k='kubectl'
-alias kc='kubecolor'
 alias vi='nvim'
 alias vim='nvim'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
-alias jq='gojq'
 
 # Suffix aliases
 alias -s {yml,yaml,json,conf,ini,zsh}=nvim

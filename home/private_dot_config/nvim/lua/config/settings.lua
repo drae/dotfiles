@@ -49,6 +49,7 @@ vim.opt.timeoutlen = 500
 if vim.fn.has("nvim-0.9.0") == 1 then
   vim.opt.splitkeep = 'screen'
 end
+
 -- Buffer
 vim.opt.fileformat = 'unix'
 vim.opt.tabstop = 2
@@ -59,12 +60,13 @@ vim.opt.undofile = false
 vim.opt.smartindent = true
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
+
 -- Window
 vim.opt.number = true
+vim.opt.relativenumber = false
 vim.opt.colorcolumn = "+1"
 vim.opt.list = true
 vim.opt.signcolumn = 'yes:1'
-vim.opt.relativenumber = false
 vim.opt.cursorline = true
 
 vim.api.nvim_create_autocmd("BufReadPost", {

@@ -14,6 +14,7 @@ function initialize_linux() {
         ca-certificates \
         git \
         curl \
+        python3-pip \
         wget \
         unzip \
         zsh

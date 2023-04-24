@@ -69,7 +69,6 @@ function M.config()
     ensure_installed = {
       'html',
       'tsserver',
-      'solargraph',
       'cssls',
       'dockerls',
       'jsonls',
