@@ -3,7 +3,7 @@ bat=0.23.0 #renovate: packageName=sharkdp/bat
 chezmoi=2.33.6 #renovate: packageName=twpayne/chezmoi
 cloudflared=2023.5.0 #renovate: packageName=cloudflare/cloudflared
 delta=0.15.1 #renovate: packageName=dandavison/delta
-direnv=2.32.2 #renovate: packageName=direnv/direnv
+direnv=2.32.3 #renovate: packageName=direnv/direnv
 fd=8.7.0 #renovate: packageName=sharkdp/fd
 flux2=0.41.2 #renovate: packageName=fluxcd/flux2
 fzf=0.39.0 #renovate: packagename=junegunn/fzf
