@@ -23,6 +23,6 @@ sops=3.7.3 #renovate: packageName=mozilla/sops
 stern=1.25.0 #renovate: packageName=stern/stern
 talhelper=1.7.3 #renovate: packageName=budimanjojo/talhelper
 talosctl=1.4.4 #renovate: packageName=siderolabs/talos
-task=3.24.0 #renovate: packageName=go-task/task
+task=3.25.0 #renovate: packageName=go-task/task
 yamllint=1.30.0 #renovate: packageName=adrienverge/yamllint
 yq=4.33.3 #renovate: packageName=mikefarah/yq
