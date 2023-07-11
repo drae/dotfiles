@@ -1,7 +1,7 @@
 age=1.1.1 #renovate: packageName=FiloSottile/age
 bat=0.23.0 #renovate: packageName=sharkdp/bat
 chezmoi=2.34.3 #renovate: packageName=twpayne/chezmoi
-cloudflared=2023.6.1 #renovate: packageName=cloudflare/cloudflared
+cloudflared=2023.7.0 #renovate: packageName=cloudflare/cloudflared
 delta=0.16.5 #renovate: packageName=dandavison/delta
 direnv=2.32.3 #renovate: packageName=direnv/direnv
 fd=8.7.0 #renovate: packageName=sharkdp/fd
