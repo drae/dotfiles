@@ -5,7 +5,7 @@ cloudflared=2023.8.0 #renovate: packageName=cloudflare/cloudflared
 delta=0.16.5 #renovate: packageName=dandavison/delta
 direnv=2.32.3 #renovate: packageName=direnv/direnv
 fd=8.7.0 #renovate: packageName=sharkdp/fd
-flux2=2.0.1 #renovate: packageName=fluxcd/flux2
+flux2=2.1.0 #renovate: packageName=fluxcd/flux2
 fzf=0.39.0 #renovate: packagename=junegunn/fzf
 github-cli=2.33.0 #renovate: packageName=cli/cli
 glow=1.5.1 #renovate: packageName=charmbracelet/glow
