@@ -10,8 +10,8 @@ function is_asdf_exists() {
 function install_asdf() {
   if ! is_asdf_exists; then
     git clone https://github.com/asdf-vm/asdf.git "$HOME/.asdf" --branch "v0.11.3"
-    . "$HOME/.asdf/asdf.sh"
   fi
+  . "$HOME/.asdf/asdf.sh"
 }
 
 function main() {
