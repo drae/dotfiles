@@ -26,12 +26,6 @@ export ZSH_CACHE_DIR=$XDG_CACHE_HOME/zsh
 export GOPATH=$HOME/go
 export GOROOT=$XDG_DATA_HOME/golang
 
-{{- if (eq .chezmoi.os "linux") -}}
-  {{- if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
-export USERPROFILE=$(wslpath "$(wslvar USERPROFILE)")
-  {{- end }}
-{{- end -}}
-
 # The paths
 PATH="$HOME/.local/bin:$HOME/go/bin:$HOME/.krew/bin:$AQUA_ROOT_DIR/bin:$PATH"
 
