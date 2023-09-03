@@ -11,7 +11,7 @@ function install_asdf() {
   if ! is_asdf_exists; then
     git clone https://github.com/asdf-vm/asdf.git "$HOME/.asdf" --branch "v0.11.3"
   fi
-  . "$HOME/.asdf/asdf.sh"
+  source "$HOME/.asdf/asdf.sh"
 }
 
 function main() {
