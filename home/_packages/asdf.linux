@@ -16,7 +16,7 @@ krew=0.4.4 #renovate: packageName=kubernetes-sigs/krew
 kubectl=1.26.3 #renovate: datasource=github-tags packageName=kubernetes/kubectl versioning=^kubernetes-(?<version>.*)$
 kustomize=5.0.1 #renovate: packageName=kubernetes-sigs/kustomize
 neovim=0.9.1 #renovate: packageName=neovim/neovim
-nodejs=20.5.1 #renovate: packageName=nodejs/node
+nodejs=20.6.0 #renovate: packageName=nodejs/node
 pre-commit=3.4.0 #renovate: packageName=pre-commit/pre-commit
 ripgrep=13.0.0 #renovate: packageName=BurntSushi/ripgrep
 sops=3.7.3 #renovate: packageName=mozilla/sops
