@@ -16,7 +16,7 @@ k9s=0.27.4 #renovate: packageName=derailed/k9s
 krew=0.4.4 #renovate: packageName=kubernetes-sigs/krew
 kubectl=1.26.3 #renovate: datasource=github-tags packageName=kubernetes/kubectl versioning=^kubernetes-(?<version>.*)$
 kustomize=5.0.1 #renovate: packageName=kubernetes-sigs/kustomize
-lazygit=0.40.0 #renovate: packageName=jesseduffield/lazygit
+lazygit=0.40.2 #renovate: packageName=jesseduffield/lazygit
 neovim=0.9.2 #renovate: packageName=neovim/neovim
 nodejs=20.6.0 #renovate: packageName=nodejs/node
 pre-commit=3.4.0 #renovate: packageName=pre-commit/pre-commit
