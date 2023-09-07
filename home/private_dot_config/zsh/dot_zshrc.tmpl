@@ -130,6 +130,10 @@ zstyle ':fzf-tab:*' switch-group ',' '.'
 # direnv
 eval "$(direnv hook zsh)"
 
+# Go
+[ -f $HOME/.asdf/plugins/golang/set-env.zsh ] && source ~/.asdf/plugins/golang/set-env.zsh
+export ASDF_GOLANG_MOD_VERSION_ENABLED=true
+
 
 #
 # Aliases
