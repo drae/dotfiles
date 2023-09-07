@@ -26,7 +26,7 @@ function install_zsh_shell() {
     fi
 
     if ! is_zsh_current_shell; then
-      zsh=$(grep $(command -v zsh) /etc/shells | tr -d '\n')
+      zsh=$(grep $(command -v zsh) /etc/shells | head -1)
       echo "Changing shell to zsh"
       chsh -s "${zsh}"
     fi
