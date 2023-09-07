@@ -10,6 +10,9 @@ function get_os_type() {
 
 function initialize_linux() {
     sudo apt update
+    sudo apt install -y software-properties-common
+    sudo add-apt-repository ppa:fish-shell/release-3
+    sudo apt update
     sudo apt install -y \
         ca-certificates \
         git \
@@ -17,7 +20,8 @@ function initialize_linux() {
         python3-pip \
         wget \
         unzip \
-        zsh
+        zsh \
+        fish
 }
 
 function initialize_os_env() {
@@ -73,22 +77,10 @@ function initialize_dotfiles() {
     cleanup_chezmoi
 }
 
-function initialize_shell() {
-    if [ -z $(grep "zsh" "/etc/shells") ]; then
-        echo "Need to add zsh as a shell"
-        echo "$(which zsh)" | sudo tee -a /etc/shells 2>&1 >/dev/null
-    fi
-    if ! [ -z $(grep "zsh" "/etc/shells") ]; then
-        echo "Changing shell to zsh"
-        chsh -s $(which zsh)
-    fi
-}
-
 function main() {
     pushd ~ 2>&1 >/dev/null
     initialize_os_env
     initialize_dotfiles
-    initialize_shell
     popd 2>&1 >/dev/null
 }
 
