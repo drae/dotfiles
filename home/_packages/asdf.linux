@@ -18,9 +18,10 @@ kubectl=1.26.3 #renovate: datasource=github-tags packageName=kubernetes/kubectl 
 kustomize=5.0.1 #renovate: packageName=kubernetes-sigs/kustomize
 lazygit=0.40.2 #renovate: packageName=jesseduffield/lazygit
 neovim=0.9.2 #renovate: packageName=neovim/neovim
-nodejs=20.6.0 #renovate: packageName=nodejs/node
+nodejs=18.17.1 #renovate: packageName=nodejs/node
 pre-commit=3.4.0 #renovate: packageName=pre-commit/pre-commit
 ripgrep=13.0.0 #renovate: packageName=BurntSushi/ripgrep
+rust=1.72.0 #renovate: packageName=rust-lang/rust
 sops=3.7.3 #renovate: packageName=mozilla/sops
 starship=1.16.0 # renovate: depName=starship/starship
 stern=1.26.0 #renovate: packageName=stern/stern
