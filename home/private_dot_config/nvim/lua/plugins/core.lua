@@ -1,15 +1,20 @@
 return {
   {
-    "sainnhe/gruvbox-material",
-    lazy = true,
-    name = "gruvbox-material",
+    "olimorris/onedarkpro.nvim",
+    priority = 1000
+
+--    "sainnhe/gruvbox-material",
+--    lazy = true,
+--    name = "gruvbox-material",
   },
+
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "gruvbox-material",
+      colorscheme = "onedark",
     },
   },
+
   -- Add Prettierd
   {
     "williamboman/mason.nvim",
@@ -17,6 +22,7 @@ return {
       table.insert(opts.ensure_installed, "prettierd")
     end,
   },
+
   {
     "jose-elias-alvarez/null-ls.nvim",
     opts = function(_, opts)
@@ -24,6 +30,7 @@ return {
       table.insert(opts.sources, nls.builtins.formatting.prettierd)
     end,
   },
+
   -- add more treesitter parsers
   {
     "nvim-treesitter/nvim-treesitter",
