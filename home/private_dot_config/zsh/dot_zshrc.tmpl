@@ -67,7 +67,10 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
 # Prompt - p10k
-zinit ice depth=1; zinit light romkatv/powerlevel10k
+zinit ice depth=1
+zinit light romkatv/powerlevel10k
+PURE_POWER_MODE=modern
+zinit snippet https://github.com/sainnhe/dotfiles/raw/master/.zsh-theme/gruvbox-material-dark.zsh
 
 # Terminal title
 zinit ice wait lucid
@@ -187,7 +190,7 @@ _fzf_compgen_dir() {
 #
 # dircolors - if available, need to install vivid https://github.com/sharkdp/vivid
 #
-(( $+commands[vivid] )) && export LS_COLORS="$(vivid generate one-dark)"
+(( $+commands[vivid] )) && export LS_COLORS="$(vivid generate gruvbox-dark-soft)"
 
 
 #

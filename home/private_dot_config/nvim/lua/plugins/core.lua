@@ -1,17 +1,15 @@
 return {
   {
-    "olimorris/onedarkpro.nvim",
-    priority = 1000
-
---    "sainnhe/gruvbox-material",
---    lazy = true,
---    name = "gruvbox-material",
+    "sainnhe/gruvbox-material",
+    priority = 1000,
+    lazy = true,
+    name = "gruvbox-material",
   },
 
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "onedark",
+      colorscheme = "gruvbox-material",
     },
   },
 
@@ -20,6 +18,7 @@ return {
     "williamboman/mason.nvim",
     opts = function(_, opts)
       table.insert(opts.ensure_installed, "prettierd")
+      table.insert(opts.ensure_installed, "ansible-language-server")
     end,
   },
 
@@ -36,6 +35,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
+        "astro",
         "bash",
         "html",
         "javascript",
