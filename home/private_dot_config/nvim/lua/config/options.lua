@@ -46,3 +46,6 @@ vim.opt.colorcolumn = "+1"
 vim.opt.list = true
 vim.opt.signcolumn = "yes:1"
 vim.opt.cursorline = true
+
+-- Theme
+vim.g.gruvbox_baby_transparent_mode = true

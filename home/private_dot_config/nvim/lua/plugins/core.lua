@@ -1,8 +1,7 @@
 return {
   {
-    "luisiacc/gruvbox-baby",
+    'luisiacc/gruvbox-baby',
     priority = 1000,
-    lazy = true,
     name = "gruvbox-baby",
   },
 
