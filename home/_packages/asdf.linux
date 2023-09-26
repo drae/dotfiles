@@ -29,4 +29,4 @@ talhelper=1.13.0 #renovate: packageName=budimanjojo/talhelper
 talosctl=1.5.3 #renovate: packageName=siderolabs/talos
 task=3.30.1 #renovate: packageName=go-task/task
 yamllint=1.30.0 #renovate: packageName=adrienverge/yamllint
-yq=4.35.1 #renovate: packageName=mikefarah/yq
+yq=4.35.2 #renovate: packageName=mikefarah/yq
