@@ -48,4 +48,8 @@ vim.opt.signcolumn = "yes:1"
 vim.opt.cursorline = true
 
 -- Theme
-vim.g.gruvbox_baby_transparent_mode = true
+vim.g.gruvbox_material_background = "soft" -- hard, soft, medium
+vim.g.gruvbox_material_foreground = "material" -- original, mix, material
+vim.g.gruvbox_material_enable_italic = 1
+vim.g.gruvbox_material_enable_bold = 1
+vim.g.gruvbox_material_colors_override = { bg0 = { "#333333", "236" } }

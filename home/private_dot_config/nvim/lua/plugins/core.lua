@@ -1,14 +1,14 @@
 return {
   {
-    'luisiacc/gruvbox-baby',
+    'sainnhe/gruvbox-material',
     priority = 1000,
-    name = "gruvbox-baby",
+    name = "gruvbox-material",
   },
 
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "gruvbox-baby",
+      colorscheme = "gruvbox-material",
     },
   },
 

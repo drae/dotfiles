@@ -12,3 +12,8 @@ abbr psmem10 'ps auxf | sort -nr -k 4 | head -10'
 if command -sq bat
     abbr -a cat bat
 end
+
+if command -sq nvim
+    abbr -a vi nvim
+    abbr -a vim nvim
+end

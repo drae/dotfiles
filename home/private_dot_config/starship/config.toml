@@ -1,0 +1,71 @@
+format = """
+$username\
+$directory\
+$kubernetes\
+$aws\
+$git_branch\
+$git_state\
+$git_status\
+$fill\
+$cmd_duration\
+$time\
+$os\
+$character
+"""
+
+[character]
+success_symbol = "\n[❯](bold green)"
+error_symbol = "\n[✖](bold red)"
+
+[cmd_duration]
+min_time = 500
+format = "[$duration](bold yellow) "
+
+[directory]
+truncation_length = 4
+truncation_symbol = "…/"
+truncate_to_repo = false
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+
+[os]
+disabled = false
+
+[username]
+style_user = "bold blue"
+
+[git_status]
+ahead = '⇡${count}'
+diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+behind = '⇣${count}'
+
+[git_branch]
+symbol = " "
+format = "[\\[$symbol$branch\\]]($style) "
+
+[golang]
+symbol = " "
+format = "[\\[$symbol($version )\\]]($style) "
+
+[hostname]
+style = "bold green"
+
+[kubernetes]
+symbol = "󱃾 "
+format = 'on [󱃾 $context( \($namespace\))](bold bright-green) '
+disabled = false
+
+[aws]
+format = "on [$symbol$profile( $region)]($style) "
+style = "bold Yellow"
+symbol = "☁️ "
+
+[fill]
+symbol = ' '
+
+[time]
+disabled = false
+format = '🕙[ $time ]($style)'
+time_format = '%T'

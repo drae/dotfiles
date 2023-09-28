@@ -37,12 +37,10 @@ setopt vi
 
 
 #
-# asdf package manager
+# rtx package manager
 #
-
-# Source asdf package manager
-. $HOME/.asdf/asdf.sh
-fpath=(${ASDF_DIR}/completions $fpath)
+eval "$($HOME/.local/bin/rtx hook-env)"
+eval "$($HOME/.local/bin/rtx activate zsh)"
 
 
 #
@@ -203,7 +201,7 @@ _fzf_compgen_dir() {
 #
 # dircolors - if available, need to install vivid https://github.com/sharkdp/vivid
 #
-(( $+commands[vivid] )) && export LS_COLORS="$(vivid generate gruvbox-dark)"
+(( $+commands[vivid] )) && export LS_COLORS="$(vivid generate gruvbox-dark-soft)"
 
 
 #
