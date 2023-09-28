@@ -14,7 +14,7 @@
       description: ["rtx package regex manager"],
       fileMatch: ["home\\/private_dot_config\\/rtx\\/config.toml$"],
       matchStrings: [
-        "(?<depName>\\S+)=(?<currentValue>[^\\s]*?) #renovate:( datasource=(?<datasource>.*?))?( packageName=(?<packageName>.*?=?))?( versioning=(?<versioning>.*?=?))?( versionTemplate=(?<versionTemplate>.*?=?))?\\n",
+        "(?<depName>\\S+) = '(?<currentValue>[^\\s]*?)'[ \\t]*?#renovate:( datasource=(?<datasource>.*?))?( packageName=(?<packageName>.*?=?))?( versioning=(?<versioning>.*?=?))?( versionTemplate=(?<versionTemplate>.*?=?))?\\n",
       ],
       packageNameTemplate: "{{#if packageName}}{{{packageName}}}{{else}}{{/if}}",
       datasourceTemplate: "{{#if datasource}}{{{datasource}}}{{else}}github-releases{{/if}}",
