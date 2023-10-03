@@ -27,7 +27,7 @@ export GOPATH=$HOME/go
 export GOROOT=$XDG_DATA_HOME/golang
 
 # The paths
-PATH="$HOME/.local/bin:$HOME/go/bin:$HOME/.krew/bin:$AQUA_ROOT_DIR/bin:$PATH"
+PATH="$HOME/.local/bin:$HOME/go/bin:$HOME/.krew/bin:$PATH:$HOME/.local/share/rtx/shims"
 
 {{ if eq .chezmoi.os "linux" }}
 export MANPATH=$(manpath -g):$XDG_DATA_HOME/man
