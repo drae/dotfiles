@@ -28,7 +28,7 @@ starship = '1.16.0'      #renovate: depName=starship/starship
 stern = '1.26.0'         #renovate: packageName=stern/stern
 talhelper = '1.13.0'     #renovate: packageName=budimanjojo/talhelper
 talosctl = '1.5.3'       #renovate: packageName=siderolabs/talos
-task = '3.30.1'          #renovate: packageName=go-task/task
+task = '3.31.0'          #renovate: packageName=go-task/task
 yq = '4.35.2'            #renovate: packageName=mikefarah/yq
 
 [settings]
