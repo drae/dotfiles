@@ -12,7 +12,7 @@ fzf = '0.39.0'           #renovate: packagename=junegunn/fzf
 github-cli = '2.36.0'    #renovate: packageName=cli/cli
 glow = '1.5.1'           #renovate: packageName=charmbracelet/glow
 golang = '1.20.3'        #renovate: datasource=github-tags packageName=golang/go versioning=^go(?<version>.*)$
-helm = '3.13.0'          #renovate: packageName=helm/helm
+helm = '3.13.1'          #renovate: packageName=helm/helm
 jq = '1.7'               #renovate: packageName=jqlang/jq
 k9s = '0.27.4'           #renovate: packageName=derailed/k9s
 krew = '0.4.4'           #renovate: packageName=kubernetes-sigs/krew
