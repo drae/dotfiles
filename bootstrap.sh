@@ -65,11 +65,11 @@ function initialize_dotfiles() {
     function run_chezmoi() {
         echo "Running chezmoi..."
         sh -c "$(curl -fsLS get.chezmoi.io)" -- init "${DOTFILES_REPO_URL}"
-        ~/bin/chezmoi apply
+        $HOME/bin/chezmoi apply
     }
 
     function cleanup_chezmoi() {
-        rm -f "${HOME}/bin/chezmoi"
+        #        rm -f "${HOME}/bin/chezmoi"
     }
 
     # keepalive_sudo

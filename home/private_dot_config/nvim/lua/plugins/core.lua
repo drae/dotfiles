@@ -21,14 +21,6 @@ return {
     end,
   },
 
-  {
-    "nvimtools/none-ls.nvim",
-    opts = function(_, opts)
-      local nls = require("null-ls")
-      table.insert(opts.sources, nls.builtins.formatting.prettierd)
-    end,
-  },
-
   -- add more treesitter parsers
   {
     "nvim-treesitter/nvim-treesitter",
