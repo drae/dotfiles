@@ -69,7 +69,7 @@ function initialize_dotfiles() {
     }
 
     function cleanup_bin() {
-        rm -f "${HOME}/bin"
+        rm -rf "${HOME}/bin"
     }
 
     keepalive_sudo
