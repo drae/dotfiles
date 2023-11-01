@@ -68,13 +68,13 @@ function initialize_dotfiles() {
         $HOME/bin/chezmoi apply
     }
 
-    function cleanup_chezmoi() {
-        #        rm -f "${HOME}/bin/chezmoi"
+    function cleanup_bin() {
+        rm -f "${HOME}/bin"
     }
 
-    # keepalive_sudo
+    keepalive_sudo
     run_chezmoi
-    cleanup_chezmoi
+    cleanup_bin
 }
 
 function main() {

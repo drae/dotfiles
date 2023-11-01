@@ -2,7 +2,6 @@ format = """
 $username\
 $directory\
 $kubernetes\
-$aws\
 $git_branch\
 $git_state\
 $git_status\
@@ -22,7 +21,7 @@ min_time = 500
 format = "[$duration](bold yellow) "
 
 [directory]
-truncation_length = 4
+truncation_length = 2
 truncation_symbol = "…/"
 truncate_to_repo = false
 
@@ -56,11 +55,6 @@ style = "bold green"
 symbol = "󱃾 "
 format = 'on [󱃾 $context( \($namespace\))](bold bright-green) '
 disabled = false
-
-[aws]
-format = "on [$symbol$profile( $region)]($style) "
-style = "bold Yellow"
-symbol = "☁️ "
 
 [fill]
 symbol = ' '

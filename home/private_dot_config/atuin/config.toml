@@ -1,3 +1,4 @@
 filter_mode_shell_up_key_binding = "directory"
 style = "compact"
-inline_height = 10
+inline_height = 15
+search_mode = "fuzzy"
