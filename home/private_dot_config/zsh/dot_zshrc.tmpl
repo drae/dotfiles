@@ -8,15 +8,14 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-setopt extended_history       # record timestamp of command in HISTFILE
-setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
-setopt hist_ignore_all_dups   # ignore duplicated commands history list
-setopt hist_ignore_space      # ignore commands that start with space
-setopt hist_verify            # show command with history expansion to user before running it
-setopt inc_append_history     # add commands to HISTFILE in order of execution
-setopt share_history          # share command history data
-setopt always_to_end          # cursor moved to the end in full completion
-setopt hash_list_all          # hash everything before completion
+#setopt extended_history       # record timestamp of command in HISTFILE
+#setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
+#setopt hist_ignore_all_dups   # ignore duplicated commands history list
+#setopt hist_ignore_space      # ignore commands that start with space
+#setopt hist_verify            # show command with history expansion to user before running it
+#setopt inc_append_history     # add commands to HISTFILE in order of execution
+#setopt share_history          # share command history data
+#setopt hash_list_all          # hash everything before completion
 setopt always_to_end          # when completing from the middle of a word, move the cursor to the end of the word
 setopt complete_in_word       # allow completion from within a word/phrase
 setopt nocorrect                # spelling correction for commands
@@ -36,10 +35,12 @@ setopt vi
 {{ end }}
 
 
+
 #
 # rtx package manager
 #
 eval "$($HOME/.local/bin/rtx activate zsh)"
+
 
 
 #
@@ -69,6 +70,9 @@ zinit light romkatv/powerlevel10k
 PURE_POWER_MODE=modern
 zinit snippet https://github.com/sainnhe/dotfiles/raw/master/.zsh-theme/gruvbox-material-dark.zsh
 
+# atuin
+zinit load atuinsh/atuin
+
 # Terminal title
 zinit ice wait lucid
 zinit light olets/zsh-window-title
@@ -92,48 +96,6 @@ zinit light djui/alias-tips
 # Start ssh-agent with shell
 zinit light bobsoppe/zsh-ssh-agent
 
-
-#
-# autosuggest/fzf
-#
-
-FZF_THEME="
-  --color=fg:${FOREGROUND} \
-  --color=bg:${BACKGROUND} \
-  --color=hl:${BRIGHT_YELLOW} \
-  --color=fg+:bold:${FOREGROUND} \
-  --color=bg+:${COMMENT} \
-  --color=hl+:${BRIGHT_YELLOW} \
-  --color=gutter:${BACKGROUND} \
-  --color=info:${ORANGE} \
-  --color=separator:${BACKGROUND} \
-  --color=border:${MILK} \
-  --color=label:${SOFT_YELLOW} \
-  --color=prompt:${LIGHT_BLUE} \
-  --color=spinner:${BRIGHT_YELLOW} \
-  --color=pointer:bold:${BRIGHT_YELLOW} \
-  --color=marker:${ERROR_RED} \
-  --color=header:${ORANGE} \
-  --color=preview-fg:${FOREGROUND} \
-  --color=preview-bg:${BACKGROUND} \
-"
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2>/dev/null'
-export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-export ZSH_AUTOSUGGEST_USE_ASYNC=1
-export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
-
-# for fzf-tab
-
-# disable sort when completing `git checkout`
-zstyle ':completion:*:git-checkout:*' sort false
-# set descriptions format to enable group support
-zstyle ':completion:*:descriptions' format '[%d]'
-# set list-colors to enable filename colorizing
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-# preview directory's content with exa when completing cd
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -1 --color=always $realpath'
-# switch group using `,` and `.`
-zstyle ':fzf-tab:*' switch-group ',' '.'
 
 
 #
@@ -167,37 +129,23 @@ alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 alias -s {yml,yaml,json,conf,ini,zsh}=nvim
 
 
-#
-# Bindings
-#
-
-bindkey "$terminfo[kcuu1]" history-substring-search-up
-bindkey "$terminfo[kcud1]" history-substring-search-down
-
-# vim of above
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
-
-
-#
-# fzf configuration
-#
-
-# Use fd instead of find for file completion
-_fzf_compgen_path() {
-    fd --hidden --follow --exclude ".git" . "$1"
-}
-
-# Use fd to generate the list for directory completion
-_fzf_compgen_dir() {
-    fd --type d --hidden --follow --exclude ".git" . "$1"
-}
-
 
 #
 # dircolors - if available, need to install vivid https://github.com/sharkdp/vivid
 #
 (( $+commands[vivid] )) && export LS_COLORS="$(vivid generate gruvbox-dark-soft)"
+
+
+
+#
+# pnpm
+#
+export PNPM_HOME="$HOME/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
 
 
 #
