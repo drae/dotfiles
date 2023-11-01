@@ -9,7 +9,7 @@ direnv = '2.32.3'        #renovate: packageName=direnv/direnv
 fd = '8.7.1'             #renovate: packageName=sharkdp/fd
 flux2 = '2.1.2'          #renovate: packageName=fluxcd/flux2
 fzf = '0.39.0'           #renovate: packagename=junegunn/fzf
-github-cli = '2.37.0'    #renovate: packageName=cli/cli
+github-cli = '2.38.0'    #renovate: packageName=cli/cli
 glow = '1.5.1'           #renovate: packageName=charmbracelet/glow
 golang = '1.20.3'        #renovate: datasource=github-tags packageName=golang/go versioning=^go(?<version>.*)$
 helm = '3.13.1'          #renovate: packageName=helm/helm
