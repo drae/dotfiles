@@ -11,17 +11,18 @@ function get_os_type() {
 function initialize_linux() {
     sudo apt update
     sudo apt install -y software-properties-common
-    sudo add-apt-repository ppa:fish-shell/release-3
+    #    sudo add-apt-repository ppa:fish-shell/release-3
     sudo apt update
     sudo apt install -y \
+        build-essential \
         ca-certificates \
         git \
         curl \
         python3-pip \
         wget \
         unzip \
-        zsh \
-        fish
+        zsh
+    #        fish
 }
 
 function initialize_os_env() {
