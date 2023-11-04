@@ -1,38 +1,51 @@
 [tools]
-age = '1.1.1'            #renovate: packageName=FiloSottile/age
-awscli = '2.13.32'       #renovate: datasource=github-tags packageName=aws/aws-cli versioning=^(?<version>)$
-bat = '0.24.0'           #renovate: packageName=sharkdp/bat
-chezmoi = '2.40.4'       #renovate: packageName=twpayne/chezmoi
+age = '1.1.1'             #renovate: packageName=FiloSottile/age
+awscli = '2.13.32'        #renovate: datasource=github-tags packageName=aws/aws-cli versioning=^(?<version>)$
+bat = '0.24.0'            #renovate: packageName=sharkdp/bat
+chezmoi = '2.40.4'        #renovate: packageName=twpayne/chezmoi
 cloudflared = '2023.10.0' #renovate: packageName=cloudflare/cloudflared
-delta = '0.16.5'         #renovate: packageName=dandavison/delta
-direnv = '2.32.3'        #renovate: packageName=direnv/direnv
-fd = '8.7.1'             #renovate: packageName=sharkdp/fd
-flux2 = '2.1.2'          #renovate: packageName=fluxcd/flux2
-fzf = '0.39.0'           #renovate: packagename=junegunn/fzf
-github-cli = '2.38.0'    #renovate: packageName=cli/cli
-glow = '1.5.1'           #renovate: packageName=charmbracelet/glow
-golang = '1.20.3'        #renovate: datasource=github-tags packageName=golang/go versioning=^go(?<version>.*)$
-helm = '3.13.1'          #renovate: packageName=helm/helm
-jq = '1.7'               #renovate: packageName=jqlang/jq
-k9s = '0.27.4'           #renovate: packageName=derailed/k9s
-krew = '0.4.4'           #renovate: packageName=kubernetes-sigs/krew
-kubectl = '1.26.3'       #renovate: datasource=github-tags packageName=kubernetes/kubectl versioning=^kubernetes-(?<version>.*)$
-kustomize = '5.0.1'      #renovate: packageName=kubernetes-sigs/kustomize
-lazygit = '0.40.2'       #renovate: packageName=jesseduffield/lazygit
-neovim = '0.9.4'         #renovate: packageName=neovim/neovim
-nodejs = '18.18.2'       #renovate: packageName=nodejs/node
+delta = '0.16.5'          #renovate: packageName=dandavison/delta
+direnv = '2.32.3'         #renovate: packageName=direnv/direnv
+fd = '8.7.1'              #renovate: packageName=sharkdp/fd
+flux2 = '2.1.2'           #renovate: packageName=fluxcd/flux2
+fzf = '0.39.0'            #renovate: packagename=junegunn/fzf
+github-cli = '2.38.0'     #renovate: packageName=cli/cli
+glow = '1.5.1'            #renovate: packageName=charmbracelet/glow
+golang = '1.20.3'         #renovate: datasource=github-tags packageName=golang/go versioning=^go(?<version>.*)$
+helm = '3.13.1'           #renovate: packageName=helm/helm
+jq = '1.7'                #renovate: packageName=jqlang/jq
+k9s = '0.27.4'            #renovate: packageName=derailed/k9s
+krew = '0.4.4'            #renovate: packageName=kubernetes-sigs/krew
+kubectl = '1.26.3'        #renovate: datasource=github-tags packageName=kubernetes/kubectl versioning=^kubernetes-(?<version>.*)$
+kustomize = '5.0.1'       #renovate: packageName=kubernetes-sigs/kustomize
+lazygit = '0.40.2'        #renovate: packageName=jesseduffield/lazygit
+neovim = '0.9.4'          #renovate: packageName=neovim/neovim
+nodejs = '18.18.2'        #renovate: packageName=nodejs/node
 pnpm = '8.10.2'           #renovate: packageName=pnpm/pnpm
-pre-commit = '3.5.0'     #renovate: packageName=pre-commit/pre-commit
-ripgrep = '13.0.0'       #renovate: packageName=BurntSushi/ripgrep
-rust = '1.73.0'          #renovate: packageName=rust-lang/rust
-sops = '3.8.1'           #renovate: packageName=mozilla/sops
-starship = '1.16.0'      #renovate: depName=starship/starship
-stern = '1.26.0'         #renovate: packageName=stern/stern
-talhelper = '1.14.0'     #renovate: packageName=budimanjojo/talhelper
-talosctl = '1.5.4'       #renovate: packageName=siderolabs/talos
-task = '3.31.0'          #renovate: packageName=go-task/task
-yq = '4.35.2'            #renovate: packageName=mikefarah/yq
+pre-commit = '3.5.0'      #renovate: packageName=pre-commit/pre-commit
+ripgrep = '13.0.0'        #renovate: packageName=BurntSushi/ripgrep
+rust = '1.73.0'           #renovate: packageName=rust-lang/rust
+sops = '3.8.1'            #renovate: packageName=mozilla/sops
+starship = '1.16.0'       #renovate: depName=starship/starship
+stern = '1.26.0'          #renovate: packageName=stern/stern
+talhelper = '1.14.0'      #renovate: packageName=budimanjojo/talhelper
+talosctl = '1.5.4'        #renovate: packageName=siderolabs/talos
+task = '3.31.0'           #renovate: packageName=go-task/task
+yq = '4.35.2'             #renovate: packageName=mikefarah/yq
 
 [settings]
-verbose = false
-asdf_compat = true
+# plugins can read the versions files used by other version managers (if enabled by the plugin)
+# for example, .nvmrc in the case of node's nvm
+legacy_version_file = true # enabled by default (different than asdf)
+
+# configure `rtx install` to always keep the downloaded archive
+always_keep_download = false # deleted after install by default
+always_keep_install = false  # deleted on failure by default
+
+verbose = false     # set to true to see full installation output, see `RTX_VERBOSE`
+asdf_compat = false # set to true to ensure .tool-versions will be compatible with asdf, see `RTX_ASDF_COMPAT`
+jobs = 4            # number of plugins or runtimes to install in parallel. The default is `4`.
+raw = false         # set to true to directly pipe plugins to stdin/stdout/stderr
+
+experimental = true # enable experimental features
+log_level = 'info'  # log verbosity, see `RTX_LOG_LEVEL`
