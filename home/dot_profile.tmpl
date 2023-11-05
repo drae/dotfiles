@@ -33,38 +33,29 @@ export WGETRC=$XDG_CONFIG_HOME/wgetrc
 
 # XDG_DATA_HOME
 export ZSH_DATA_DIR=$XDG_DATA_HOME/zsh
-export NPM_PACKAGES=$XDG_DATA_HOME/npm-packages
-export MYSQL_HISTFILE=$XDG_DATA_HOME/mysql_history
-export NVM_DIR=$XDG_DATA_HOME/nvm
 
 # XDG_CACHE_HOME
 export ZSH_CACHE_DIR=$XDG_CACHE_HOME/zsh
 
-# Other stuff
+# Go
 export GOPATH=$HOME/go
-
-{{- if (eq .chezmoi.os "linux") }}
-  {{- if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
-# WSL
-export USERPROFILE=$(wslpath "$(wslvar USERPROFILE)")
-  {{- end }}
-{{- end }}
+export GOROOT=$XDG_DATA_HOME/golang
 
 # The paths
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
+PATH="$HOME/.local/bin:$HOME/go/bin:$HOME/.krew/bin:$PATH:$HOME/.local/share/rtx/shims"
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
+# Set umask to user and group rw(x)
+umask 022
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/go/bin" ] ; then
-    PATH="$HOME/go/bin:$PATH"
-fi
+# LESS man page colors (makes Man pages more readable).
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[00;44;37m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
 
-# manpath
-export MANPATH=$(manpath -g):$XDG_DATA_HOME/man
+# Set the editor
+export EDITOR="nvim"
+export VISUAL="
