@@ -18,6 +18,7 @@ function initialize_linux() {
         git \
         curl \
         python3-pip \
+        tmux \
         wget \
         unzip \
         zsh
