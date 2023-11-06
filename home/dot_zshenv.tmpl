@@ -3,7 +3,7 @@ export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:=$HOME/.config}
 export XDG_CACHE_HOME=${XDG_CACHE_HOME:=$HOME/.cache}
 export XDG_DATA_HOME=${XDG_DATA_HOME:=$HOME/.local/share}
 if [[ ! -w ${XDG_RUNTIME_DIR:=/run/user/$(id -u)} ]]; then
-    XDG_RUNTIME_DIR=/tmp
+    export XDG_RUNTIME_DIR=/tmp
 fi
 export XDG_RUNTIME_DIR
 
@@ -24,14 +24,7 @@ export GOPATH=$HOME/go
 export GOROOT=$XDG_DATA_HOME/golang
 
 # The paths
-PATH="$HOME/.local/bin:$HOME/go/bin:$HOME/.krew/bin:$PATH:$HOME/.local/share/rtx/shims"
-
-#
-# zsh/shell
-#
-
-# Set umask to user and group rw(x)
-umask 022
+export PATH="$HOME/.local/bin:$HOME/go/bin:$HOME/.krew/bin:$PATH:$HOME/.local/share/rtx/shims"
 
 # LESS man page colors (makes Man pages more readable).
 export LESS_TERMCAP_mb=$'\E[01;31m'

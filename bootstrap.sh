@@ -11,7 +11,6 @@ function get_os_type() {
 function initialize_linux() {
     sudo apt update
     sudo apt install -y software-properties-common
-    #    sudo add-apt-repository ppa:fish-shell/release-3
     sudo apt update
     sudo apt install -y \
         build-essential \
@@ -22,7 +21,6 @@ function initialize_linux() {
         wget \
         unzip \
         zsh
-    #        fish
 }
 
 function initialize_os_env() {

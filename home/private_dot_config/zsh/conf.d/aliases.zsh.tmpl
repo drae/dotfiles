@@ -1,0 +1,20 @@
+#
+# Aliases
+#
+{{ if (eq .chezmoi.os "linux") }}
+  alias ll='ls -alh --color=auto --group-directories-first'
+  alias ls='ls --color=auto --group-directories-first'
+{{ else if (eq .chezmoi.os "darwin" ) }}
+  alias ll='ls -alGh'
+  alias ls='ls -Gh'
+{{ end }}
+
+alias asi='apt-cache pkgnames | fzf --header "[apt:install]" | xargs -d " " -- sudo apt-get install'
+alias grep='grep  --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
+alias k='kubectl'
+alias vi='nvim'
+alias vim='nvim'
+alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
+
+# Suffix aliases
+alias -s {yml,yaml,json,conf,ini,zsh}=nvim

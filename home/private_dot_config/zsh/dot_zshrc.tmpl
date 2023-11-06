@@ -8,32 +8,19 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-#setopt extended_history       # record timestamp of command in HISTFILE
-#setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
-#setopt hist_ignore_all_dups   # ignore duplicated commands history list
-#setopt hist_ignore_space      # ignore commands that start with space
-#setopt hist_verify            # show command with history expansion to user before running it
-#setopt inc_append_history     # add commands to HISTFILE in order of execution
-#setopt share_history          # share command history data
-#setopt hash_list_all          # hash everything before completion
-setopt always_to_end          # when completing from the middle of a word, move the cursor to the end of the word
-setopt complete_in_word       # allow completion from within a word/phrase
-setopt nocorrect                # spelling correction for commands
-setopt list_ambiguous         # complete as much of a completion until it gets ambiguous.
+#
+# Options
+#
+setopt hash_list_all           # hash everything before completion
+setopt always_to_end           # when completing from the middle of a word, move the cursor to the end of the word
+setopt complete_in_word        # allow completion from within a word/phrase
+setopt nocorrect               # spelling correction for commands
+setopt list_ambiguous          # complete as much of a completion until it gets ambiguous.
 setopt nolisttypes
 setopt listpacked
 setopt automenu
 unsetopt BEEP
 setopt vi
-
-# Support Windows Terminal duplication
-{{ if (eq .chezmoi.os "linux") }}
-  {{ if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
-    set_wt_cwd() { printf "\e]9;9;%s\e\\" "$(wslpath -m "$PWD")" }
-    precmd_functions+=set_wt_cwd
-  {{ end }}
-{{ end }}
-
 
 
 #
@@ -42,11 +29,34 @@ setopt vi
 eval "$($HOME/.local/bin/rtx activate zsh)"
 
 
+#
+# Source conf.d/.zshrc.d/zshrc.d folders
+# 
+function src_confd {
+  local files=("$1"/*.{sh,zsh}(.N))
+  local f; for f in ${(o)files}; do
+    # ignore files that begin with a tilde
+    case ${f:t} in '~'*) continue;; esac
+    source "$f"
+  done
+}
+
+() {
+  local confdirs=(
+    "${ZDOTDIR:-$HOME}/.zshrc.d"
+    "${ZDOTDIR:-$HOME/.config/zsh}/zshrc.d"
+    "${ZDOTDIR:-$HOME/.config/zsh}/conf.d"
+  )
+  local d; for d in $confdirs; do
+    [[ -d $d ]] || continue
+    src_confd $d
+  done
+}
+
 
 #
 # zinit
 #
-
 declare -A ZINIT
 ZINIT[HOME_DIR]="${XDG_DATA_HOME}/zinit"
 ZINIT[ZCOMPDUMP_PATH]="${XDG_CACHE_HOME}/zsh/zcompdump-${ZSH_VERSION}"
@@ -90,7 +100,6 @@ zinit light djui/alias-tips
 zinit light bobsoppe/zsh-ssh-agent
 
 
-
 #
 # other app hooks
 #
@@ -99,35 +108,10 @@ zinit light bobsoppe/zsh-ssh-agent
 eval "$(direnv hook zsh)"
 
 
-
-#
-# Aliases
-#
-{{ if (eq .chezmoi.os "linux") }}
-  alias ll='ls -alh --color=auto --group-directories-first'
-  alias ls='ls --color=auto --group-directories-first'
-{{ else if (eq .chezmoi.os "darwin" ) }}
-  alias ll='ls -alGh'
-  alias ls='ls -Gh'
-{{ end }}
-
-alias asi='apt-cache pkgnames | fzf --header "[apt:install]" | xargs -d " " -- sudo apt-get install'
-alias grep='grep  --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
-alias k='kubectl'
-alias vi='nvim'
-alias vim='nvim'
-alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
-
-# Suffix aliases
-alias -s {yml,yaml,json,conf,ini,zsh}=nvim
-
-
-
 #
 # dircolors - if available, need to install vivid https://github.com/sharkdp/vivid
 #
 (( $+commands[vivid] )) && export LS_COLORS="$(vivid generate gruvbox-dark-soft)"
-
 
 
 #
@@ -138,7 +122,6 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
-
 
 
 #

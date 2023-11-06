@@ -18,6 +18,8 @@ return {
     opts = function(_, opts)
       table.insert(opts.ensure_installed, "prettierd")
       table.insert(opts.ensure_installed, "ansible-language-server")
+      table.insert(opts.ensure_installed, "typescript-language-server")
+      table.insert(opts.ensure_installed, "astro-language-server")
     end,
   },
 
