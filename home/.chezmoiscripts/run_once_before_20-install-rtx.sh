@@ -9,7 +9,7 @@ function is_rtx_exists() {
 
 function install_rtx() {
   if ! is_rtx_exists; then
-    curl -Ls https://github.com/jdx/rtx/releases/download/v2023.9.2/rtx-v2023.9.2-linux-x64 --create-dirs -o $HOME/.local/bin/rtx
+    curl -Ls https://github.com/jdx/rtx/releases/download/v2023.9.2/rtx-v2023.11.0-linux-x64 --create-dirs -o $HOME/.local/bin/rtx
     chmod +x $HOME/.local/bin/rtx
   fi
 }
