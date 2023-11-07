@@ -25,6 +25,21 @@ if $(which -s flux &>/dev/null); then
   flux completion zsh | tee >$_path/_flux
 fi
 
+if $(which -s gh &>/dev/null); then
+  echo "setting up gh completion"
+  gh completion -s zsh | tee >$_path/_gh
+fi
+
+if $(which -s helm &>/dev/null); then
+  echo "setting up helm completion"
+  helm completion zsh | tee >$_path/_helm
+fi
+
+if $(which -s k9s &>/dev/null); then
+  echo "setting up k9s completion"
+  k9s completion zsh | tee >$_path/_k9s
+fi
+
 if $(which -s kubectl &>/dev/null); then
   echo "setting up kubectl completion"
   kubectl completion zsh | tee >$_path/_kubectl
@@ -35,19 +50,9 @@ if $(which -s kustomize &>/dev/null); then
   kustomize completion zsh | tee >$_path/_kustomize
 fi
 
-if $(which -s helm &>/dev/null); then
-  echo "setting up helm completion"
-  helm completion zsh | tee >$_path/_helm
-fi
-
 if $(which -s talosctl &>/dev/null); then
   echo "setting up talosctl completion"
   talosctl completion zsh | tee >$_path/_talosctl
-fi
-
-if $(which -s k9s &>/dev/null); then
-  echo "setting up k9s completion"
-  k9s completion zsh | tee >$_path/_k9s
 fi
 
 if $(which -s task &>/dev/null); then
