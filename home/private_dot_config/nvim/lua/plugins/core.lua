@@ -1,10 +1,17 @@
 return {
+  -- Themes
   {
     'sainnhe/gruvbox-material',
     priority = 1000,
     name = "gruvbox-material",
   },
+  {
+    'luisiacc/gruvbox-baby',
+    priority = 1000,
+    name = "gruvbox-baby",
+  },
 
+  -- Lazyvim!
   {
     "LazyVim/LazyVim",
     opts = {
