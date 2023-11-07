@@ -1,0 +1,46 @@
+{{ if (eq .chezmoi.os "linux" "darwin") -}}
+
+{{ $sudo := "sudo " -}}
+{{ if eq .chezmoi.username "root" -}}
+{{   $sudo = "" -}}
+{{ end -}}
+
+#!/bin/bash
+
+set -eufo pipefail
+
+function not_needed_executable() {
+    local dir=$2
+    local path=$dir/$1
+    local current_path=$(command -v "$1")
+
+    if [ "$current_path" != "$path" ] && [ -f "$path" ]; then
+        echo "deleted $path, not needed anymore"
+        {{ $sudo }}rm "$path"
+    fi
+}
+
+function not_needed_directory() {
+    local dir=$1
+    if [ -d "$dir" ]; then
+        {{ $sudo }}rm -rf "$dir"
+        echo "deleted $dir directory, not needed anymore"
+    fi
+}
+
+not_needed_executable "kubectl" "{{ .chezmoi.homeDir }}/.local/bin"
+not_needed_executable "flux" "{{ .chezmoi.homeDir }}/.local/bin"
+not_needed_executable "kustomize" "/usr/local/bin"
+not_needed_executable "sops" "/usr/local/bin"
+not_needed_executable "fzf" "/usr/local/bin"
+not_needed_executable "starship" "/usr/local/bin"
+not_needed_executable "zoxide" "/usr/local/bin"
+not_needed_executable "rg" "/usr/local/bin"
+not_needed_executable "fd" "/usr/local/bin"
+not_needed_executable "bat" "/usr/local/bin"
+not_needed_executable "age" "/usr/local/bin"
+not_needed_executable "age-keygen" "/usr/local/bin"
+not_needed_executable "chezmoi" "{{ .chezmoi.homeDir }}/.local/bin"
+
+not_needed_directory "{{ .chezmoi.homeDir }}/.local/share/nvim/lsp_servers"
+{{ end -}} 

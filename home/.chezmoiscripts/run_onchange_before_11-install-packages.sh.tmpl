@@ -1,0 +1,30 @@
+{{ if (and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "debian" "ubuntu" "raspbian")) -}}
+
+{{ $packages := list
+    "btop"
+    "build-essential"
+    "ca-certificates"
+    "curl"
+    "git"
+    "git-lfs"
+    "python3-pip"
+    "python3-venv"
+    "software-properties-common"
+    "tmux"
+    "unzip"
+    "wget"
+    "zsh" -}}
+
+{{ $sudo := "sudo " -}}
+{{ if eq .chezmoi.username "root" -}}
+{{   $sudo = "" -}}
+{{ end -}}
+
+#!/bin/bash
+
+set -eufo pipefail
+
+{{ $sudo }}apt-get update
+{{ $sudo }}apt install -y {{ $packages | join " " }}
+
+{{ end -}}

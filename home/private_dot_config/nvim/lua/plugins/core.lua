@@ -12,14 +12,17 @@ return {
     },
   },
 
-  -- Add Prettierd
+  -- default mason options
   {
     "williamboman/mason.nvim",
     opts = function(_, opts)
-      table.insert(opts.ensure_installed, "prettierd")
+      table.insert(opts.ensure_installed, "ansible-lint")
       table.insert(opts.ensure_installed, "ansible-language-server")
-      table.insert(opts.ensure_installed, "typescript-language-server")
       table.insert(opts.ensure_installed, "astro-language-server")
+      table.insert(opts.ensure_installed, "lua-language-server")
+      table.insert(opts.ensure_installed, "markdownlint-cli2")
+      table.insert(opts.ensure_installed, "prettierd")
+      table.insert(opts.ensure_installed, "typescript-language-server")
     end,
   },
 

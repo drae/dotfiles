@@ -1,18 +1,16 @@
-{{ $indices := dict
-  "netshoot" "https://github.com/nilic/kubectl-netshoot.git"
--}}
-
 {{ $plugins := list
   "df-pv"
   "kc"
-  "netshoot/netshoot"
   "pv-migrate"
   "rook-ceph"
   "view-secret"
   "node-shell"
 -}}
 
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
+
+set -e
+
 function is_krew_installed() {
   command -v krew > /dev/null
 }
@@ -45,14 +43,6 @@ function install_krew_plugin() {
   run_krew_command "install" "$1"
 }
 
-function install_krew_indices() {
-  {{- range $index, $url := $indices }}
-  if ! is_krew_index_installed "{{ $url }}"; then
-    install_krew_index "{{ $index }}" "{{ $url }}"
-  fi
-  {{- end }}
-}
-
 function install_krew_plugins() {
   {{- range $plugin := $plugins }}
   if ! is_krew_plugin_installed "{{ $plugin }}"; then
@@ -61,14 +51,7 @@ function install_krew_plugins() {
   {{- end }}
 }
 
-function main() {
-  if is_krew_installed ; then
-    install_krew_indices
-    install_krew_plugins
-    update_krew_plugins
-  fi
-}
-
-if [[ ${#BASH_SOURCE[@]} = 1 ]]; then
-  main
+if is_krew_installed ; then
+  install_krew_plugins
+  update_krew_plugins
 fi

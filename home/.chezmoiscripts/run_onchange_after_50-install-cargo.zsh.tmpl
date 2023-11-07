@@ -1,0 +1,13 @@
+{{ $cargos := list
+  "vivid"
+  "atuin" -}}
+
+#!/usr/bin/env zsh
+
+set -e
+
+if [ $+commands[cargo] ]; then
+  {{- range $cargo := $cargos }}
+  cargo install "{{ $cargo }}"
+  {{- end }}
+fi

@@ -1,5 +1,5 @@
-{{ if (eq .chezmoi.os "linux") -}}
-  {{ if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
+{{- if (eq .chezmoi.os "linux") -}}
+  {{- if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
 #!/usr/bin/env bash
 
 set -Eeuo pipefail
@@ -12,5 +12,5 @@ systemd=true
 enabled = true
 options = "metadata,umask=22,fmask=11"
 EOF
-  {{ end }}
-{{ end }}
+  {{ end -}}
+{{ end -}}

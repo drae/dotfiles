@@ -1,0 +1,11 @@
+{{ if (eq .chezmoi.os "linux" "darwin") -}}
+
+#!/usr/bin/env zsh
+
+set -e
+
+if [ -f $HOME/.local/bin/rtx ]; then
+  eval "$($HOME/.local/bin/rtx activate zsh)"
+  eval "$($HOME/.local/bin/rtx install -y)"
+fi
+{{ end -}}
