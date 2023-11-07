@@ -29,6 +29,17 @@ setopt vi
 
 
 #
+# fpath / compinit
+#
+fpath=(
+    $HOME/.local/share/zsh/completions
+    $fpath
+)
+autoload -Uz compinit
+compinit
+
+
+#
 # rtx package manager
 #
 eval "$($HOME/.local/bin/rtx activate zsh)"

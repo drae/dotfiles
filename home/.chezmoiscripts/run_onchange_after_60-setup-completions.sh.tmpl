@@ -1,0 +1,58 @@
+{{ if (eq .chezmoi.os "linux" "darwin") -}}
+
+#!/usr/bin/zsh
+
+set -e
+
+echo -e "\033[0;32m>>>>> Begin Setting Up Fish Completions <<<<<\033[0m"
+
+_path=$HOME/.local/share/zsh/completions
+
+# .config/rtx/config.toml hash: {{ include "private_dot_config/rtx/config.toml" | sha256sum }}
+
+# Create folder if missing
+if ! [[ -d $_path ]]; then
+  mkdir -p $_path
+fi
+
+if $(which -s chezmoi &>/dev/null); then
+  echo "setting up chezmoi completion"
+  chezmoi completion zsh | tee >$_path/_chezmoi
+fi
+
+if $(which -s flux &>/dev/null); then
+  echo "setting up flux completion"
+  flux completion zsh | tee >$_path/_flux
+fi
+
+if $(which -s kubectl &>/dev/null); then
+  echo "setting up kubectl completion"
+  kubectl completion zsh | tee >$_path/_kubectl
+fi
+
+if $(which -s kustomize &>/dev/null); then
+  echo "setting up kustomize completion"
+  kustomize completion zsh | tee >$_path/_kustomize
+fi
+
+if $(which -s helm &>/dev/null); then
+  echo "setting up helm completion"
+  helm completion zsh | tee >$_path/_helm
+fi
+
+if $(which -s talosctl &>/dev/null); then
+  echo "setting up talosctl completion"
+  talosctl completion zsh | tee >$_path/_talosctl
+fi
+
+if $(which -s k9s &>/dev/null); then
+  echo "setting up k9s completion"
+  k9s completion zsh | tee >$_path/_k9s
+fi
+
+if $(which -s task &>/dev/null); then
+  echo "setting up task completion"
+  curl --silent --show-error https://raw.githubusercontent.com/go-task/task/master/completion/zsh/_task >$_path/_task
+fi
+
+{{ end }}
