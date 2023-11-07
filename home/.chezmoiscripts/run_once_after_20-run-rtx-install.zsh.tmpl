@@ -4,7 +4,9 @@
 
 set -e
 
-if [ -f $HOME/.local/bin/rtx ]; then
+# .config/rtx/config.toml hash: {{ include "private_dot_config/rtx/config.toml" | sha256sum }}
+
+if $(which -s rtx &>/dev/null); then
   eval "$($HOME/.local/bin/rtx activate zsh)"
   eval "$($HOME/.local/bin/rtx install -y)"
 fi
