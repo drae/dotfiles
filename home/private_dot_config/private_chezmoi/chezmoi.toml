@@ -1,0 +1,5 @@
+encryption = "age"
+
+[age]
+identity = "~/.config/sops/age/personal-keys.txt"
+recipient = "age1kpfj2296mrlq75ffktg9zksgausntzamd7tu88hcxm2mytray3aqqp33yr"
