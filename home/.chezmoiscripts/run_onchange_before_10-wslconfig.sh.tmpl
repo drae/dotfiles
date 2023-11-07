@@ -4,7 +4,9 @@
 
 set -Eeuo pipefail
 
-sudo tee -a /etc/wsl.conf << EOF
+export WINHOME=$(wslpath $(cmd.exe /C "echo %USERPROFILE%" 2>/dev/null | tr -d '\r'))
+
+sudo tee /etc/wsl.conf >/dev/null << EOF
 [boot]
 systemd=true
 
@@ -12,5 +14,18 @@ systemd=true
 enabled = true
 options = "metadata,umask=22,fmask=11"
 EOF
+
+tee $WINHOME/.wslconfig >/dev/null << EOF
+[experimental]
+autoMemoryReclaim=gradual
+sparseVhd=true
+
+[wsl2]
+networkingMode=mirrored
+dnsTunneling=true
+firewall=true
+autoProxy=true
+EOF
+
   {{ end -}}
 {{ end -}}
