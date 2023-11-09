@@ -27,7 +27,7 @@ rust = '1.73.0'           #renovate: packageName=rust-lang/rust
 sops = '3.8.1'            #renovate: packageName=mozilla/sops
 stern = '1.26.0'          #renovate: packageName=stern/stern
 talhelper = '1.14.0'      #renovate: packageName=budimanjojo/talhelper
-talosctl = '1.5.4'        #renovate: packageName=siderolabs/talos
+talosctl = '1.5.5'        #renovate: packageName=siderolabs/talos
 task = '3.31.0'           #renovate: packageName=go-task/task
 yq = '4.35.2'             #renovate: packageName=mikefarah/yq
 
