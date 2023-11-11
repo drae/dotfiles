@@ -1,6 +1,6 @@
 [tools]
 age = '1.1.1'             #renovate: packageName=FiloSottile/age
-awscli = '2.13.33'        #renovate: datasource=github-tags packageName=aws/aws-cli versioning=^(?<version>)$
+awscli = '2.13.34'        #renovate: datasource=github-tags packageName=aws/aws-cli versioning=^(?<version>)$
 bat = '0.24.0'            #renovate: packageName=sharkdp/bat
 chezmoi = '2.40.4'        #renovate: packageName=twpayne/chezmoi
 cloudflared = '2023.10.0' #renovate: packageName=cloudflare/cloudflared
