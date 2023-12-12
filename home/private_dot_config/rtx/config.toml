@@ -29,7 +29,7 @@ stern = '1.27.0'          #renovate: packageName=stern/stern
 talhelper = '1.16.1'      #renovate: packageName=budimanjojo/talhelper
 talosctl = '1.5.5'        #renovate: packageName=siderolabs/talos
 task = '3.32.0'           #renovate: packageName=go-task/task
-yq = '4.40.4'             #renovate: packageName=mikefarah/yq
+yq = '4.40.5'             #renovate: packageName=mikefarah/yq
 
 [settings]
 # plugins can read the versions files used by other version managers (if enabled by the plugin)
