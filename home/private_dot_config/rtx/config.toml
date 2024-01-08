@@ -22,7 +22,7 @@ neovim = '0.9.5'          #renovate: packageName=neovim/neovim
 nodejs = '21.5.0'         #renovate: packageName=nodejs/node
 pnpm = '8.14.0'           #renovate: packageName=pnpm/pnpm
 pre-commit = '3.6.0'      #renovate: packageName=pre-commit/pre-commit
-ripgrep = '14.0.3'        #renovate: packageName=BurntSushi/ripgrep
+ripgrep = '14.1.0'        #renovate: packageName=BurntSushi/ripgrep
 rust = '1.75.0'           #renovate: packageName=rust-lang/rust
 sops = '3.8.1'            #renovate: packageName=mozilla/sops
 stern = '1.27.0'          #renovate: packageName=stern/stern
