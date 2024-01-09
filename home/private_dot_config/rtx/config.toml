@@ -25,7 +25,7 @@ pre-commit = '3.6.0'      #renovate: packageName=pre-commit/pre-commit
 ripgrep = '14.1.0'        #renovate: packageName=BurntSushi/ripgrep
 rust = '1.75.0'           #renovate: packageName=rust-lang/rust
 sops = '3.8.1'            #renovate: packageName=mozilla/sops
-stern = '1.27.0'          #renovate: packageName=stern/stern
+stern = '1.28.0'          #renovate: packageName=stern/stern
 talhelper = '1.16.5'      #renovate: packageName=budimanjojo/talhelper
 talosctl = '1.6.1'        #renovate: packageName=siderolabs/talos
 task = '3.33.1'           #renovate: packageName=go-task/task
