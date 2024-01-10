@@ -2,7 +2,7 @@
 age = '1.1.1'             #renovate: packageName=FiloSottile/age
 awscli = '2.15.8'        #renovate: datasource=github-tags packageName=aws/aws-cli versioning=^(?<version>)$
 bat = '0.24.0'            #renovate: packageName=sharkdp/bat
-chezmoi = '2.43.0'        #renovate: packageName=twpayne/chezmoi
+chezmoi = '2.44.0'        #renovate: packageName=twpayne/chezmoi
 cloudflared = '2024.1.1' #renovate: packageName=cloudflare/cloudflared
 delta = '0.16.5'          #renovate: packageName=dandavison/delta
 direnv = '2.33.0'         #renovate: packageName=direnv/direnv
