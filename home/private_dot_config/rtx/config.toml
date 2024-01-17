@@ -11,7 +11,7 @@ flux2 = '2.2.2'           #renovate: packageName=fluxcd/flux2
 fzf = '0.39.0'            #renovate: packagename=junegunn/fzf
 github-cli = '2.42.1'     #renovate: packageName=cli/cli
 glow = '1.5.1'            #renovate: packageName=charmbracelet/glow
-helm = '3.13.3'           #renovate: packageName=helm/helm
+helm = '3.14.0'           #renovate: packageName=helm/helm
 jq = '1.7'                #renovate: packageName=jqlang/jq
 k9s = '0.31.5'            #renovate: packageName=derailed/k9s
 krew = '0.4.4'            #renovate: packageName=kubernetes-sigs/krew
