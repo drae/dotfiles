@@ -50,3 +50,10 @@ declare -r HISTFILE
 # Set the editor
 export EDITOR="nvim"
 export VISUAL="nvim"
+
+{{ if eq .chezmoi.os "linux" }}
+{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
+# Required for WSL 3D acceleration
+export LIBVA_DRIVER_NAME=d3d12
+{{ end }}
+{{ end }}
