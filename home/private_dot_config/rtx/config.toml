@@ -1,35 +1,36 @@
 [tools]
-age = '1.1.1'             #renovate: packageName=FiloSottile/age
-awscli = '2.15.21'        #renovate: datasource=github-tags packageName=aws/aws-cli versioning=^(?<version>)$
-bat = '0.24.0'            #renovate: packageName=sharkdp/bat
-chezmoi = '2.46.1'        #renovate: packageName=twpayne/chezmoi
+age = '1.1.1'            #renovate: packageName=FiloSottile/age
+awscli = '2.15.21'       #renovate: datasource=github-tags packageName=aws/aws-cli versioning=^(?<version>)$
+bat = '0.24.0'           #renovate: packageName=sharkdp/bat
+chezmoi = '2.46.1'       #renovate: packageName=twpayne/chezmoi
 cloudflared = '2024.2.0' #renovate: packageName=cloudflare/cloudflared
-delta = '0.16.5'          #renovate: packageName=dandavison/delta
-direnv = '2.33.0'         #renovate: packageName=direnv/direnv
-fd = '9.0.0'              #renovate: packageName=sharkdp/fd
-flux2 = '2.2.3'           #renovate: packageName=fluxcd/flux2
-fzf = '0.39.0'            #renovate: packagename=junegunn/fzf
-github-cli = '2.44.1'     #renovate: packageName=cli/cli
-glow = '1.5.1'            #renovate: packageName=charmbracelet/glow
-helm = '3.14.1'           #renovate: packageName=helm/helm
-jq = '1.7'                #renovate: packageName=jqlang/jq
-k9s = '0.31.9'            #renovate: packageName=derailed/k9s
-krew = '0.4.4'            #renovate: packageName=kubernetes-sigs/krew
-kubectl = '1.26.3'        #renovate: datasource=github-tags packageName=kubernetes/kubectl versioning=^kubernetes-(?<version>.*)$
-kustomize = '5.0.1'       #renovate: packageName=kubernetes-sigs/kustomize
-lazygit = '0.40.2'        #renovate: packageName=jesseduffield/lazygit
-neovim = '0.9.5'          #renovate: packageName=neovim/neovim
-nodejs = '21.6.2'         #renovate: packageName=nodejs/node
-pnpm = '8.15.3'           #renovate: packageName=pnpm/pnpm
-pre-commit = '3.6.2'      #renovate: packageName=pre-commit/pre-commit
-ripgrep = '14.1.0'        #renovate: packageName=BurntSushi/ripgrep
-rust = '1.76.0'           #renovate: packageName=rust-lang/rust
-sops = '3.8.1'            #renovate: packageName=mozilla/sops
-stern = '1.28.0'          #renovate: packageName=stern/stern
+delta = '0.16.5'         #renovate: packageName=dandavison/delta
+direnv = '2.33.0'        #renovate: packageName=direnv/direnv
+fd = '9.0.0'             #renovate: packageName=sharkdp/fd
+flux2 = '2.2.3'          #renovate: packageName=fluxcd/flux2
+fzf = '0.39.0'           #renovate: packagename=junegunn/fzf
+github-cli = '2.44.1'    #renovate: packageName=cli/cli
+glow = '1.5.1'           #renovate: packageName=charmbracelet/glow
+helm = '3.14.1'          #renovate: packageName=helm/helm
+helmfile = '0.162.0'     #renovate: packageName=helmfile/helmfile
+jq = '1.7'               #renovate: packageName=jqlang/jq
+k9s = '0.31.9'           #renovate: packageName=derailed/k9s
+krew = '0.4.4'           #renovate: packageName=kubernetes-sigs/krew
+kubectl = '1.26.3'       #renovate: datasource=github-tags packageName=kubernetes/kubectl versioning=^kubernetes-(?<version>.*)$
+kustomize = '5.0.1'      #renovate: packageName=kubernetes-sigs/kustomize
+lazygit = '0.40.2'       #renovate: packageName=jesseduffield/lazygit
+neovim = '0.9.5'         #renovate: packageName=neovim/neovim
+nodejs = '21.6.2'        #renovate: packageName=nodejs/node
+pnpm = '8.15.3'          #renovate: packageName=pnpm/pnpm
+pre-commit = '3.6.2'     #renovate: packageName=pre-commit/pre-commit
+ripgrep = '14.1.0'       #renovate: packageName=BurntSushi/ripgrep
+rust = '1.76.0'          #renovate: packageName=rust-lang/rust
+sops = '3.8.1'           #renovate: packageName=mozilla/sops
+stern = '1.28.0'         #renovate: packageName=stern/stern
 talhelper = '2.2.0'      #renovate: packageName=budimanjojo/talhelper
-talosctl = '1.6.4'        #renovate: packageName=siderolabs/talos
-task = '3.34.1'           #renovate: packageName=go-task/task
-yq = '4.41.1'             #renovate: packageName=mikefarah/yq
+talosctl = '1.6.4'       #renovate: packageName=siderolabs/talos
+task = '3.34.1'          #renovate: packageName=go-task/task
+yq = '4.41.1'            #renovate: packageName=mikefarah/yq
 
 [settings]
 # plugins can read the versions files used by other version managers (if enabled by the plugin)

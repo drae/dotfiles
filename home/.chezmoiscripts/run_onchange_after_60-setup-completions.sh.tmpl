@@ -4,7 +4,7 @@
 
 set -e
 
-echo -e "\033[0;32m>>>>> Begin Setting Up Fish Completions <<<<<\033[0m"
+echo -e "\033[0;32m>>>>> Setup completions\033[0m"
 
 _path=$HOME/.local/share/zsh/completions
 
@@ -16,48 +16,58 @@ if ! [[ -d $_path ]]; then
 fi
 
 if $(which -s chezmoi &>/dev/null); then
-  echo "setting up chezmoi completion"
+  echo "> chezmoi"
   chezmoi completion zsh | tee >$_path/_chezmoi
 fi
 
 if $(which -s flux &>/dev/null); then
-  echo "setting up flux completion"
+  echo "> flux"
   flux completion zsh | tee >$_path/_flux
 fi
 
 if $(which -s gh &>/dev/null); then
-  echo "setting up gh completion"
+  echo "> gh"
   gh completion -s zsh | tee >$_path/_gh
 fi
 
 if $(which -s helm &>/dev/null); then
-  echo "setting up helm completion"
+  echo "> helm"
   helm completion zsh | tee >$_path/_helm
 fi
 
+if $(which -s helmfile &>/dev/null); then
+  echo "> helmfile"
+  helmfile completion zsh | tee >$_path/_helmfile
+fi
+
 if $(which -s k9s &>/dev/null); then
-  echo "setting up k9s completion"
+  echo "> k9s"
   k9s completion zsh | tee >$_path/_k9s
 fi
 
 if $(which -s kubectl &>/dev/null); then
-  echo "setting up kubectl completion"
+  echo "> kubectl"
   kubectl completion zsh | tee >$_path/_kubectl
 fi
 
 if $(which -s kustomize &>/dev/null); then
-  echo "setting up kustomize completion"
+  echo "> kustomize"
   kustomize completion zsh | tee >$_path/_kustomize
 fi
 
 if $(which -s talosctl &>/dev/null); then
-  echo "setting up talosctl completion"
+  echo "> talosctl"
   talosctl completion zsh | tee >$_path/_talosctl
 fi
 
 if $(which -s task &>/dev/null); then
-  echo "setting up task completion"
+  echo "> task"
   curl --silent --show-error https://raw.githubusercontent.com/go-task/task/master/completion/zsh/_task >$_path/_task
+fi
+
+if $(which -s kubectl &>/dev/null); then
+  echo "> virt"
+  kubectl virt completion zsh | tee >$_path/_virt
 fi
 
 {{ end }}
