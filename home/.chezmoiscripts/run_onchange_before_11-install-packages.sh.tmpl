@@ -1,6 +1,7 @@
 {{ if (and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "debian" "ubuntu" "raspbian")) -}}
 
 {{ $packages := list
+    "ansible"
     "btop"
     "build-essential"
     "ca-certificates"
@@ -25,6 +26,8 @@
 set -eufo pipefail
 
 {{ $sudo }}apt-get update
+# Add ansible ppa
+{{ $sudo }}add-apt-repository ppa:ansible/ansible -y
 {{ $sudo }}apt install -y {{ $packages | join " " }}
 
 {{ end -}}
