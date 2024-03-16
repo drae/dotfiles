@@ -1,4 +1,9 @@
-# K9s Gruvbox Dark Skin Contributed by [@indiebrain](https://github.com/indiebrain)
+# -----------------------------------------------------------------------------
+# K9s Gruvbox Dark Skin
+# Author: [@indiebrain](https://github.com/indiebrain)
+# -----------------------------------------------------------------------------
+
+# Styles...
 foreground: &foreground "#ebdbb2"
 background: &background "#333333"
 current_line: &current_line "#ebdbb2"
@@ -14,18 +19,24 @@ red: &red "#cc231c"
 k9s:
   body:
     fgColor: *foreground
-    bgColor: *background
+    bgColor: default
     logoColor: *blue
   prompt:
     fgColor: *foreground
-    bgColor: *background
+    bgColor: default
     suggestColor: *orange
   info:
     fgColor: *magenta
     sectionColor: *foreground
+  help:
+    fgColor: *foreground
+    bgColor: default
+    keyColor: *magenta
+    numKeyColor: *blue
+    sectionColor: *green
   dialog:
     fgColor: *foreground
-    bgColor: *background
+    bgColor: default
     buttonFgColor: *foreground
     buttonBgColor: *magenta
     buttonFocusFgColor: white
@@ -49,18 +60,18 @@ k9s:
       modifyColor: *blue
       addColor: *green
       errorColor: *red
-      highlightcolor: *orange
+      highlightColor: *orange
       killColor: *comment
       completedColor: *comment
     title:
       fgColor: *foreground
-      bgColor: *background
+      bgColor: default
       highlightColor: *orange
       counterColor: *blue
       filterColor: *magenta
   views:
     charts:
-      bgColor: background
+      bgColor: default
       defaultDialColors:
         - *blue
         - *red
@@ -69,16 +80,16 @@ k9s:
         - *red
     table:
       fgColor: *foreground
-      bgColor: *background
-      cursorFgColor: *background
+      bgColor: default
+      cursorFgColor: "#fff"
       cursorBgColor: *current_line
       header:
         fgColor: *foreground
-        bgColor: *background
+        bgColor: default
         sorterColor: *selection
     xray:
       fgColor: *foreground
-      bgColor: *background
+      bgColor: default
       cursorColor: *current_line
       graphicColor: *blue
       showIcons: false
@@ -88,7 +99,7 @@ k9s:
       valueColor: *foreground
     logs:
       fgColor: *foreground
-      bgColor: *background
+      bgColor: default
       indicator:
         fgColor: *foreground
-        bgColor: *background
+        bgColor: default
