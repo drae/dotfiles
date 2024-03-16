@@ -11,8 +11,8 @@
   repositories: ["drae/dotfiles"],
   regexManagers: [
     {
-      description: ["rtx package regex manager"],
-      fileMatch: ["home\\/private_dot_config\\/rtx\\/config.toml$"],
+      description: ["mise package regex manager"],
+      fileMatch: ["home\\/private_dot_config\\/mise\\/config.toml$"],
       matchStrings: [
         "(?<depName>\\S+) = '(?<currentValue>[^\\s]*?)'[ \\t]*?#renovate:( datasource=(?<datasource>.*?))?( packageName=(?<packageName>.*?=?))?( versioning=(?<versioning>.*?=?))?( versionTemplate=(?<versionTemplate>.*?=?))?\\n",
       ],

@@ -10,24 +10,24 @@ flux2 = '2.2.3'          #renovate: packageName=fluxcd/flux2
 fzf = '0.39.0'           #renovate: packagename=junegunn/fzf
 github-cli = '2.45.0'    #renovate: packageName=cli/cli
 glow = '1.5.1'           #renovate: packageName=charmbracelet/glow
-helm = '3.14.3'          #renovate: packageName=helm/helm
+helm = '3.14.2'          #renovate: packageName=helm/helm
 helmfile = '0.162.0'     #renovate: packageName=helmfile/helmfile
 jq = '1.7'               #renovate: packageName=jqlang/jq
-k9s = '0.32.3'           #renovate: packageName=derailed/k9s
+k9s = '0.32.0'           #renovate: packageName=derailed/k9s
 krew = '0.4.4'           #renovate: packageName=kubernetes-sigs/krew
 kubectl = '1.26.3'       #renovate: datasource=github-tags packageName=kubernetes/kubectl versioning=^kubernetes-(?<version>.*)$
 kustomize = '5.0.1'      #renovate: packageName=kubernetes-sigs/kustomize
 lazygit = '0.40.2'       #renovate: packageName=jesseduffield/lazygit
 neovim = '0.9.5'         #renovate: packageName=neovim/neovim
-nodejs = '21.7.1'        #renovate: packageName=nodejs/node
+nodejs = '21.6.2'        #renovate: packageName=nodejs/node
 pnpm = '8.15.4'          #renovate: packageName=pnpm/pnpm
 pre-commit = '3.6.2'     #renovate: packageName=pre-commit/pre-commit
 ripgrep = '14.1.0'       #renovate: packageName=BurntSushi/ripgrep
 rust = '1.76.0'          #renovate: packageName=rust-lang/rust
 sops = '3.8.1'           #renovate: packageName=mozilla/sops
-talhelper = '2.3.5'      #renovate: packageName=budimanjojo/talhelper
-talosctl = '1.6.6'       #renovate: packageName=siderolabs/talos
-task = '3.35.1'          #renovate: packageName=go-task/task
+talhelper = '2.3.3'      #renovate: packageName=budimanjojo/talhelper
+talosctl = '1.6.5'       #renovate: packageName=siderolabs/talos
+task = '3.35.0'          #renovate: packageName=go-task/task
 yq = '4.42.1'            #renovate: packageName=mikefarah/yq
 
 [settings]
@@ -35,14 +35,14 @@ yq = '4.42.1'            #renovate: packageName=mikefarah/yq
 # for example, .nvmrc in the case of node's nvm
 legacy_version_file = true # enabled by default (different than asdf)
 
-# configure `rtx install` to always keep the downloaded archive
+# configure `mise install` to always keep the downloaded archive
 always_keep_download = false # deleted after install by default
 always_keep_install = false  # deleted on failure by default
 
-verbose = false     # set to true to see full installation output, see `RTX_VERBOSE`
-asdf_compat = false # set to true to ensure .tool-versions will be compatible with asdf, see `RTX_ASDF_COMPAT`
+verbose = false     # set to true to see full installation output, see `MISE_VERBOSE`
+asdf_compat = false # set to true to ensure .tool-versions will be compatible with asdf, see `MISE_ASDF_COMPAT`
 jobs = 4            # number of plugins or runtimes to install in parallel. The default is `4`.
 raw = false         # set to true to directly pipe plugins to stdin/stdout/stderr
 
 experimental = true # enable experimental features
-log_level = 'info'  # log verbosity, see `RTX_LOG_LEVEL`
+log_level = 'info'  # log verbosity, see `MISE_LOG_LEVEL`

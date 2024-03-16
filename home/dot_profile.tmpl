@@ -21,7 +21,7 @@ export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:=$HOME/.config}
 export XDG_CACHE_HOME=${XDG_CACHE_HOME:=$HOME/.cache}
 export XDG_DATA_HOME=${XDG_DATA_HOME:=$HOME/.local/share}
 if [[ ! -w ${XDG_RUNTIME_DIR:=/run/user/$(id -u)} ]]; then
-    XDG_RUNTIME_DIR=/tmp
+  XDG_RUNTIME_DIR=/tmp
 fi
 export XDG_RUNTIME_DIR
 
@@ -42,7 +42,7 @@ export GOPATH=$HOME/go
 export GOROOT=$XDG_DATA_HOME/golang
 
 # The paths
-PATH="$HOME/.local/bin:$HOME/go/bin:$HOME/.krew/bin:$PATH:$HOME/.local/share/rtx/shims"
+PATH="$HOME/.local/bin:$HOME/go/bin:$HOME/.krew/bin:$PATH:$HOME/.local/share/mise/shims"
 
 # Set the editor
 export EDITOR="nvim"
