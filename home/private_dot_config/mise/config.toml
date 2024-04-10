@@ -10,7 +10,7 @@ flux2 = '2.2.3'          #renovate: packageName=fluxcd/flux2
 fzf = '0.39.0'           #renovate: packagename=junegunn/fzf
 github-cli = '2.47.0'    #renovate: packageName=cli/cli
 glow = '1.5.1'           #renovate: packageName=charmbracelet/glow
-helm = '3.14.3'          #renovate: packageName=helm/helm
+helm = '3.14.4'          #renovate: packageName=helm/helm
 helmfile = '0.163.1'     #renovate: packageName=helmfile/helmfile
 jq = '1.7'               #renovate: packageName=jqlang/jq
 k9s = '0.32.4'           #renovate: packageName=derailed/k9s
