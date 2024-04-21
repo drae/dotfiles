@@ -20,7 +20,7 @@ kustomize = '5.0.1'      #renovate: packageName=kubernetes-sigs/kustomize
 lazygit = '0.41.0'       #renovate: packageName=jesseduffield/lazygit
 neovim = '0.9.5'         #renovate: packageName=neovim/neovim
 nodejs = '21.7.3'        #renovate: packageName=nodejs/node
-pnpm = '8.15.7'          #renovate: packageName=pnpm/pnpm
+pnpm = '9.0.5'          #renovate: packageName=pnpm/pnpm
 pre-commit = '3.7.0'     #renovate: packageName=pre-commit/pre-commit
 ripgrep = '14.1.0'       #renovate: packageName=BurntSushi/ripgrep
 rust = '1.77.2'          #renovate: packageName=rust-lang/rust
