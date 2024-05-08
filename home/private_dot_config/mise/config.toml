@@ -5,7 +5,7 @@ chezmoi = '2.48.0'       #renovate: packageName=twpayne/chezmoi
 cloudflared = '2024.4.1' #renovate: packageName=cloudflare/cloudflared
 delta = '0.17.0'         #renovate: packageName=dandavison/delta
 direnv = '2.34.0'        #renovate: packageName=direnv/direnv
-fd = '10.0.0'             #renovate: packageName=sharkdp/fd
+fd = '10.1.0'             #renovate: packageName=sharkdp/fd
 flux2 = '2.2.3'          #renovate: packageName=fluxcd/flux2
 fzf = '0.39.0'           #renovate: packagename=junegunn/fzf
 github-cli = '2.49.0'    #renovate: packageName=cli/cli
