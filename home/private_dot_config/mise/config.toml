@@ -6,7 +6,7 @@ cloudflared = '2024.4.1' #renovate: packageName=cloudflare/cloudflared
 delta = '0.17.0'         #renovate: packageName=dandavison/delta
 direnv = '2.34.0'        #renovate: packageName=direnv/direnv
 fd = '10.1.0'             #renovate: packageName=sharkdp/fd
-flux2 = '2.2.3'          #renovate: packageName=fluxcd/flux2
+flux2 = '2.3.0'          #renovate: packageName=fluxcd/flux2
 fzf = '0.39.0'           #renovate: packagename=junegunn/fzf
 github-cli = '2.49.1'    #renovate: packageName=cli/cli
 glow = '1.5.1'           #renovate: packageName=charmbracelet/glow
