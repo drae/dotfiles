@@ -3,7 +3,7 @@ age = '1.2.0'            #renovate: packageName=FiloSottile/age
 bat = '0.24.0'           #renovate: packageName=sharkdp/bat
 chezmoi = '2.52.2'       #renovate: packageName=twpayne/chezmoi
 cloudflared = '2024.9.1' #renovate: packageName=cloudflare/cloudflared
-delta = '0.18.1'         #renovate: packageName=dandavison/delta
+delta = '0.18.2'         #renovate: packageName=dandavison/delta
 direnv = '2.34.0'        #renovate: packageName=direnv/direnv
 fd = '10.2.0'             #renovate: packageName=sharkdp/fd
 flux2 = '2.3.0'          #renovate: packageName=fluxcd/flux2
