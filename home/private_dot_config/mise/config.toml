@@ -5,11 +5,10 @@ chezmoi = '2.52.2'       #renovate: packageName=twpayne/chezmoi
 cloudflared = '2024.9.1' #renovate: packageName=cloudflare/cloudflared
 delta = '0.18.2'         #renovate: packageName=dandavison/delta
 direnv = '2.34.0'        #renovate: packageName=direnv/direnv
-fd = '10.2.0'             #renovate: packageName=sharkdp/fd
+fd = '10.2.0'            #renovate: packageName=sharkdp/fd
 flux2 = '2.3.0'          #renovate: packageName=fluxcd/flux2
 fzf = '0.39.0'           #renovate: packagename=junegunn/fzf
 github-cli = '2.56.0'    #renovate: packageName=cli/cli
-glow = '2.0.0'           #renovate: packageName=charmbracelet/glow
 helm = '3.16.1'          #renovate: packageName=helm/helm
 helmfile = '0.168.0'     #renovate: packageName=helmfile/helmfile
 jq = '1.7'               #renovate: packageName=jqlang/jq
@@ -18,7 +17,7 @@ krew = '0.4.4'           #renovate: packageName=kubernetes-sigs/krew
 kubectl = '1.31.1'       #renovate: datasource=github-tags packageName=kubernetes/kubectl versioning=^kubernetes-(?<version>.*)$
 kustomize = '5.4.3'      #renovate: packageName=kubernetes-sigs/kustomize
 lazygit = '0.44.0'       #renovate: packageName=jesseduffield/lazygit
-neovim = '0.10.1'         #renovate: packageName=neovim/neovim
+neovim = '0.10.1'        #renovate: packageName=neovim/neovim
 nodejs = '22.8.0'        #renovate: packageName=nodejs/node
 pnpm = '9.10.0'          #renovate: packageName=pnpm/pnpm
 pre-commit = '3.8.0'     #renovate: packageName=pre-commit/pre-commit
