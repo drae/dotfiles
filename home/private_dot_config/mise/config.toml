@@ -18,7 +18,7 @@ kubectl = '1.31.1'       #renovate: datasource=github-tags packageName=kubernete
 kustomize = '5.4.3'      #renovate: packageName=kubernetes-sigs/kustomize
 lazygit = '0.44.0'       #renovate: packageName=jesseduffield/lazygit
 neovim = '0.10.1'        #renovate: packageName=neovim/neovim
-nodejs = '22.8.0'        #renovate: packageName=nodejs/node
+nodejs = '22.9.0'        #renovate: packageName=nodejs/node
 pnpm = '9.10.0'          #renovate: packageName=pnpm/pnpm
 pre-commit = '3.8.0'     #renovate: packageName=pre-commit/pre-commit
 ripgrep = '14.1.1'       #renovate: packageName=BurntSushi/ripgrep
