@@ -20,7 +20,7 @@ lazygit = '0.44.1'       #renovate: packageName=jesseduffield/lazygit
 neovim = '0.10.2'        #renovate: packageName=neovim/neovim
 nodejs = '22.9.0'        #renovate: packageName=nodejs/node
 pnpm = '9.12.1'          #renovate: packageName=pnpm/pnpm
-pre-commit = '3.8.0'     #renovate: packageName=pre-commit/pre-commit
+pre-commit = '4.0.1'     #renovate: packageName=pre-commit/pre-commit
 ripgrep = '14.1.1'       #renovate: packageName=BurntSushi/ripgrep
 rust = '1.81.0'          #renovate: packageName=rust-lang/rust
 sops = '3.9.1'           #renovate: packageName=mozilla/sops
