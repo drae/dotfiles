@@ -14,7 +14,7 @@ helmfile = '0.169.1'     #renovate: packageName=helmfile/helmfile
 jq = '1.7'               #renovate: packageName=jqlang/jq
 k9s = '0.32.5'           #renovate: packageName=derailed/k9s
 krew = '0.4.4'           #renovate: packageName=kubernetes-sigs/krew
-kubectl = '1.31.1'       #renovate: datasource=github-tags packageName=kubernetes/kubectl versioning=^kubernetes-(?<version>.*)$
+kubectl = '1.31.2'       #renovate: datasource=github-tags packageName=kubernetes/kubectl versioning=^kubernetes-(?<version>.*)$
 kustomize = '5.5.0'      #renovate: packageName=kubernetes-sigs/kustomize
 lazygit = '0.44.1'       #renovate: packageName=jesseduffield/lazygit
 neovim = '0.10.2'        #renovate: packageName=neovim/neovim
