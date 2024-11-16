@@ -27,7 +27,7 @@ sops = '3.9.1'           #renovate: packageName=mozilla/sops
 talhelper = '3.0.10'      #renovate: packageName=budimanjojo/talhelper
 talosctl = '1.8.3'       #renovate: packageName=siderolabs/talos
 task = '3.40.0'          #renovate: packageName=go-task/task
-yq = '4.44.3'            #renovate: packageName=mikefarah/yq
+yq = '4.44.5'            #renovate: packageName=mikefarah/yq
 
 [settings]
 # plugins can read the versions files used by other version managers (if enabled by the plugin)
