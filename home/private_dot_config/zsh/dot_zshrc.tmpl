@@ -118,12 +118,6 @@ zstyle ':fzf-tab:*' switch-group ',' '.'
 # direnv
 eval "$(direnv hook zsh)"
 
-# atuin
-eval "$(atuin init zsh --disable-up-arrow)"
-
-# dircolors - if available, need to install vivid https://github.com/sharkdp/vivid
-export LS_COLORS="$(vivid generate gruvbox-dark-soft)"
-
 
 #
 # Aliases
@@ -142,7 +136,6 @@ alias k='kubectl'
 alias vi='nvim'
 alias vim='nvim'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
-alias eza='eza --group-directories-first'
 
 # Suffix aliases
 alias -s {yml,yaml,json,conf,ini,zsh}=nvim
