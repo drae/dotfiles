@@ -22,7 +22,7 @@ nodejs = '23.8.0'        #renovate: packageName=nodejs/node
 pnpm = '10.4.0'          #renovate: packageName=pnpm/pnpm
 pre-commit = '4.1.0'     #renovate: packageName=pre-commit/pre-commit
 ripgrep = '14.1.1'       #renovate: packageName=BurntSushi/ripgrep
-sops = '3.9.2'           #renovate: packageName=mozilla/sops
+sops = '3.9.4'           #renovate: packageName=mozilla/sops
 talhelper = '3.0.14'      #renovate: packageName=budimanjojo/talhelper
 talosctl = '1.9.1'       #renovate: packageName=siderolabs/talos
 task = '3.41.0'          #renovate: packageName=go-task/task
