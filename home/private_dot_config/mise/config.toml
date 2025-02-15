@@ -1,6 +1,6 @@
 [tools]
 age = '1.2.1'            #renovate: packageName=FiloSottile/age
-bat = '0.24.0'           #renovate: packageName=sharkdp/bat
+bat = '0.25.0'           #renovate: packageName=sharkdp/bat
 chezmoi = '2.56.0'       #renovate: packageName=twpayne/chezmoi
 cloudflared = '2024.12.2' #renovate: packageName=cloudflare/cloudflared
 delta = '0.18.2'         #renovate: packageName=dandavison/delta
