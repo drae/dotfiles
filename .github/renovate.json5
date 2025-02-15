@@ -1,14 +1,19 @@
 {
   // General RenovateBot configuration
   extends: [
-    "github>bjw-s/renovate-config",
-    "github>bjw-s/renovate-config:automerge-github-actions",
+    "config:recommended",
+    ":dependencyDashboard",
+    ":disableRateLimiting",
+    ":enablePreCommit",
+    ":timezone(Europe/London)",
   ],
   platform: "github",
   username: "drae-bot[bot]",
   gitAuthor: "drae-bot <107273482+drae-bot[bot]@users.noreply.github.com>",
   dependencyDashboardTitle: "Renovate Dashboard 🤖",
   repositories: ["drae/dotfiles"],
+  rebaseWhen: "behind-base-branch",
+  suppressNotifications: ["prIgnoreNotification"],
   regexManagers: [
     {
       description: ["mise package regex manager"],
