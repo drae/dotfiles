@@ -25,7 +25,7 @@ ripgrep = '14.1.1'       #renovate: packageName=BurntSushi/ripgrep
 sops = '3.9.2'           #renovate: packageName=mozilla/sops
 talhelper = '3.0.14'      #renovate: packageName=budimanjojo/talhelper
 talosctl = '1.9.1'       #renovate: packageName=siderolabs/talos
-task = '3.40.1'          #renovate: packageName=go-task/task
+task = '3.41.0'          #renovate: packageName=go-task/task
 yq = '4.45.1'            #renovate: packageName=mikefarah/yq
 
 [settings]
