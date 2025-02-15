@@ -17,7 +17,7 @@ krew = '0.4.4'           #renovate: packageName=kubernetes-sigs/krew
 kubectl = '1.32.2'       #renovate: datasource=github-tags packageName=kubernetes/kubectl versioning=^kubernetes-(?<version>.*)$
 kustomize = '5.5.0'      #renovate: packageName=kubernetes-sigs/kustomize
 lazygit = '0.44.1'       #renovate: packageName=jesseduffield/lazygit
-neovim = '0.10.3'        #renovate: packageName=neovim/neovim
+neovim = '0.10.4'        #renovate: packageName=neovim/neovim
 nodejs = '23.5.0'        #renovate: packageName=nodejs/node
 pnpm = '10.4.0'          #renovate: packageName=pnpm/pnpm
 pre-commit = '4.0.1'     #renovate: packageName=pre-commit/pre-commit
