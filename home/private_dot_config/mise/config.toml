@@ -8,7 +8,7 @@ direnv = '2.35.0'        #renovate: packageName=direnv/direnv
 fd = '10.2.0'            #renovate: packageName=sharkdp/fd
 flux2 = '2.5.1'          #renovate: packageName=fluxcd/flux2
 fzf = '0.39.0'           #renovate: packagename=junegunn/fzf
-github-cli = '2.67.0'    #renovate: packageName=cli/cli
+github-cli = '2.68.1'    #renovate: packageName=cli/cli
 helm = '3.17.1'          #renovate: packageName=helm/helm
 helmfile = '0.171.0'     #renovate: packageName=helmfile/helmfile
 jq = '1.7'               #renovate: packageName=jqlang/jq
