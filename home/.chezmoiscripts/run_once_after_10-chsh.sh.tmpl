@@ -3,17 +3,17 @@
 
 set -eufo pipefail
 
-function is_zsh_current_shell() {
-  zsh=$(command -v zsh)
-  if [[ ${SHELL} == "${zsh}" ]]; then
+function is_fish_current_shell() {
+  fish=$(command -v fish)
+  if [[ ${SHELL} == "${fish}" ]]; then
     return 0
   fi
   return 1
 }
 
-if ! is_zsh_current_shell; then
-    zsh=$(grep $(command -v zsh) /etc/shells | head -1)
-    echo "Changing shell to zsh"
-    sudo chsh -s ${zsh} $(whoami)
+if ! is_fish_current_shell; then
+    fish=$(grep $(command -v fish) /etc/shells | head -1)
+    echo "Changing shell to fish"
+    sudo chsh -s ${fish} $(whoami)
 fi
 {{ end -}} 
