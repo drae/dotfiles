@@ -1,16 +1,14 @@
 {{ if (and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "debian" "ubuntu" "raspbian")) -}}
 
 {{ $packages := list
-    "ansible"
     "btop"
     "build-essential"
     "ca-certificates"
     "curl"
+    "fish"
     "git"
     "git-lfs"
     "protobuf-compiler"
-    "python3-pip"
-    "python3-venv"
     "software-properties-common"
     "tmux"
     "unzip"
@@ -29,6 +27,8 @@ set -eufo pipefail
 {{ $sudo }}apt-get update
 # Add ansible ppa
 {{ $sudo }}add-apt-repository ppa:ansible/ansible -y
+# Add Fish shell ppa
+{{ $sudo }}add-apt-repository ppa:fish-shell/release-4 -y
 {{ $sudo }}apt install -y {{ $packages | join " " }}
 
 {{ end -}}

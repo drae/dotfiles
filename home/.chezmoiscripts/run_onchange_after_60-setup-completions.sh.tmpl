@@ -50,6 +50,11 @@ if $(which -s kubectl &>/dev/null); then
   kubectl completion zsh | tee >$_path/_kubectl
 fi
 
+if $(which -s kubecolor &>/dev/null); then
+  echo "> kubecolor"
+  kubecolor completion zsh | tee >$_path/_kubecolor
+fi
+
 if $(which -s kustomize &>/dev/null); then
   echo "> kustomize"
   kustomize completion zsh | tee >$_path/_kustomize

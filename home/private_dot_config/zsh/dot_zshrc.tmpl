@@ -94,6 +94,11 @@ zinit light djui/alias-tips
 # Start ssh-agent with shell
 zinit light bobsoppe/zsh-ssh-agent
 
+# atuin
+zinit ice as"command" from"gh-r" bpick"atuin-*.tar.gz" mv"atuin*/atuin -> atuin" \
+    atclone"./atuin init zsh > init.zsh; ./atuin gen-completions --shell zsh > _atuin" \
+    atpull"%atclone" src"init.zsh"
+zinit light atuinsh/atuin
 
 #
 # autosuggest/fzf

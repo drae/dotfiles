@@ -1,4 +1,5 @@
 [tools]
+<<<<<<< Updated upstream
 age = '1.2.1'            #renovate: packageName=FiloSottile/age
 bat = '0.25.0'           #renovate: packageName=sharkdp/bat
 chezmoi = '2.60.1'       #renovate: packageName=twpayne/chezmoi
@@ -28,6 +29,40 @@ talhelper = '3.0.20'     #renovate: packageName=budimanjojo/talhelper
 talosctl = '1.9.4'       #renovate: packageName=siderolabs/talos
 task = '3.42.1'          #renovate: packageName=go-task/task
 yq = '4.45.1'            #renovate: packageName=mikefarah/yq
+=======
+age = '1.2.1'               #renovate: packageName=FiloSottile/age
+bat = '0.25.0'              #renovate: packageName=sharkdp/bat
+chezmoi = '2.60.1'          #renovate: packageName=twpayne/chezmoi
+cloudflared = '2025.2.1'    #renovate: packageName=cloudflare/cloudflared
+delta = '0.18.2'            #renovate: packageName=dandavison/delta
+direnv = '2.35.0'           #renovate: packageName=direnv/direnv
+fd = '10.2.0'               #renovate: packageName=sharkdp/fd
+flux2 = '2.5.1'             #renovate: packageName=fluxcd/flux2
+fzf = '0.39.0'              #renovate: packagename=junegunn/fzf
+github-cli = '2.68.1'       #renovate: packageName=cli/cli
+golang = '1.24.1'           #renovate: packageName=golang/go
+helm = '3.17.1'             #renovate: packageName=helm/helm
+helmfile = '0.171.0'        #renovate: packageName=helmfile/helmfile
+jq = '1.7'                  #renovate: packageName=jqlang/jq
+k9s = '0.40.7'              #renovate: packageName=derailed/k9s
+krew = '0.4.4'              #renovate: packageName=kubernetes-sigs/krew
+"asdf:kubecolor" = '0.5.0'  #renovate: packageName=kubecolor/kubecolor
+kubectl = '1.32.2'          #renovate: datasource=github-tags packageName=kubernetes/kubectl versioning=^kubernetes-(?<version>.*)$
+kustomize = '5.6.0'         #renovate: packageName=kubernetes-sigs/kustomize
+lazygit = '0.48.0'          #renovate: packageName=jesseduffield/lazygit
+neovim = '0.10.4'           #renovate: packageName=neovim/neovim
+nodejs = '23.9.0'           #renovate: packageName=nodejs/node
+pnpm = '10.6.2'             #renovate: packageName=pnpm/pnpm
+pre-commit = '4.1.0'        #renovate: packageName=pre-commit/pre-commit
+python = '3.10.2'           #renovate: packageName=python/cpython
+ripgrep = '14.1.1'          #renovate: packageName=BurntSushi/ripgrep
+rust = '1.85.0'             #renovate: packageName=rust-lang/rust
+sops = '3.9.4'              #renovate: packageName=mozilla/sops
+talhelper = '3.0.20'        #renovate: packageName=budimanjojo/talhelper
+talosctl = '1.9.4'          #renovate: packageName=siderolabs/talos
+task = '3.42.1'             #renovate: packageName=go-task/task
+yq = '4.45.1'               #renovate: packageName=mikefarah/yq
+>>>>>>> Stashed changes
 
 [settings]
 # plugins can read the versions files used by other version managers (if enabled by the plugin)
