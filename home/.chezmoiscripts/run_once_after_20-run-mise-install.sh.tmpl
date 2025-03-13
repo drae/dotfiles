@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+{{ if (eq .chezmoi.os "linux" "darwin") -}}
+# ---------------------------------------------------------------------------------------------------------------------
+# Install mise packages
+# mise/config.toml hash: {{ include "private_dot_config/mise/config.toml" | sha256sum }}
+# ---------------------------------------------------------------------------------------------------------------------
+
+mise install -y
+
+{{- end }}
