@@ -1,5 +1,6 @@
 [tools]
 age = '1.2.1'                           #renovate: packageName=FiloSottile/age
+"pipx:ansible-core" = '2.18.3'          #renovate: packageName=ansible/ansible
 bat = '0.25.0'                          #renovate: packageName=sharkdp/bat
 chezmoi = '2.60.1'                      #renovate: packageName=twpayne/chezmoi
 cilium-cli = "0.18.2"                   #renovate: packageName=cilium/cilium-cli
@@ -30,11 +31,14 @@ pre-commit = '4.1.0'                    #renovate: packageName=pre-commit/pre-co
 python = '3.13.2'                       #renovate: packageName=python/cpython
 ripgrep = '14.1.1'                      #renovate: packageName=BurntSushi/ripgrep
 rust = '1.85.0'                         #renovate: packageName=rust-lang/rust
+shellcheck = '0.10.0'                   #renovate: packageName=koalaman/shellcheck
 sops = '3.9.4'                          #renovate: packageName=mozilla/sops
 starship = '1.22.1'                     #renovate: packageName=starship/starship
 talhelper = '3.0.21'                    #renovate: packageName=budimanjojo/talhelper
 talosctl = '1.9.5'                      #renovate: packageName=siderolabs/talos
 task = '3.42.1'                         #renovate: packageName=go-task/task
+"pipx:uv" = "0.6.6"                     #renovate: packageName=astral-sh/uv
+"pipx:yamllint" = '1.36.0'              #renovate: datasource=github-tags packageName=adrienverge/yamllint versioning=^v(?<version>.*)$
 yq = '4.45.1'                           #renovate: packageName=mikefarah/yq
 
 [settings]

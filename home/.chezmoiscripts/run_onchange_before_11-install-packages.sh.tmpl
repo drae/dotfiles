@@ -24,11 +24,11 @@
 
 set -eufo pipefail
 
-{{ $sudo }}apt-get update
-# Add ansible ppa
-{{ $sudo }}add-apt-repository ppa:ansible/ansible -y
 # Add Fish shell ppa
 {{ $sudo }}add-apt-repository ppa:fish-shell/release-4 -y
+# Update package list
+{{ $sudo }}apt-get update
+# Do the install
 {{ $sudo }}apt install -y {{ $packages | join " " }}
 
 {{ end -}}
