@@ -5,7 +5,6 @@
     "build-essential"
     "ca-certificates"
     "curl"
-    "fish"
     "git"
     "git-lfs"
     "protobuf-compiler"
@@ -25,8 +24,6 @@
 set -eufo pipefail
 
 {{ $sudo }}apt-get update
-# Add ansible ppa
-{{ $sudo }}add-apt-repository ppa:ansible/ansible -y
 # Add Fish shell ppa
 {{ $sudo }}add-apt-repository ppa:fish-shell/release-4 -y
 {{ $sudo }}apt install -y {{ $packages | join " " }}
