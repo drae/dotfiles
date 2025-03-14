@@ -15,7 +15,7 @@
       description: ["mise package regex manager"],
       fileMatch: ["home\\/private_dot_config\\/mise\\/config.toml$"],
       matchStrings: [
-        "(\"\\S+:(\\S+/)?)?(?<depName>\\S+?)\"? = '(?<currentValue>[^\\s]*?)'[ \\t]*?#renovate:( datasource=(?<datasource>.*?))?( packageName=(?<packageName>.*?))?( versioning=(?<versioning>.*?=?))?( versionTemplate=(?<versionTemplate>.*?=?))?\\n",
+        "(\"\\S+:(\\S+/)?)?(?<depName>\\S+?)\"? = '(?<currentValue>[^\\s]*?)'[ \\t]*?#renovate:( datasource=(?<datasource>.*?))?( packageName=(?<packageName>.*?))?( versioning=(?<versioning>.*?=?))?( versionTemplate=(?<versionTemplate>.*?=?))?([\\s\\t]+)?\\n",
       ],
       packageNameTemplate: "{{#if packageName}}{{{packageName}}}{{else}}{{/if}}",
       datasourceTemplate: "{{#if datasource}}{{{datasource}}}{{else}}github-releases{{/if}}",
