@@ -36,6 +36,7 @@ rust = '1.85.0'                         #renovate: packageName=rust-lang/rust
 shellcheck = '0.10.0'                   #renovate: packageName=koalaman/shellcheck
 sops = '3.9.4'                          #renovate: packageName=mozilla/sops
 starship = '1.22.1'                     #renovate: packageName=starship/starship
+"pipx:streamrip" = '2.1.0'              #renovate: packageName=nathom/streamrip
 "cargo:stylua" = '2.0.2'                #renovate: packageName=stylua/stylua
 talhelper = '3.0.21'                    #renovate: packageName=budimanjojo/talhelper
 talosctl = '1.9.5'                      #renovate: packageName=siderolabs/talos
