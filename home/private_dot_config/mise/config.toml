@@ -6,6 +6,7 @@ btop = '1.4.0'                          #renovate: packageName=aristocratos/btop
 chezmoi = '2.60.1'                      #renovate: packageName=twpayne/chezmoi
 cilium-cli = "0.18.2"                   #renovate: packageName=cilium/cilium-cli
 cloudflared = '2025.2.1'                #renovate: packageName=cloudflare/cloudflared
+"go:github.com/avitaltamir/cyphernetes/cmd/cyphernetes" = '0.17.0'  #renovate: datasource=github-tags packageName=avitaltamir/cyphernetes versioning=^v(?<version>.*)$
 delta = '0.18.2'                        #renovate: packageName=dandavison/delta
 direnv = '2.35.0'                       #renovate: packageName=direnv/direnv
 doggo = '1.0.5'                         #renovate: packageName=ogham/dog
