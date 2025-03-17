@@ -35,6 +35,7 @@ python = '3.13.2'                       #renovate: packageName=python/cpython
 ripgrep = '14.1.1'                      #renovate: packageName=BurntSushi/ripgrep
 rust = '1.85.0'                         #renovate: packageName=rust-lang/rust
 shellcheck = '0.10.0'                   #renovate: packageName=koalaman/shellcheck
+"go:github.com/charmbracelet/soft-serve/cmd/soft" = '0.8.2' #renovate: datasource=github-tags packageName=charmbracelet/soft-serve versioning=^v(?<version>.*)$
 sops = '3.9.4'                          #renovate: packageName=mozilla/sops
 starship = '1.22.1'                     #renovate: packageName=starship/starship
 "pipx:streamrip" = '2.1.0'              #renovate: packageName=nathom/streamrip
