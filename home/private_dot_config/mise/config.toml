@@ -14,7 +14,7 @@ fd = '10.2.0'                           #renovate: packageName=sharkdp/fd
 flux2 = '2.5.1'                         #renovate: packageName=fluxcd/flux2
 "pipx:flux-local" = '7.2.1'             #renovate: packageName=allenporter/flux-local
 fzf = '0.60.3'                          #renovate: packageName=junegunn/fzf
-github-cli = '2.68.1'                   #renovate: packageName=cli/cli
+github-cli = '2.69.0'                   #renovate: packageName=cli/cli
 golang = '1.24.1'                       #renovate: packageName=golang/go
 helm = '3.17.2'                         #renovate: packageName=helm/helm
 helmfile = '0.171.0'                    #renovate: packageName=helmfile/helmfile
