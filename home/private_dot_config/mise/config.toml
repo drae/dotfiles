@@ -29,7 +29,7 @@ lazygit = '0.48.0'                      #renovate: packageName=jesseduffield/laz
 "aqua:mitsuhiko/minijinja" = '2.8.0'    #renovate: packageName=mitsuhiko/minijinja
 neovim = '0.10.4'                       #renovate: packageName=neovim/neovim
 nodejs = '23.10.0'                      #renovate: packageName=nodejs/node
-pnpm = '10.6.4'                         #renovate: packageName=pnpm/pnpm
+pnpm = '10.6.5'                         #renovate: packageName=pnpm/pnpm
 pre-commit = '4.2.0'                    #renovate: packageName=pre-commit/pre-commit
 python = '3.13.2'                       #renovate: packageName=python/cpython
 ripgrep = '14.1.1'                      #renovate: packageName=BurntSushi/ripgrep
