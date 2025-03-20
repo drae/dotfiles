@@ -3,6 +3,12 @@
     name = Paul Owen
     signingKey = ~/.ssh/id_ed25519.pub
 
+[color]
+        branch = auto
+        diff = auto
+        interactive = auto
+        status = auto
+
 [commit]
     gpgsign = true
 
@@ -21,6 +27,7 @@
 
 [alias]
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    lga= log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
 
 [init]
     defaultBranch = main
@@ -29,7 +36,7 @@
     enabled = true
 
 [pull]
-	rebase = true
+	rebase = merges
 
 [rebase]
 	autoStash = true
@@ -53,18 +60,22 @@
 
 [gpg "ssh"]
     allowedSignersFile = ~/.ssh/allowed_signers
+
 [diff]
 	algorithm = histogram
 	colorMoved = plain
 	mnemonicPrefix = true
 	renames = true
+
 [push]
 	autoSetupRemote = true
 	default = simple
 	followTags = true
+
 [fetch]
 	prune = true
 	pruneTags = true
 	all = true
+
 [help]
 	autocorrect = prompt
