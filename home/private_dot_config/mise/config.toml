@@ -12,7 +12,7 @@ direnv = '2.35.0'                       #renovate: packageName=direnv/direnv
 doggo = '1.0.5'                         #renovate: packageName=ogham/dog
 fd = '10.2.0'                           #renovate: packageName=sharkdp/fd
 flux2 = '2.5.1'                         #renovate: packageName=fluxcd/flux2
-"pipx:flux-local" = '7.2.1'             #renovate: packageName=allenporter/flux-local
+"pipx:flux-local" = '7.3.0'             #renovate: packageName=allenporter/flux-local
 fzf = '0.60.3'                          #renovate: packageName=junegunn/fzf
 github-cli = '2.69.0'                   #renovate: packageName=cli/cli
 golang = '1.24.1'                       #renovate: packageName=golang/go
