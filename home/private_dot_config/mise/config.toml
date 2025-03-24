@@ -1,6 +1,7 @@
 [tools]
 age = '1.2.1'                           #renovate: packageName=FiloSottile/age
 "pipx:ansible-core" = '2.18.3'          #renovate: packageName=ansible/ansible
+aws = '2.25.1'                          #renovate: packageName=aws/aws-cli        
 bat = '0.25.0'                          #renovate: packageName=sharkdp/bat
 btop = '1.4.0'                          #renovate: packageName=aristocratos/btop
 chezmoi = '2.61.0'                      #renovate: packageName=twpayne/chezmoi
@@ -18,8 +19,8 @@ github-cli = '2.69.0'                   #renovate: packageName=cli/cli
 golang = '1.24.1'                       #renovate: packageName=golang/go
 helm = '3.17.2'                         #renovate: packageName=helm/helm
 helmfile = '0.171.0'                    #renovate: packageName=helmfile/helmfile
-jq = '1.7'                              #renovate: packageName=jqlang/jq
-k9s = '0.40.10'                          #renovate: packageName=derailed/k9s
+jq = '1.7.1'                            #renovate: packageName=jqlang/jq
+k9s = '0.40.10'                         #renovate: packageName=derailed/k9s
 krew = '0.4.5'                          #renovate: packageName=kubernetes-sigs/krew
 "asdf:kubecolor" = '0.5.0'              #renovate: packageName=kubecolor/kubecolor
 kubeconform = '0.6.7'                   #renovate: packageName=yannh/kubeconform
@@ -38,6 +39,7 @@ shellcheck = '0.10.0'                   #renovate: packageName=koalaman/shellche
 "go:github.com/charmbracelet/soft-serve/cmd/soft" = '0.8.4' #renovate: datasource=github-tags packageName=charmbracelet/soft-serve versioning=^v(?<version>.*)$
 sops = '3.9.4'                          #renovate: packageName=mozilla/sops
 starship = '1.22.1'                     #renovate: packageName=starship/starship
+stern = '1.32.0'                        #renovate: packageName=stern/stern  
 "pipx:streamrip" = '2.1.0'              #renovate: packageName=nathom/streamrip
 "cargo:stylua" = '2.0.2'                #renovate: packageName=JohnnyMorganz/stylua
 talhelper = '3.0.21'                    #renovate: packageName=budimanjojo/talhelper
