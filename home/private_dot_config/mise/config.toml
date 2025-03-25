@@ -1,6 +1,6 @@
 [tools]
 age = '1.2.1'                           #renovate: packageName=FiloSottile/age
-"pipx:ansible-core" = '2.18.3'          #renovate: packageName=ansible/ansible
+"pipx:ansible-core" = '2.18.4'          #renovate: packageName=ansible/ansible
 aws = '2.25.1'                          #renovate: packageName=aws/aws-cli        
 bat = '0.25.0'                          #renovate: packageName=sharkdp/bat
 btop = '1.4.0'                          #renovate: packageName=aristocratos/btop
