@@ -24,7 +24,7 @@ kubectl = '1.32.3'                      #renovate: datasource=github-tags packag
 lazygit = '0.48.0'                      #renovate: packageName=jesseduffield/lazygit
 "aqua:mitsuhiko/minijinja" = '2.8.0'    #renovate: packageName=mitsuhiko/minijinja
 neovim = '0.11.0'                       #renovate: packageName=neovim/neovim
-nodejs = '23.10.0'                      #renovate: packageName=nodejs/node
+nodejs = '23.11.0'                      #renovate: packageName=nodejs/node
 python = '3.13.2'                       #renovate: packageName=python/cpython
 ripgrep = '14.1.1'                      #renovate: packageName=BurntSushi/ripgrep
 rust = '1.85.1'                         #renovate: packageName=rust-lang/rust
