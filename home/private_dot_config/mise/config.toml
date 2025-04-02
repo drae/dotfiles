@@ -30,7 +30,7 @@ ripgrep = '14.1.1'                      #renovate: packageName=BurntSushi/ripgre
 rust = '1.85.1'                         #renovate: packageName=rust-lang/rust
 shellcheck = '0.10.0'                   #renovate: packageName=koalaman/shellcheck
 "go:github.com/charmbracelet/soft-serve/cmd/soft" = '0.8.5' #renovate: datasource=github-tags packageName=charmbracelet/soft-serve versioning=^v(?<version>.*)$
-sops = '3.10.0'                          #renovate: packageName=mozilla/sops
+sops = '3.10.1'                          #renovate: packageName=mozilla/sops
 starship = '1.22.1'                     #renovate: packageName=starship/starship
 stern = '1.32.0'                        #renovate: packageName=stern/stern  
 "pipx:streamrip" = '2.1.0'              #renovate: packageName=nathom/streamrip
