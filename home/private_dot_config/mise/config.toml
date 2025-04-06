@@ -4,7 +4,7 @@ age = '1.2.1'                           #renovate: packageName=FiloSottile/age
 aws = '2.25.1'                          #renovate: packageName=aws/aws-cli        
 bat = '0.25.0'                          #renovate: packageName=sharkdp/bat
 btop = '1.4.0'                          #renovate: packageName=aristocratos/btop
-cargo-binstall = '1.12.2'               #renovate: packageName=cargo-bins/cargo-binstall
+cargo-binstall = '1.12.3'               #renovate: packageName=cargo-bins/cargo-binstall
 chezmoi = '2.61.0'                      #renovate: packageName=twpayne/chezmoi
 cloudflared = '2025.4.0'                #renovate: packageName=cloudflare/cloudflared
 "go:github.com/avitaltamir/cyphernetes/cmd/cyphernetes" = '0.17.0'  #renovate: datasource=github-tags packageName=avitaltamir/cyphernetes versioning=^v(?<version>.*)$
