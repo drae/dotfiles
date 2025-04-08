@@ -8,7 +8,7 @@ vim.g.gruvbox_material_background = "soft" -- hard, soft, medium
 vim.g.gruvbox_material_foreground = "material" -- original, mix, material
 vim.g.gruvbox_material_enable_italic = 1
 vim.g.gruvbox_material_enable_bold = 1
-vim.g.gruvbox_material_colors_override = { bg0 = { "#333333", "236" } }
+vim.g.gruvbox_material_colors_override = { bg0 = { "#32302F", "236" } }
 
 -- gruvbox baby theme
 vim.g.gruvbox_baby_function_style = "NONE"
