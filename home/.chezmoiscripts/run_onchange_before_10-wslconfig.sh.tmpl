@@ -8,7 +8,7 @@ export WINHOME=$(wslpath $(cmd.exe /C "echo %USERPROFILE%" 2>/dev/null | tr -d '
 
 sudo tee /etc/wsl.conf >/dev/null << EOF
 [boot]
-systemd=false
+systemd=true
 
 [automount]
 enabled = true
