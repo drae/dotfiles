@@ -9,7 +9,7 @@ chezmoi = '2.62.0'                      #renovate: packageName=twpayne/chezmoi
 cloudflared = '2025.4.0'                #renovate: packageName=cloudflare/cloudflared
 "go:github.com/avitaltamir/cyphernetes/cmd/cyphernetes" = '0.17.0'  #renovate: datasource=github-tags packageName=avitaltamir/cyphernetes versioning=^v(?<version>.*)$
 delta = '0.18.2'                        #renovate: packageName=dandavison/delta
-direnv = '2.35.0'                       #renovate: packageName=direnv/direnv
+direnv = '2.36.0'                       #renovate: packageName=direnv/direnv
 doggo = '1.0.5'                         #renovate: packageName=ogham/dog
 fd = '10.2.0'                           #renovate: packageName=sharkdp/fd
 fzf = '0.61.1'                          #renovate: packageName=junegunn/fzf
