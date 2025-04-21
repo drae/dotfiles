@@ -36,7 +36,7 @@ sops = '3.10.2'                         #renovate: packageName=mozilla/sops
 starship = '1.22.1'                     #renovate: packageName=starship/starship
 stern = '1.32.0'                        #renovate: packageName=stern/stern  
 "pipx:streamrip" = '2.1.0'              #renovate: packageName=nathom/streamrip
-"cargo:stylua" = '2.0.2'                #renovate: packageName=JohnnyMorganz/stylua
+"cargo:stylua" = '2.1.0'                #renovate: packageName=JohnnyMorganz/stylua
 task = '3.42.1'                         #renovate: packageName=go-task/task
 "pipx:uv" = '0.6.14'                    #renovate: packageName=astral-sh/uv
 "pipx:yamllint" = '1.37.0'              #renovate: datasource=github-tags packageName=adrienverge/yamllint versioning=^v(?<version>.*)$
