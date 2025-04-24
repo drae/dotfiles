@@ -13,7 +13,7 @@ direnv = '2.36.0'                       #renovate: packageName=direnv/direnv
 doggo = '1.0.5'                         #renovate: packageName=ogham/dog
 fd = '10.2.0'                           #renovate: packageName=sharkdp/fd
 fzf = '0.61.3'                          #renovate: packageName=junegunn/fzf
-github-cli = '2.71.0'                   #renovate: packageName=cli/cli
+github-cli = '2.71.2'                   #renovate: packageName=cli/cli
 golang = '1.24.2'                       #renovate: packageName=golang/go
 helm = '3.17.3'                         #renovate: packageName=helm/helm
 jq = '1.7.1'                            #renovate: packageName=jqlang/jq
