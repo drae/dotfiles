@@ -3,7 +3,7 @@ age = '1.2.1'                           #renovate: packageName=FiloSottile/age
 "pipx:ansible-core" = '2.18.5'          #renovate: packageName=ansible/ansible
 aws = '2.25.1'                          #renovate: packageName=aws/aws-cli        
 bat = '0.25.0'                          #renovate: packageName=sharkdp/bat
-btop = '1.4.0'                          #renovate: packageName=aristocratos/btop
+btop = '1.4.1'                          #renovate: packageName=aristocratos/btop
 cargo-binstall = '1.12.3'               #renovate: packageName=cargo-bins/cargo-binstall
 chezmoi = '2.62.2'                      #renovate: packageName=twpayne/chezmoi
 cloudflared = '2025.4.0'                #renovate: packageName=cloudflare/cloudflared
