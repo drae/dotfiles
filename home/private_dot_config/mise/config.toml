@@ -33,7 +33,7 @@ rust = '1.86.0'                         #renovate: packageName=rust-lang/rust
 shellcheck = '0.10.0'                   #renovate: packageName=koalaman/shellcheck
 "go:github.com/charmbracelet/soft-serve/cmd/soft" = '0.8.5' #renovate: datasource=github-tags packageName=charmbracelet/soft-serve versioning=^v(?<version>.*)$
 sops = '3.10.2'                         #renovate: packageName=mozilla/sops
-starship = '1.22.1'                     #renovate: packageName=starship/starship
+starship = '1.23.0'                     #renovate: packageName=starship/starship
 stern = '1.32.0'                        #renovate: packageName=stern/stern  
 "pipx:streamrip" = '2.1.0'              #renovate: packageName=nathom/streamrip
 "cargo:stylua" = '2.1.0'                #renovate: packageName=JohnnyMorganz/stylua
