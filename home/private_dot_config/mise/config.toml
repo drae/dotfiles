@@ -38,7 +38,7 @@ starship = '1.23.0'                     #renovate: packageName=starship/starship
 stern = '1.32.0'                        #renovate: packageName=stern/stern  
 "pipx:streamrip" = '2.1.0'              #renovate: packageName=nathom/streamrip
 "cargo:stylua" = '2.1.0'                #renovate: packageName=JohnnyMorganz/stylua
-task = '3.43.2'                         #renovate: packageName=go-task/task
+task = '3.43.3'                         #renovate: packageName=go-task/task
 "pipx:uv" = '0.6.17'                    #renovate: packageName=astral-sh/uv
 "pipx:yamllint" = '1.37.0'              #renovate: datasource=github-tags packageName=adrienverge/yamllint versioning=^v(?<version>.*)$
 vivid = '0.10.1'                        #renovate: packageName=sharkdp/vivid
