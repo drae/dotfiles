@@ -1,0 +1,85 @@
+{{ if (eq .chezmoi.os "linux" "darwin") -}}
+
+#!/bin/bash
+
+set -e
+
+echo -e "\033[0;32m>>>>> Setup completions\033[0m"
+
+_path=$HOME/.local/share/fish/vendor_completions.d
+
+# .config/mise/config.toml hash: {{ include "private_dot_config/mise/config.toml" | sha256sum }}
+
+# Create folder if missing
+if ! [[ -d $_path ]]; then
+  mkdir -p $_path
+fi
+
+if $(which -s chezmoi &>/dev/null); then
+  echo "> chezmoi"
+  chezmoi completion fish | tee >$_path/chezmoi.fish
+fi
+
+if $(which -s flux &>/dev/null); then
+  echo "> flux"
+  flux completion fish | tee >$_path/flux.fish
+fi
+
+if $(which -s gh &>/dev/null); then
+  echo "> gh"
+  gh completion -s fish | tee >$_path/gh.fish
+fi
+
+if $(which -s helm &>/dev/null); then
+  echo "> helm"
+  helm completion fish | tee >$_path/helm.fish
+fi
+
+if $(which -s helmfile &>/dev/null); then
+  echo "> helmfile"
+  helmfile completion fish | tee >$_path/helmfile.fish
+fi
+
+if $(which -s k9s &>/dev/null); then
+  echo "> k9s"
+  k9s completion fish | tee >$_path/k9s.fish
+fi
+
+if $(which -s kubectl &>/dev/null); then
+  echo "> kubectl"
+  kubectl completion fish | tee >$_path/kubectl.fish
+fi
+
+if $(which -s kubecolor &>/dev/null); then
+  echo "> kubecolor"
+  kubecolor completion fish | tee >$_path/kubecolor.fish
+fi
+
+if $(which -s kustomize &>/dev/null); then
+  echo "> kustomize"
+  kustomize completion fish | tee >$_path/kustomize.fish
+fi
+
+if $(which -s mise &>/dev/null); then
+  echo "> mise"
+  mise completion fish | tee >$_path/mise.fish
+fi
+
+if $(which -s talosctl &>/dev/null); then
+  echo "> talosctl"
+  talosctl completion fish | tee >$_path/talosctl.fish
+fi
+
+if $(which -s task &>/dev/null); then
+  echo "> task"
+  curl --silent --show-error https://raw.githubusercontent.com/go-task/task/refs/heads/main/completion/fish/task.fish >$_path/task.fish
+fi
+
+if $(which -s uv &>/dev/null); then
+  echo "> uv"
+  uv generate-shell-completion fish >$_path/uv.fish
+fi
+
+
+
+{{ end }}

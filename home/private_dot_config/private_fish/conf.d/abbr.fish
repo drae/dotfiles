@@ -1,6 +1,4 @@
-if type -q kubecolor
-    abbr k kubecolor
-else if type -q kubectl
+if type -q kubectl
     abbr k kubectl
 end
 
