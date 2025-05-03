@@ -43,7 +43,7 @@ task = '3.43.3'                         #renovate: packageName=go-task/task
 "pipx:yamllint" = '1.37.0'              #renovate: datasource=github-tags packageName=adrienverge/yamllint versioning=^v(?<version>.*)$
 usage = 'latest'
 vivid = '0.10.1'                        #renovate: packageName=sharkdp/vivid
-yq = '4.45.1'                           #renovate: packageName=mikefarah/yq
+yq = '4.45.2'                           #renovate: packageName=mikefarah/yq
 
 [settings]
 # plugins can read the versions files used by other version managers (if enabled by the plugin)
