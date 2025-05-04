@@ -39,23 +39,17 @@ stern = '1.32.0'                        #renovate: packageName=stern/stern
 "pipx:streamrip" = '2.1.0'              #renovate: packageName=nathom/streamrip
 "cargo:stylua" = '2.1.0'                #renovate: packageName=JohnnyMorganz/stylua
 task = '3.43.3'                         #renovate: packageName=go-task/task
-"pipx:uv" = '0.7.2'                    #renovate: packageName=astral-sh/uv
 "pipx:yamllint" = '1.37.1'              #renovate: datasource=github-tags packageName=adrienverge/yamllint versioning=^v(?<version>.*)$
 usage = 'latest'
+uv = '0.7.2'                            #renovate: packageName=astral sh/uv
 vivid = '0.10.1'                        #renovate: packageName=sharkdp/vivid
 yq = '4.45.2'                           #renovate: packageName=mikefarah/yq
 
 [settings]
-# plugins can read the versions files used by other version managers (if enabled by the plugin)
-# for example, .nvmrc in the case of node's nvm
-legacy_version_file = true # enabled by default (different than asdf)
-
-# configure `mise install` to always keep the downloaded archive
 always_keep_download = false # deleted after install by default
 always_keep_install = false  # deleted on failure by default
 
 verbose = false     # set to true to see full installation output, see `MISE_VERBOSE`
-asdf_compat = false # set to true to ensure .tool-versions will be compatible with asdf, see `MISE_ASDF_COMPAT`
 jobs = 4            # number of plugins or runtimes to install in parallel. The default is `4`.
 raw = false         # set to true to directly pipe plugins to stdin/stdout/stderr
 
