@@ -41,7 +41,7 @@ stern = '1.32.0'                        #renovate: packageName=stern/stern
 task = '3.43.3'                         #renovate: packageName=go-task/task
 "pipx:yamllint" = '1.37.1'              #renovate: datasource=github-tags packageName=adrienverge/yamllint versioning=^v(?<version>.*)$
 usage = 'latest'
-uv = '0.7.5'                            #renovate: packageName=astral-sh/uv
+uv = '0.7.6'                            #renovate: packageName=astral-sh/uv
 vivid = '0.10.1'                        #renovate: packageName=sharkdp/vivid
 yq = '4.45.4'                           #renovate: packageName=mikefarah/yq
 
