@@ -23,7 +23,7 @@ krew = '0.4.5'                          #renovate: packageName=kubernetes-sigs/k
 "asdf:kubecolor" = '0.5.1'              #renovate: packageName=kubecolor/kubecolor
 jnv = '0.6.0'                           #renovate: packageName=ynqa/jnv
 kubectl = '1.33.1'                      #renovate: datasource=github-tags packageName=kubernetes/kubectl versioning=^kubernetes-(?<version>.*)$
-lazygit = '0.51.0'                      #renovate: packageName=jesseduffield/lazygit
+lazygit = '0.51.1'                      #renovate: packageName=jesseduffield/lazygit
 "aqua:mitsuhiko/minijinja" = '2.10.2'    #renovate: packageName=mitsuhiko/minijinja
 neovim = '0.11.1'                       #renovate: packageName=neovim/neovim
 nodejs = '24.1.0'                      #renovate: packageName=nodejs/node
