@@ -6,7 +6,7 @@ aws = '2.25.1'                          #renovate: packageName=aws/aws-cli
 bat = '0.25.0'                          #renovate: packageName=sharkdp/bat
 btop = '1.4.3'                          #renovate: packageName=aristocratos/btop
 cargo-binstall = '1.14.1'               #renovate: packageName=cargo-bins/cargo-binstall
-chezmoi = '2.62.6'                      #renovate: packageName=twpayne/chezmoi
+chezmoi = '2.62.7'                      #renovate: packageName=twpayne/chezmoi
 cloudflared = '2025.6.1'                #renovate: packageName=cloudflare/cloudflared
 delta = '0.18.2'                        #renovate: packageName=dandavison/delta
 direnv = '2.36.0'                       #renovate: packageName=direnv/direnv
