@@ -23,7 +23,7 @@ jnv = '0.6.0'                           #renovate: packageName=ynqa/jnv
 lazygit = '0.52.0'                      #renovate: packageName=jesseduffield/lazygit
 "aqua:mitsuhiko/minijinja" = '2.11.0'    #renovate: packageName=mitsuhiko/minijinja
 neovim = '0.11.2'                       #renovate: packageName=neovim/neovim
-nodejs = '24.2.0'                      #renovate: packageName=nodejs/node
+nodejs = '24.3.0'                      #renovate: packageName=nodejs/node
 pipx = '1.7.1'                          #renovate: packageName=pipxproject/pipx
 python = '3.13.5'                       #renovate: packageName=python/cpython
 ripgrep = '14.1.1'                      #renovate: packageName=BurntSushi/ripgrep
