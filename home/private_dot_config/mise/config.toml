@@ -39,7 +39,7 @@ task = '3.44.0'                         #renovate: packageName=go-task/task
 usage = 'latest'
 uv = '0.7.20'                            #renovate: packageName=astral-sh/uv
 vivid = '0.10.1'                        #renovate: packageName=sharkdp/vivid
-yq = '4.45.4'                           #renovate: packageName=mikefarah/yq
+yq = '4.46.1'                           #renovate: packageName=mikefarah/yq
 
 [settings]
 always_keep_download = false # deleted after install by default
