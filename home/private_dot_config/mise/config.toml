@@ -22,7 +22,7 @@ kubectl = '1.33.2'                      #renovate: datasource=github-tags packag
 jnv = '0.6.0'                           #renovate: packageName=ynqa/jnv
 lazygit = '0.53.0'                      #renovate: packageName=jesseduffield/lazygit
 "aqua:mitsuhiko/minijinja" = '2.11.0'    #renovate: packageName=mitsuhiko/minijinja
-neovim = '0.11.2'                       #renovate: packageName=neovim/neovim
+neovim = '0.11.3'                       #renovate: packageName=neovim/neovim
 nodejs = '24.4.0'                      #renovate: packageName=nodejs/node
 pipx = '1.7.1'                          #renovate: packageName=pipxproject/pipx
 python = '3.13.5'                       #renovate: packageName=python/cpython
