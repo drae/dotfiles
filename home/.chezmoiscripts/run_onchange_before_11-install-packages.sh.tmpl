@@ -4,7 +4,6 @@
     "build-essential"
     "ca-certificates"
     "curl"
-    "fish"
     "git"
     "git-lfs"
     "protobuf-compiler"
@@ -12,6 +11,7 @@
     "tmux"
     "unzip"
     "wget"
+    "zsh"
  -}}
 
 {{ $sudo := "sudo " -}}
@@ -24,7 +24,7 @@
 set -eufo pipefail
 
 # Add Fish shell ppa
-{{ $sudo }}add-apt-repository ppa:fish-shell/release-4 -y
+#{{ $sudo }}add-apt-repository ppa:fish-shell/release-4 -y
 # Update package list
 {{ $sudo }}apt-get update
 # Do the install
