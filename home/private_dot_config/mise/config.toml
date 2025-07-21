@@ -18,7 +18,7 @@ jq = '1.7.1'                            #renovate: packageName=jqlang/jq
 k9s = '0.50.9'                          #renovate: packageName=derailed/k9s
 krew = '0.4.5'                          #renovate: packageName=kubernetes-sigs/krew
 kubectl = '1.33.3'                      #renovate: datasource=github-tags packageName=kubernetes/kubectl versioning=^kubernetes-(?<version>.*)$
-kubecolor = '0.0.25'                    #renovate: packageName=kubecolor/kubecolor
+kubecolor = '0.5.1'                    #renovate: packageName=kubecolor/kubecolor
 jnv = '0.6.0'                           #renovate: packageName=ynqa/jnv
 lazygit = '0.53.0'                      #renovate: packageName=jesseduffield/lazygit
 "aqua:mitsuhiko/minijinja" = '2.11.0'   #renovate: packageName=mitsuhiko/minijinja
