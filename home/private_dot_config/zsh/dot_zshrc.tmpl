@@ -61,10 +61,6 @@ autoload -Uz _zinit
 # zinit plugins
 #
 
-# Prompt - p10k
-zinit ice depth=1
-zinit light romkatv/powerlevel10k
-
 # Prompt - colourscheme
 PURE_POWER_MODE=modern
 zinit snippet https://github.com/sainnhe/dotfiles/raw/master/.zsh-theme/gruvbox-material-dark.zsh
@@ -115,6 +111,8 @@ zstyle ':completion:*:descriptions' format '[%d]'
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -1 --color=always $realpath'
 zstyle ':fzf-tab:*' switch-group ',' '.'
 
+# alias completions
+compdef kubecolor=kubectl
 
 #
 # other app hooks
@@ -138,6 +136,7 @@ eval "$(direnv hook zsh)"
 alias asi='apt-cache pkgnames | fzf --header "[apt:install]" | xargs -d " " -- sudo apt-get install'
 alias grep='grep  --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 alias k='kubectl'
+alias kubectl='kubecolor'
 alias vi='nvim'
 alias vim='nvim'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
@@ -156,9 +155,7 @@ bindkey "$terminfo[kcud1]" history-substring-search-down
 
 
 #
-# p10k source
+# starship prompt
 #
 
-# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
-
+eval "$(starship init zsh)"

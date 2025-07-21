@@ -1,6 +1,6 @@
 [tools]
 age = '1.2.1'                           #renovate: packageName=FiloSottile/age
-"pipx:ansible-core" = '2.18.7'          #renovate: packageName=ansible/ansible
+ansible-core = '2.18.7'                 #renovate: packageName=ansible/ansible
 aws = '2.25.1'                          #renovate: packageName=aws/aws-cli        
 bat = '0.25.0'                          #renovate: packageName=sharkdp/bat
 btop = '1.4.4'                          #renovate: packageName=aristocratos/btop
@@ -15,26 +15,27 @@ fzf = '0.64.0'                          #renovate: packageName=junegunn/fzf
 github-cli = '2.76.0'                   #renovate: packageName=cli/cli
 golang = '1.24.5'                       #renovate: packageName=golang/go
 jq = '1.7.1'                            #renovate: packageName=jqlang/jq
-k9s = '0.50.9'                         #renovate: packageName=derailed/k9s
+k9s = '0.50.9'                          #renovate: packageName=derailed/k9s
 krew = '0.4.5'                          #renovate: packageName=kubernetes-sigs/krew
 kubectl = '1.33.3'                      #renovate: datasource=github-tags packageName=kubernetes/kubectl versioning=^kubernetes-(?<version>.*)$
+kubecolor = '0.0.25'                    #renovate: packageName=kubecolor/kubecolor
 jnv = '0.6.0'                           #renovate: packageName=ynqa/jnv
 lazygit = '0.53.0'                      #renovate: packageName=jesseduffield/lazygit
-"aqua:mitsuhiko/minijinja" = '2.11.0'    #renovate: packageName=mitsuhiko/minijinja
+"aqua:mitsuhiko/minijinja" = '2.11.0'   #renovate: packageName=mitsuhiko/minijinja
 neovim = '0.11.2'                       #renovate: packageName=neovim/neovim
-nodejs = '24.4.1'                      #renovate: packageName=nodejs/node
+nodejs = '24.4.1'                       #renovate: packageName=nodejs/node
 pipx = '1.7.1'                          #renovate: packageName=pipxproject/pipx
 python = '3.13.4'                       #renovate: packageName=python/cpython
 ripgrep = '14.1.1'                      #renovate: packageName=BurntSushi/ripgrep
 rust = '1.88.0'                         #renovate: packageName=rust-lang/rust
 shellcheck = '0.10.0'                   #renovate: packageName=koalaman/shellcheck
-"go:github.com/charmbracelet/soft-serve/cmd/soft" = '0.9.1' #renovate: datasource=github-tags packageName=charmbracelet/soft-serve versioning=^v(?<version>.*)$
 sops = '3.10.2'                         #renovate: packageName=mozilla/sops
+starship = '1.23.0'                     #renovate: packageName=starship/starship
 "pipx:streamrip" = '2.1.0'              #renovate: packageName=nathom/streamrip
-"cargo:stylua" = '2.1.0'                #renovate: packageName=JohnnyMorganz/stylua
+stylua = '2.1.0'                        #renovate: packageName=JohnnyMorganz/stylua
 task = '3.44.0'                         #renovate: packageName=go-task/task
-"pipx:yamllint" = '1.37.1'              #renovate: datasource=github-tags packageName=adrienverge/yamllint versioning=^v(?<version>.*)$
-uv = '0.7.22'                            #renovate: packageName=astral-sh/uv
+yamllint = '1.37.1'                     #renovate: datasource=github-tags packageName=adrienverge/yamllint versioning=^v(?<version>.*)$
+uv = '0.7.22'                           #renovate: packageName=astral-sh/uv
 vivid = '0.10.1'                        #renovate: packageName=sharkdp/vivid
 yq = '4.46.1'                           #renovate: packageName=mikefarah/yq
 
