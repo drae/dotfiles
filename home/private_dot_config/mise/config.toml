@@ -1,43 +1,43 @@
 [tools]
-age = '1.2.1'                           #renovate: packageName=FiloSottile/age
-ansible-core = '2.18.7'                 #renovate: packageName=ansible/ansible
-aws = '2.25.1'                          #renovate: packageName=aws/aws-cli        
-bat = '0.25.0'                          #renovate: packageName=sharkdp/bat
-btop = '1.4.4'                          #renovate: packageName=aristocratos/btop
-cargo-binstall = '1.14.1'               #renovate: packageName=cargo-bins/cargo-binstall
-chezmoi = '2.63.0'                      #renovate: packageName=twpayne/chezmoi
-cloudflared = '2025.7.0'                #renovate: packageName=cloudflare/cloudflared
-delta = '0.18.2'                        #renovate: packageName=dandavison/delta
-direnv = '2.37.0'                       #renovate: packageName=direnv/direnv
-doggo = '1.0.5'                         #renovate: packageName=ogham/dog
-fd = '10.2.0'                           #renovate: packageName=sharkdp/fd
-fzf = '0.64.0'                          #renovate: packageName=junegunn/fzf
-github-cli = '2.76.0'                   #renovate: packageName=cli/cli
-golang = '1.24.5'                       #renovate: packageName=golang/go
-jq = '1.7.1'                            #renovate: packageName=jqlang/jq
-k9s = '0.50.9'                          #renovate: packageName=derailed/k9s
-krew = '0.4.5'                          #renovate: packageName=kubernetes-sigs/krew
-kubectl = '1.33.3'                      #renovate: datasource=github-tags packageName=kubernetes/kubectl versioning=^kubernetes-(?<version>.*)$
-kubecolor = '0.0.25'                    #renovate: packageName=kubecolor/kubecolor
-jnv = '0.6.0'                           #renovate: packageName=ynqa/jnv
-lazygit = '0.53.0'                      #renovate: packageName=jesseduffield/lazygit
-"aqua:mitsuhiko/minijinja" = '2.11.0'   #renovate: packageName=mitsuhiko/minijinja
-neovim = '0.11.2'                       #renovate: packageName=neovim/neovim
-nodejs = '24.4.1'                       #renovate: packageName=nodejs/node
-pipx = '1.7.1'                          #renovate: packageName=pipxproject/pipx
-python = '3.13.4'                       #renovate: packageName=python/cpython
-ripgrep = '14.1.1'                      #renovate: packageName=BurntSushi/ripgrep
-rust = '1.88.0'                         #renovate: packageName=rust-lang/rust
-shellcheck = '0.10.0'                   #renovate: packageName=koalaman/shellcheck
-sops = '3.10.2'                         #renovate: packageName=mozilla/sops
-starship = '1.23.0'                     #renovate: packageName=starship/starship
-"pipx:streamrip" = '2.1.0'              #renovate: packageName=nathom/streamrip
-stylua = '2.1.0'                        #renovate: packageName=JohnnyMorganz/stylua
-task = '3.44.0'                         #renovate: packageName=go-task/task
-yamllint = '1.37.1'                     #renovate: datasource=github-tags packageName=adrienverge/yamllint versioning=^v(?<version>.*)$
-uv = '0.7.22'                           #renovate: packageName=astral-sh/uv
-vivid = '0.10.1'                        #renovate: packageName=sharkdp/vivid
-yq = '4.46.1'                           #renovate: packageName=mikefarah/yq
+age = '1.2.1'                           
+ansible-core = '2.18.7'                 
+aws = '2.25.1'                          
+bat = '0.25.0'                          
+btop = '1.4.4'                          
+cargo-binstall = '1.14.1'               
+chezmoi = '2.63.0'                      
+cloudflared = '2025.7.0'                
+delta = '0.18.2'                        
+direnv = '2.37.0'                       
+doggo = '1.0.5'                         
+fd = '10.2.0'                           
+fzf = '0.64.0'                          
+github-cli = '2.76.0'                   
+golang = '1.24.5'                       
+jq = '1.7.1'                            
+k9s = '0.50.9'                          
+krew = '0.4.5'                          
+kubectl = '1.33.3'                      
+kubecolor = '0.0.25'                    
+jnv = '0.6.0'                           
+lazygit = '0.53.0'                      
+"aqua:mitsuhiko/minijinja" = '2.11.0'   
+neovim = '0.11.2'                       
+nodejs = '24.4.1'                       
+pipx = '1.7.1'                          
+python = '3.13.4'                       
+ripgrep = '14.1.1'                      
+rust = '1.88.0'                         
+shellcheck = '0.10.0'                   
+sops = '3.10.2'                         
+starship = '1.23.0'                     
+"pipx:streamrip" = '2.1.0'              
+stylua = '2.1.0'                        
+task = '3.44.0'                         
+yamllint = '1.37.1'                     
+uv = '0.7.22'                           
+vivid = '0.10.1'                        
+yq = '4.46.1'                           
 
 [settings]
 always_keep_download = false # deleted after install by default
