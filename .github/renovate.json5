@@ -1,26 +1,32 @@
 {
   extends: [
-    "config:recommended",
-    ":dependencyDashboard",
-    ":disableRateLimiting",
-    ":enablePreCommit",
-    ":timezone(Europe/London)",
+    'config:recommended',
+    ':dependencyDashboard',
+    ':disableRateLimiting',
+    ':enablePreCommit',
+    ':timezone(Europe/London)',
   ],
-  gitAuthor: "drae-bot <107273482+drae-bot[bot]@users.noreply.github.com>",
-  dependencyDashboardTitle: "Renovate Dashboard 🤖",
-  baseBranches: ["main"],
+  gitAuthor: 'drae-bot <107273482+drae-bot[bot]@users.noreply.github.com>',
+  dependencyDashboardTitle: 'Renovate Dashboard 🤖',
+  baseBranchPatterns: [
+    'main',
+  ],
   customManagers: [
     {
-      customType: "regex",
-      description: ["mise package regex manager"],
-      fileMatch: ["home\\/private_dot_config\\/mise\\/config.toml$"],
-      matchStrings: [
-        "(\"\\S+:(\\S+/)?)?(?<depName>\\S+?)\"? = '(?<currentValue>[^\\s]*?)'[ \\t]*?#renovate:( datasource=(?<datasource>.*?))?( packageName=(?<packageName>.*?))?( versioning=(?<versioning>.*?=?))?( versionTemplate=(?<versionTemplate>.*?=?))?([\\s\\t]+)?\\n",
+      customType: 'regex',
+      description: [
+        'mise package regex manager',
       ],
-      packageNameTemplate: "{{#if packageName}}{{{packageName}}}{{else}}{{/if}}",
-      datasourceTemplate: "{{#if datasource}}{{{datasource}}}{{else}}github-releases{{/if}}",
-      versioningTemplate: "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}",
-      extractVersionTemplate: "{{#if versionTemplate}}{{{versionTemplate}}}{{else}}^v?(?<version>.*)${{/if}}",
+      managerFilePatterns: [
+        '/home\\/private_dot_config\\/mise\\/config.toml$/',
+      ],
+      matchStrings: [
+        '("\\S+:(\\S+/)?)?(?<depName>\\S+?)"? = \'(?<currentValue>[^\\s]*?)\'[ \\t]*?#renovate:( datasource=(?<datasource>.*?))?( packageName=(?<packageName>.*?))?( versioning=(?<versioning>.*?=?))?( versionTemplate=(?<versionTemplate>.*?=?))?([\\s\\t]+)?\\n',
+      ],
+      packageNameTemplate: '{{#if packageName}}{{{packageName}}}{{else}}{{/if}}',
+      datasourceTemplate: '{{#if datasource}}{{{datasource}}}{{else}}github-releases{{/if}}',
+      versioningTemplate: '{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}',
+      extractVersionTemplate: '{{#if versionTemplate}}{{{versionTemplate}}}{{else}}^v?(?<version>.*)${{/if}}',
     },
   ],
 }
