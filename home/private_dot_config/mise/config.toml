@@ -37,7 +37,7 @@ task = '3.44.0'
 yamllint = '1.37.1'                     
 uv = '0.8.0'                           
 vivid = '0.10.1'                        
-yq = '4.46.1'                           
+yq = '4.47.1'                           
 
 [settings]
 always_keep_download = false # deleted after install by default
