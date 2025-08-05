@@ -35,7 +35,7 @@ starship = '1.23.0'
 stylua = '2.1.0'                        
 task = '3.44.0'                         
 yamllint = '1.37.1'                     
-uv = '0.8.4'                           
+uv = '0.8.5'                           
 vivid = '0.10.1'                        
 yq = '4.47.1'                           
 
