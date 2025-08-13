@@ -6,12 +6,4 @@ set -e
 
 nvim --headless "+Lazy! sync" +qa
 
-# install null-ls sources
-{{   if (eq .chezmoi.osRelease.id "ubuntu" "debian") -}}
-{{     if ne .chezmoi.username "root" -}}
-sudo apt install -y ansible-lint shellcheck yamllint
-{{     else -}}
-apt install -y ansible-lint shellcheck yamllint
-{{     end -}}
-{{   end -}}
 {{ end -}}
