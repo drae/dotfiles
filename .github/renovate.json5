@@ -28,5 +28,20 @@
       versioningTemplate: '{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}',
       extractVersionTemplate: '{{#if versionTemplate}}{{{versionTemplate}}}{{else}}^v?(?<version>.*)${{/if}}',
     },
+    {
+      customType: 'regex',
+      description: [
+        'mise binary installation script manager',
+      ],
+      fileMatch: [
+        '\\.chezmoiscripts/.*\\.sh\\.tmpl$',
+      ],
+      matchStrings: [
+        '# renovate\\s*\\n\\s*curl -Ls https://github\\.com/jdx/mise/releases/download/v(?<currentValue>[^/]+)/mise-v(?<currentValue>[^-]+)-linux-x64',
+      ],
+      datasourceTemplate: 'github-releases',
+      depNameTemplate: 'jdx/mise',
+      versioningTemplate: 'semver',
+    },
   ],
 }
