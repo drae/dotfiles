@@ -37,12 +37,12 @@
         '\\.chezmoiscripts/.*\\.sh\\.tmpl$',
       ],
       matchStrings: [
-        '# renovate\\s*\\n\\s*curl -Ls https://github\\.com/jdx/mise/releases/download/v(?<currentValue>[^/]+)/mise-v[^-]+-linux-x64',
+        '# renovate\\s*\\n(\\s*)curl -Ls https://github\\.com/jdx/mise/releases/download/v(?<currentValue>[^/]+)/mise-v[^-]+-linux-x64 --create-dirs -o \\$HOME/\\.local/bin/mise',
       ],
       datasourceTemplate: 'github-releases',
       depNameTemplate: 'jdx/mise',
       versioningTemplate: 'semver',
-      autoReplaceStringTemplate: 'curl -Ls https://github.com/jdx/mise/releases/download/v{{newValue}}/mise-v{{newValue}}-linux-x64',
+      autoReplaceStringTemplate: '# renovate\n  curl -Ls https://github.com/jdx/mise/releases/download/v{{newValue}}/mise-v{{newValue}}-linux-x64 --create-dirs -o $HOME/.local/bin/mise',
     },
   ],
 }
