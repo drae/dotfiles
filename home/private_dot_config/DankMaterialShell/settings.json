@@ -1,0 +1,105 @@
+{
+  "themeIndex": 4,
+  "themeIsDynamic": false,
+  "topBarTransparency": 0.98,
+  "topBarWidgetTransparency": 0.8,
+  "popupTransparency": 0.95,
+  "dockTransparency": 1,
+  "use24HourClock": true,
+  "useFahrenheit": false,
+  "nightModeEnabled": false,
+  "weatherLocation": "SW20 9NJ, England",
+  "weatherCoordinates": "51.3923800,-0.2243600",
+  "useAutoLocation": false,
+  "weatherEnabled": true,
+  "showLauncherButton": true,
+  "showWorkspaceSwitcher": true,
+  "showFocusedWindow": true,
+  "showWeather": true,
+  "showMusic": true,
+  "showClipboard": true,
+  "showCpuUsage": true,
+  "showMemUsage": true,
+  "showCpuTemp": true,
+  "showGpuTemp": true,
+  "selectedGpuIndex": 0,
+  "enabledGpuPciIds": [],
+  "showSystemTray": true,
+  "showClock": true,
+  "showNotificationButton": true,
+  "showBattery": true,
+  "showControlCenterButton": true,
+  "showWorkspaceIndex": true,
+  "showWorkspacePadding": true,
+  "workspaceNameIcons": {},
+  "clockCompactMode": false,
+  "focusedWindowCompactMode": false,
+  "runningAppsCompactMode": true,
+  "clockDateFormat": "ddd d",
+  "lockDateFormat": "dddd, MMMM d",
+  "mediaSize": 1,
+  "topBarLeftWidgets": [
+    "launcherButton",
+    "workspaceSwitcher",
+    "focusedWindow"
+  ],
+  "topBarCenterWidgets": [
+    "music",
+    "clock",
+    "weather"
+  ],
+  "topBarRightWidgets": [
+    {
+      "id": "systemTray",
+      "enabled": true
+    },
+    {
+      "id": "clipboard",
+      "enabled": true
+    },
+    {
+      "id": "cpuUsage",
+      "enabled": true
+    },
+    {
+      "id": "memUsage",
+      "enabled": true
+    },
+    {
+      "id": "battery",
+      "enabled": true
+    },
+    {
+      "id": "notificationButton",
+      "enabled": true
+    },
+    {
+      "id": "controlCenterButton",
+      "enabled": true
+    }
+  ],
+  "appLauncherViewMode": "list",
+  "spotlightModalViewMode": "list",
+  "networkPreference": "auto",
+  "iconTheme": "breeze-dark",
+  "useOSLogo": true,
+  "osLogoColorOverride": "",
+  "osLogoBrightness": 0.5,
+  "osLogoContrast": 1,
+  "wallpaperDynamicTheming": true,
+  "fontFamily": "Inter",
+  "monoFontFamily": "Monospace",
+  "fontWeight": 400,
+  "gtkThemingEnabled": true,
+  "qtThemingEnabled": true,
+  "showDock": false,
+  "dockAutoHide": true,
+  "cornerRadius": 12,
+  "notificationOverlayEnabled": false,
+  "topBarAutoHide": false,
+  "topBarSpacing": 4,
+  "topBarSquareCorners": true,
+  "notificationTimeoutLow": 5000,
+  "notificationTimeoutNormal": 5000,
+  "notificationTimeoutCritical": 0
+}
