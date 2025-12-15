@@ -5,14 +5,63 @@ return {
         "BufNewFile",
     },
     opts = {
-        signs_staged_enable = true,
-        signcolumn = true,
+        current_line_blame = false,
         numhl = true,
-        linehl = true,
-        word_diff = true,
-        current_line_blame = true,
-        watch_gitdir = {
-            follow_files = true,
+    },
+    keys = {
+        {
+            mode = "n",
+            "<leader>gg",
+            ":Gitsigns<CR>",
+            desc = "Gitsigns Options",
+        },
+        {
+            mode = "n",
+            "<leader>gl",
+            ":Gitsigns toggle_linehl<CR>",
+            desc = "Gitsigns Line Highlight",
+        },
+        {
+            mode = "n",
+            "<leader>gw",
+            ":Gitsigns toggle_word_diff<CR>",
+            desc = "Gitsigns Word Difference",
+        },
+        {
+            mode = "n",
+            "<leader>gd",
+            ":Gitsigns toggle_deleted<CR>",
+            desc = "Gitsigns Toggle Deleted",
+        },
+        {
+            mode = "n",
+            "<leader>gh",
+            ":Gitsigns preview_hunk<CR>",
+            desc = "Gitsigns Preview Hunk",
+        },
+        {
+            mode = "n",
+            "<leader>gp",
+            ":Gitsigns prev_hunk<CR>",
+            desc = "Gitsigns Previous Hunk",
+        },
+        {
+            mode = "n",
+            "<leader>gn",
+            ":Gitsigns next_hunk<CR>",
+            desc = "Gitsigns Next Hunk",
+        },
+        {
+            mode = "n",
+            "<leader>gr",
+            ":Gitsigns refresh<CR>",
+            desc = "Gitsigns Refresh",
+        },
+        {
+            mode = "n",
+            "<leader>gH",
+            ":Gitsigns diffthis<CR>",
+            desc = "Gitsigns Compare History",
         },
     },
 }
