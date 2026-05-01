@@ -1,7 +1,7 @@
 [tools]
 age = '1.3.1'
 ansible-core = '2.20.5'
-aws = '2.34.40'
+aws = '2.34.41'
 bat = '0.26.1'
 btop = '1.4.6'
 cargo-binstall = '1.18.1'
