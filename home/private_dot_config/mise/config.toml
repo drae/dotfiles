@@ -43,5 +43,3 @@ raw = false         # set to true to directly pipe plugins to stdin/stdout/stder
 
 experimental = true # enable experimental features
 log_level = 'info'  # log verbosity, see `MISE_LOG_LEVEL`
-
-pipx_uvx = true # Use uvx for pipx installations
