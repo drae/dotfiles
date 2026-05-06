@@ -255,27 +255,12 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 
-// This line starts waybar, a commonly used bar for Wayland compositors.
-//spawn-at-startup "waybar"
-spawn-at-startup "xwayland-satellite"
-// Or, if you built it by hand:
-// spawn-at-startup "~/path/to/code/target/release/xwayland-satellite"
-
 // Required for clipboard history integration
 spawn-at-startup "bash" "-c" "wl-paste --watch cliphist store &"
 
 // Recommended (must install polkit-mate before hand) for elevation prompts
 spawn-at-startup "/usr/lib/mate-polkit/polkit-mate-authentication-agent-1"
 // This may be a different path on different distributions, the above is for the arch linux mate-polkit package
-
-// Starts DankShell
-spawn-at-startup "qs" "-c" "DankMaterialShell"
-
-// If using niri newer than 271534e115e5915231c99df287bbfe396185924d (~aug 17 2025)
-// you can add this to disable built in config load errors since dank shell provides this
-//config-notification {
-//    disable-failed
-//}
 
 //spawn-at-startup "onedrive_tray"
 
